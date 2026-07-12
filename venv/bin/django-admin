@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/home/touken/Descargas/Personal/Materias/7to_Semestre/Taller II/Proyectos/RopaInterior/venv/bin/python3" "$0" "$@"
-' '''
+#!/home/touken/Descargas/Personal/Materias/7to_Semestre/Taller2/Proyectos/RopaInterior/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

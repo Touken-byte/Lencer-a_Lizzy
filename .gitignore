@@ -1,0 +1,35 @@
+# Entorno virtual
+venv/
+env/
+.venv/
+
+# Variables de entorno
+.env
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de SQLite
+db.sqlite3
+db.sqlite3-journal
+
+# Media (si no quieres subir imágenes)
+media/
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.swp
+*.swo
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Sistema
+.DS_Store

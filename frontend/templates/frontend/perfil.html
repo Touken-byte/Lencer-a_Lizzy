@@ -1,0 +1,31 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Mi perfil - Lencería Lizzy{% endblock %}
+{% block contenido %}
+<div class="row justify-content-center">
+<div class="col-md-6">
+<h3 class="mb-3" style="color:#a83279;">Mi perfil</h3>
+
+{% if messages %}
+    {% for m in messages %}<div class="alert alert-success">{{ m }}</div>{% endfor %}
+{% endif %}
+
+<p class="text-muted">Usuario: <strong>{{ request.user.username }}</strong></p>
+
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="mb-3">
+        <label class="form-label">{{ field.label }}</label>
+        {{ field }}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn" style="background-color:#a83279; color:white;">
+        <i class="fa-solid fa-floppy-disk"></i> Guardar cambios
+    </button>
+    <a href="{% url 'frontend:favoritos' %}" class="btn btn-outline-secondary">
+        <i class="fa-solid fa-heart"></i> Ver mis favoritos
+    </a>
+</form>
+</div>
+</div>
+{% endblock %}

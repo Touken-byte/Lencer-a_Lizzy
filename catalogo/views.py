@@ -1,6 +1,9 @@
 from rest_framework import generics, filters
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Categoria, Producto
+from .models import Categoria, Producto, ConfiguracionNegocio
 from .serializers import CategoriaSerializer, ProductoListaSerializer, ProductoDetalleSerializer
 from .filters import ProductoFilter
 
@@ -36,3 +39,17 @@ class ProductoDetalleView(generics.RetrieveAPIView):
 
     def get_serializer_context(self):
         return {'request': self.request}
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def whatsapp_contacto(request):
+    """HU-17: devuelve el número de WhatsApp y un mensaje predefinido"""
+    config = ConfiguracionNegocio.obtener()
+    numero = config.whatsapp_numero or ''
+    mensaje = f"Hola, me comunico desde la app de {config.nombre_negocio}. Quisiera hacer una consulta."
+    return Response({
+        'numero': numero,
+        'mensaje_predefinido': mensaje,
+        'link': f"https://wa.me/{numero}?text={mensaje}" if numero else None
+    })

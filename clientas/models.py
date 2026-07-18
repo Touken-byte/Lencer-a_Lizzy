@@ -47,3 +47,29 @@ class Favorito(models.Model):
 
     def __str__(self):
         return f"{self.usuario.username} ❤ {self.producto.nombre}"
+    
+
+class DireccionEntrega(models.Model):
+    """HU-20: guardar dirección de entrega en el perfil"""
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='direcciones')
+    nombre_referencia = models.CharField(max_length=50, help_text="Ej: Casa, Trabajo")
+    calle = models.CharField(max_length=200)
+    barrio = models.CharField(max_length=100)
+    referencias = models.TextField(blank=True, help_text="Puntos de referencia adicionales")
+    es_predeterminada = models.BooleanField(default=False)
+    creado = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Dirección de entrega"
+        verbose_name_plural = "Direcciones de entrega"
+        ordering = ['-es_predeterminada', '-creado']
+
+    def __str__(self):
+        return f"{self.nombre_referencia} - {self.usuario.username}"
+
+    def save(self, *args, **kwargs):
+        if self.es_predeterminada:
+            DireccionEntrega.objects.filter(
+                usuario=self.usuario, es_predeterminada=True
+            ).exclude(pk=self.pk).update(es_predeterminada=False)
+        super().save(*args, **kwargs)

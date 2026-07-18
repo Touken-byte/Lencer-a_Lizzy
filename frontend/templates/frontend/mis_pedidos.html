@@ -1,0 +1,19 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Mis pedidos{% endblock %}
+{% block contenido %}
+<h3 class="mb-4" style="color:#a83279;">Mis pedidos</h3>
+{% for pedido in pedidos %}
+<div class="card mb-3">
+    <div class="card-body">
+        <div class="d-flex justify-content-between">
+            <h6>Pedido #{{ pedido.id }} - {{ pedido.creado|date:"d/m/Y" }}</h6>
+            <span class="badge bg-info">{{ pedido.get_estado_display }}</span>
+        </div>
+        <p class="text-muted mb-1">{{ pedido.items.count }} producto(s) - Total: Bs {{ pedido.total }}</p>
+        <p class="text-muted small mb-0">Pago: {{ pedido.pago.get_metodo_display }} - {{ pedido.pago.get_estado_display }}</p>
+    </div>
+</div>
+{% empty %}
+<p class="text-muted">Aún no tienes pedidos.</p>
+{% endfor %}
+{% endblock %}

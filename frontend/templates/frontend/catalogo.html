@@ -1,0 +1,152 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Catálogo - Lencería Lizzy{% endblock %}
+{% block contenido %}
+
+<h2 class="mb-3" style="color:#a83279;">Catálogo</h2>
+<form method="get" class="mb-4">
+    {% if categoria_activa %}
+        <input type="hidden" name="categoria" value="{{ categoria_activa }}">
+    {% endif %}
+    <div class="input-group">
+        <input type="text" name="q" value="{{ busqueda }}"
+               class="form-control" placeholder="Buscar producto por nombre...">
+        <button class="btn" type="submit" style="background-color:#a83279; color:white;">
+            <i class="fa-solid fa-magnifying-glass"></i> Buscar
+        </button>
+        {% if busqueda %}
+        <a href="{% url 'frontend:catalogo' %}{% if categoria_activa %}?categoria={{ categoria_activa }}{% endif %}"
+           class="btn btn-outline-secondary">
+            <i class="fa-solid fa-xmark"></i> Limpiar
+        </a>
+        {% endif %}
+    </div>
+</form>
+<form method="get" class="row g-2 mb-4 align-items-end">
+    {% if categoria_activa %}<input type="hidden" name="categoria" value="{{ categoria_activa }}">{% endif %}
+    {% if busqueda %}<input type="hidden" name="q" value="{{ busqueda }}">{% endif %}
+
+    <div class="col-auto">
+        <label class="form-label mb-0 small text-muted">Talla</label>
+        <select name="talla" class="form-select">
+            <option value="">Todas</option>
+            {% for valor, etiqueta in tallas %}
+            <option value="{{ valor }}" {% if talla_activa == valor %}selected{% endif %}>{{ etiqueta }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="col-auto">
+        <label class="form-label mb-0 small text-muted">Color</label>
+        <select name="color" class="form-select">
+            <option value="">Todos</option>
+            {% for c in colores_disponibles %}
+            <option value="{{ c }}" {% if color_activo == c %}selected{% endif %}>{{ c }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="col-auto">
+        <button type="submit" class="btn" style="background-color:#a83279; color:white;">
+            <i class="fa-solid fa-filter"></i> Filtrar
+        </button>
+    </div>
+
+    {% if talla_activa or color_activo %}
+    <div class="col-auto">
+        <a href="?{% if categoria_activa %}categoria={{ categoria_activa }}&{% endif %}{% if busqueda %}q={{ busqueda }}{% endif %}"
+           class="btn btn-outline-secondary">
+            <i class="fa-solid fa-xmark"></i> Quitar filtros
+        </a>
+    </div>
+    {% endif %}
+</form>
+
+<!-- Botones de categoría (HU-01) -->
+<div class="mb-4">
+    <a href="{% url 'frontend:catalogo' %}"
+       class="btn {% if not categoria_activa %}btn-primary{% else %}btn-outline-secondary{% endif %} mx-1"
+       style="{% if not categoria_activa %}background-color:#a83279; border-color:#a83279;{% endif %}">
+        Todas
+    </a>
+    {% for cat in categorias %}
+    <a href="{% url 'frontend:catalogo' %}?categoria={{ cat.id }}"
+       class="btn {% if categoria_activa == cat.id %}btn-primary{% else %}btn-outline-secondary{% endif %} mx-1"
+       style="{% if categoria_activa == cat.id %}background-color:#a83279; border-color:#a83279;{% endif %}">
+        {{ cat.nombre }}
+    </a>
+    {% endfor %}
+</div>
+<p class="text-muted small">{{ productos.count }} producto{{ productos.count|pluralize }} encontrado{{ productos.count|pluralize:"o,os" }}</p>
+<!-- Grid de productos -->
+<div class="row g-4">
+    {% for producto in productos %}
+    <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            {% with primera_imagen=producto.imagen_portada %}
+            {% if primera_imagen %}
+                <img src="{{ primera_imagen.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}" style="height:180px; object-fit:cover;">
+            {% else %}
+                <div class="bg-light d-flex align-items-center justify-content-center" style="height:180px;">
+                    <i class="fa-solid fa-shirt fa-2x text-secondary"></i>
+                </div>
+            {% endif %}
+            {% endwith %}
+
+            <div class="card-body d-flex flex-column">
+                <h6 class="card-title">{{ producto.nombre }}</h6>
+
+                <div class="mb-2">
+                    {% if producto.agotado %}
+                        <span class="badge bg-secondary">Agotado</span>
+                    {% elif producto.stock <= 3 %}
+                        <span class="badge bg-warning text-dark">Últimas unidades</span>
+                    {% endif %}
+                    {% if producto.en_oferta %}
+                        <span class="badge bg-danger">-{{ producto.porcentaje_descuento }}%</span>
+                    {% endif %}
+                </div>
+
+                <p class="mb-2">
+                    {% if producto.en_oferta %}
+                        <span class="text-muted text-decoration-line-through">Bs {{ producto.precio }}</span>
+                        <strong style="color:#a83279;"> Bs {{ producto.precio_final }}</strong>
+                    {% else %}
+                        <strong style="color:#a83279;">Bs {{ producto.precio }}</strong>
+                    {% endif %}
+                </p>
+
+                <div class="mt-auto d-flex gap-2">
+                    <a href="{% url 'frontend:producto_detalle' producto.pk %}"
+                       class="btn btn-sm flex-fill"
+                       style="background-color:#a83279; color:white;"
+                       {% if producto.agotado %}disabled{% endif %}>
+                        <i class="fa-solid fa-eye"></i> Ver detalle
+                    </a>
+                    {% if request.user.is_authenticated %}
+                    <form method="post" action="{% url 'frontend:favorito_toggle' producto.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="siguiente" value="{{ request.get_full_path }}">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                            {% if producto.id in favoritos_ids %}
+                                <i class="fa-solid fa-heart"></i>
+                            {% else %}
+                                <i class="fa-regular fa-heart"></i>
+                            {% endif %}
+                        </button>
+                    </form>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p class="text-muted">
+        {% if busqueda %}
+            No se encontraron productos para "<strong>{{ busqueda }}</strong>".
+        {% else %}
+            No hay productos en esta categoría por ahora.
+        {% endif %}
+    </p>
+    {% endfor %}
+</div>
+{% endblock %}

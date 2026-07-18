@@ -1,0 +1,6 @@
+body {
+    background-color: #fdf6f9;
+}
+.btn:hover {
+    opacity: 0.9;
+}

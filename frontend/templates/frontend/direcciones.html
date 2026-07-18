@@ -1,0 +1,30 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Mis direcciones{% endblock %}
+{% block contenido %}
+<h3 class="mb-4" style="color:#a83279;">Mis direcciones</h3>
+
+<div class="row">
+<div class="col-md-5">
+<form method="post">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="mb-3">
+        <label class="form-label">{{ field.label }}</label>
+        {{ field }}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn" style="background-color:#a83279; color:white;">Guardar dirección</button>
+</form>
+</div>
+<div class="col-md-7">
+{% for d in direcciones %}
+<div class="card mb-2"><div class="card-body">
+    <strong>{{ d.nombre_referencia }}</strong> {% if d.es_predeterminada %}<span class="badge bg-success">Predeterminada</span>{% endif %}<br>
+    {{ d.calle }}, {{ d.barrio }}
+</div></div>
+{% empty %}
+<p class="text-muted">No tienes direcciones guardadas.</p>
+{% endfor %}
+</div>
+</div>
+{% endblock %}

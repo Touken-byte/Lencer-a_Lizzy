@@ -83,6 +83,10 @@ class Producto(models.Model):
             descuento = self.precio * (Decimal(self.porcentaje_descuento) / Decimal(100))
             return round(self.precio - descuento, 2)
         return self.precio
+    
+    @property
+    def imagen_portada(self):
+        return self.imagenes.filter(es_portada=True).first() or self.imagenes.first()
 
     def clean(self):
         from django.core.exceptions import ValidationError
@@ -97,20 +101,31 @@ class Producto(models.Model):
         self.full_clean()
         super().save(*args, **kwargs)
 
+    
+
 
 class ImagenProducto(models.Model):
     """HU-28: mínimo 2 fotos por producto"""
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE, related_name='imagenes')
     imagen = models.ImageField(upload_to='productos/%Y/%m/')
     orden = models.PositiveSmallIntegerField(default=0)
+    es_portada = models.BooleanField(default=False, help_text="Imagen principal mostrada en el catálogo")
 
     class Meta:
         verbose_name = "Imagen de producto"
         verbose_name_plural = "Imágenes de producto"
-        ordering = ['orden']
+        ordering = ['-es_portada', 'orden']
 
     def __str__(self):
         return f"Imagen de {self.producto.nombre}"
+
+    def save(self, *args, **kwargs):
+        if self.es_portada:
+            # Solo puede haber una portada por producto: desmarca las demás
+            ImagenProducto.objects.filter(
+                producto=self.producto, es_portada=True
+            ).exclude(pk=self.pk).update(es_portada=False)
+        super().save(*args, **kwargs)
 
 
 class ConfiguracionNegocio(models.Model):

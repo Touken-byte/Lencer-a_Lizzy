@@ -1,0 +1,26 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Pedido confirmado{% endblock %}
+{% block contenido %}
+<div class="text-center py-5">
+    <i class="fa-solid fa-circle-check fa-4x" style="color:#a83279;"></i>
+    <h2 class="mt-3" style="color:#a83279;">¡Pedido confirmado!</h2>
+    <p>Tu pedido <strong>#{{ pedido.id }}</strong> fue registrado con éxito.</p>
+    <p>Método de pago: <strong>{{ pedido.pago.get_metodo_display }}</strong></p>
+    <p>Total: <strong>Bs {{ pedido.total }}</strong></p>
+
+    {% if pedido.pago.metodo == 'qr' and config_negocio.qr_pago %}
+        <img src="{{ config_negocio.qr_pago.url }}" style="max-width:250px;" class="my-3 rounded shadow-sm">
+    {% elif pedido.pago.metodo == 'transferencia' %}
+        <div class="alert alert-info d-inline-block mt-3">
+            Banco: {{ config_negocio.banco_nombre }}<br>
+            Titular: {{ config_negocio.banco_titular }}<br>
+            Cuenta: {{ config_negocio.banco_numero_cuenta }}
+        </div>
+    {% endif %}
+
+    <div class="mt-4">
+        <a href="{% url 'frontend:mis_pedidos' %}" class="btn" style="background-color:#a83279; color:white;">Ver mis pedidos</a>
+        <a href="{% url 'frontend:catalogo' %}" class="btn btn-outline-secondary">Seguir comprando</a>
+    </div>
+</div>
+{% endblock %}

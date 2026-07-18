@@ -1,0 +1,41 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Mis favoritos - Lencería Lizzy{% endblock %}
+{% block contenido %}
+<h3 class="mb-4" style="color:#a83279;"><i class="fa-solid fa-heart"></i> Mis favoritos</h3>
+
+<div class="row g-4">
+    {% for fav in favoritos %}
+    <div class="col-6 col-md-4 col-lg-3">
+        <div class="card h-100 shadow-sm">
+            {% with portada=fav.producto.imagen_portada %}
+            {% if portada %}
+                <img src="{{ portada.imagen.url }}" class="card-img-top" style="height:180px; object-fit:cover;">
+            {% else %}
+                <div class="bg-light d-flex align-items-center justify-content-center" style="height:180px;">
+                    <i class="fa-solid fa-shirt fa-2x text-secondary"></i>
+                </div>
+            {% endif %}
+            {% endwith %}
+            <div class="card-body d-flex flex-column">
+                <h6>{{ fav.producto.nombre }}</h6>
+                <strong style="color:#a83279;">Bs {{ fav.producto.precio_final }}</strong>
+                <div class="mt-auto d-flex gap-2 pt-2">
+                    <a href="{% url 'frontend:producto_detalle' fav.producto.pk %}" class="btn btn-sm flex-fill" style="background-color:#a83279; color:white;">
+                        Ver
+                    </a>
+                    <form method="post" action="{% url 'frontend:favorito_toggle' fav.producto.pk %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="siguiente" value="{% url 'frontend:favoritos' %}">
+                        <button type="submit" class="btn btn-sm btn-outline-danger">
+                            <i class="fa-solid fa-heart-crack"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p class="text-muted">Aún no tienes productos favoritos.</p>
+    {% endfor %}
+</div>
+{% endblock %}

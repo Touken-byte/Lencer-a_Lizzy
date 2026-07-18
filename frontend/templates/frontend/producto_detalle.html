@@ -1,0 +1,96 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}{{ producto.nombre }} - Lencería Lizzy{% endblock %}
+{% block contenido %}
+
+<a href="{% url 'frontend:catalogo' %}" class="btn btn-outline-secondary btn-sm mb-3">
+    <i class="fa-solid fa-arrow-left"></i> Volver al catálogo
+</a>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        {% with portada=producto.imagen_portada %}
+        {% if portada %}
+            <img id="imagen-principal"
+                 src="{{ portada.imagen.url }}"
+                 class="img-fluid rounded shadow-sm mb-2"
+                 alt="{{ producto.nombre }}"
+                 style="width:100%; height:400px; object-fit:cover;">
+        {% else %}
+            <div class="bg-light d-flex align-items-center justify-content-center rounded mb-2" style="height:400px;">
+                <i class="fa-solid fa-shirt fa-4x text-secondary"></i>
+            </div>
+        {% endif %}
+        {% endwith %}
+
+        {% if producto.imagenes.count > 1 %}
+        <div class="d-flex gap-2 flex-wrap">
+            {% for img in producto.imagenes.all %}
+            <img src="{{ img.imagen.url }}"
+                 class="rounded border thumbnail-img"
+                 style="width:70px; height:70px; object-fit:cover; cursor:pointer;"
+                 onclick="document.getElementById('imagen-principal').src=this.src;">
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-6">
+        <h2 style="color:#a83279;">{{ producto.nombre }}</h2>
+        <p class="text-muted">{{ producto.categoria.nombre }} / {{ producto.subcategoria.nombre }}</p>
+
+        <p class="fs-4">
+            {% if producto.en_oferta %}
+                <span class="text-muted text-decoration-line-through">Bs {{ producto.precio }}</span>
+                <strong style="color:#a83279;"> Bs {{ producto.precio_final }}</strong>
+                <span class="badge bg-danger">-{{ producto.porcentaje_descuento }}%</span>
+            {% else %}
+                <strong style="color:#a83279;">Bs {{ producto.precio }}</strong>
+            {% endif %}
+        </p>
+
+        <p>{{ producto.descripcion|default:"Sin descripción disponible." }}</p>
+
+        <p>
+            <strong>Talla:</strong> {{ producto.get_talla_display }}<br>
+            {% if producto.color %}<strong>Color:</strong> {{ producto.color }}<br>{% endif %}
+            <strong>Disponibilidad:</strong>
+            {% if producto.agotado %}
+                <span class="badge bg-secondary">Agotado</span>
+            {% elif producto.stock <= 3 %}
+                <span class="badge bg-warning text-dark">Últimas unidades ({{ producto.stock }})</span>
+            {% else %}
+                <span class="badge bg-success">Disponible</span>
+            {% endif %}
+        </p>
+
+        <div class="d-flex gap-2 mt-2">
+            <form method="post" action="{% url 'frontend:agregar_al_carrito' producto.id %}" class="d-flex gap-2 flex-grow-1">
+                {% csrf_token %}
+                <select name="talla" class="form-select" style="max-width:100px;">
+                    <option value="{{ producto.talla }}">{{ producto.get_talla_display }}</option>
+                </select>
+                <input type="number" name="cantidad" value="1" min="1" max="{{ producto.stock }}" class="form-control" style="max-width:80px;">
+                <button type="submit" class="btn btn-lg" style="background-color:#a83279; color:white;" {% if producto.agotado %}disabled{% endif %}>
+                    <i class="fa-solid fa-cart-plus"></i> Agregar
+                </button>
+            </form>
+            {% if request.user.is_authenticated %}
+            <form method="post" action="{% url 'frontend:favorito_toggle' producto.id %}">
+                {% csrf_token %}
+                <input type="hidden" name="siguiente" value="{{ request.get_full_path }}">
+                <button type="submit" class="btn btn-lg btn-outline-danger">
+                    {% if es_favorito %}<i class="fa-solid fa-heart"></i>{% else %}<i class="fa-regular fa-heart"></i>{% endif %}
+                </button>
+            </form>
+            {% endif %}
+            {% if config_negocio.whatsapp_numero %}
+            <a href="https://wa.me/{{ config_negocio.whatsapp_numero }}?text=Hola%2C%20me%20interesa%20{{ producto.nombre|urlencode }}"
+               target="_blank" class="btn btn-lg btn-success">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            {% endif %}
+        </div>
+        <p class="text-muted small mt-2">(El carrito se activa en el Sprint 3)</p>
+    </div>
+</div>
+{% endblock %}

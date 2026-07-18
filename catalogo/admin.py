@@ -19,7 +19,7 @@ class ImagenProductoInline(admin.TabularInline):
     """Permite subir varias fotos del producto en la misma pantalla (HU-28)"""
     model = ImagenProducto
     extra = 2  # muestra 2 espacios vacíos para subir fotos, mínimo pedido por HU-28
-    fields = ('imagen', 'orden')
+    fields = ('imagen', 'orden', 'es_portada')
 
 
 @admin.register(Producto)

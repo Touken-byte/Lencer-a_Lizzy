@@ -20,6 +20,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,6 +32,8 @@ INSTALLED_APPS = [
     'catalogo',
     'django_filters',
     'clientas',
+    'frontend',
+    'pedidos',
 ]
 
 MIDDLEWARE = [
@@ -56,6 +59,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'frontend.context_processors.configuracion_negocio',
             ],
         },
     },
@@ -125,6 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Media files (fotos de productos, comprobantes de pago, etc.)
 MEDIA_URL = '/media/'
@@ -134,3 +139,42 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# ==== JAZZMIN (diseño del Admin) ====
+JAZZMIN_SETTINGS = {
+    "site_title": "Lencería Lizzy Admin",
+    "site_header": "Lencería Lizzy",
+    "site_brand": "Lencería Lizzy",
+    "welcome_sign": "Bienvenida, Lizzy",
+    "copyright": "Lencería Lizzy",
+    "search_model": ["catalogo.Producto"],
+    "topmenu_links": [
+        {"name": "Ver sitio", "url": "/", "new_window": True},
+    ],
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "icons": {
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+        "catalogo.Categoria": "fas fa-th-large",
+        "catalogo.Subcategoria": "fas fa-list",
+        "catalogo.Producto": "fas fa-tshirt",
+        "catalogo.ImagenProducto": "fas fa-images",
+        "catalogo.ConfiguracionNegocio": "fas fa-cogs",
+    },
+    "order_with_respect_to": ["catalogo", "clientas", "auth"],
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",
+    "navbar": "navbar-dark",
+    "no_navbar_border": True,
+    "button_classes": {
+        "primary": "btn-outline-primary",
+        "secondary": "btn-outline-secondary",
+        "info": "btn-info",
+        "warning": "btn-warning",
+        "danger": "btn-danger",
+        "success": "btn-success",
+    },
+}

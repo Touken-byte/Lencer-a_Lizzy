@@ -1,0 +1,55 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Checkout - Lencería Lizzy{% endblock %}
+{% block contenido %}
+<h3 class="mb-4" style="color:#a83279;">Confirmar pedido</h3>
+
+<div class="row">
+<div class="col-md-7">
+<form method="post">
+    {% csrf_token %}
+
+    <label class="form-label fw-bold">Tipo de entrega</label>
+    <div class="mb-3">
+        {% for radio in form.tipo_entrega %}
+        <div class="form-check">{{ radio.tag }} <label class="form-check-label">{{ radio.choice_label }}</label></div>
+        {% endfor %}
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Dirección (si aplica envío a domicilio)</label>
+        {{ form.direccion }}
+        <a href="{% url 'frontend:direcciones' %}" class="small">+ Agregar nueva dirección</a>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Nota para la vendedora</label>
+        {{ form.nota }}
+    </div>
+
+    <label class="form-label fw-bold">Método de pago</label>
+    <div class="mb-3">
+        {% for radio in form.metodo_pago %}
+        <div class="form-check">{{ radio.tag }} <label class="form-check-label">{{ radio.choice_label }}</label></div>
+        {% endfor %}
+    </div>
+
+    <button type="submit" class="btn btn-lg w-100" style="background-color:#a83279; color:white;">
+        <i class="fa-solid fa-check"></i> Confirmar pedido
+    </button>
+</form>
+</div>
+
+<div class="col-md-5">
+<h5>Resumen</h5>
+<ul class="list-group mb-3">
+{% for item in items %}
+<li class="list-group-item d-flex justify-content-between">
+    <span>{{ item.cantidad }}x {{ item.producto.nombre }} ({{ item.talla }})</span>
+    <span>Bs {{ item.subtotal }}</span>
+</li>
+{% endfor %}
+</ul>
+<h5>Total: <strong style="color:#a83279;">Bs {{ total }}</strong></h5>
+</div>
+</div>
+{% endblock %}

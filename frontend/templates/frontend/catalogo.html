@@ -3,12 +3,9 @@
 {% block contenido %}
 
 <h2 class="mb-3" style="color:#a83279;">Catálogo</h2>
-<form method="get" class="mb-4">
-    {% if request.user.is_authenticated %}
-    <a href="?mi_talla=1" class="btn btn-outline-secondary mb-3">
-        <i class="fa-solid fa-ruler"></i> Buscar según mi talla
-    </a>
-    {% endif %}
+
+<!-- Búsqueda por nombre -->
+<form method="get" class="mb-3">
     {% if categoria_activa %}
         <input type="hidden" name="categoria" value="{{ categoria_activa }}">
     {% endif %}
@@ -26,6 +23,8 @@
         {% endif %}
     </div>
 </form>
+
+<!-- Filtros de talla, color y "mi talla" -->
 <form method="get" class="row g-2 mb-4 align-items-end">
     {% if categoria_activa %}<input type="hidden" name="categoria" value="{{ categoria_activa }}">{% endif %}
     {% if busqueda %}<input type="hidden" name="q" value="{{ busqueda }}">{% endif %}
@@ -56,6 +55,15 @@
         </button>
     </div>
 
+    {% if request.user.is_authenticated %}
+    <div class="col-auto">
+        <a href="?mi_talla=1{% if categoria_activa %}&categoria={{ categoria_activa }}{% endif %}"
+           class="btn btn-outline-secondary">
+            <i class="fa-solid fa-ruler"></i> Mi talla
+        </a>
+    </div>
+    {% endif %}
+
     {% if talla_activa or color_activo %}
     <div class="col-auto">
         <a href="?{% if categoria_activa %}categoria={{ categoria_activa }}&{% endif %}{% if busqueda %}q={{ busqueda }}{% endif %}"
@@ -81,7 +89,9 @@
     </a>
     {% endfor %}
 </div>
+
 <p class="text-muted small">{{ productos.count }} producto{{ productos.count|pluralize }} encontrado{{ productos.count|pluralize:"o,os" }}</p>
+
 <!-- Grid de productos -->
 <div class="row g-4">
     {% for producto in productos %}

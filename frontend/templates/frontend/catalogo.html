@@ -4,6 +4,11 @@
 
 <h2 class="mb-3" style="color:#a83279;">Catálogo</h2>
 <form method="get" class="mb-4">
+    {% if request.user.is_authenticated %}
+    <a href="?mi_talla=1" class="btn btn-outline-secondary mb-3">
+        <i class="fa-solid fa-ruler"></i> Buscar según mi talla
+    </a>
+    {% endif %}
     {% if categoria_activa %}
         <input type="hidden" name="categoria" value="{{ categoria_activa }}">
     {% endif %}

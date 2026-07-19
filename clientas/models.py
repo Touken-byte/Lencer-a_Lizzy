@@ -17,6 +17,13 @@ class PerfilCliente(models.Model):
         ('L', 'L'), ('XL', 'XL'), ('XXL', 'XXL'),
     ]
 
+    GENERO_CHOICES = [
+        ('mujer', 'Mujer'),
+        ('hombre', 'Hombre'),
+        ('otro', 'Otro / Prefiero no decir'),
+    ]
+    genero = models.CharField(max_length=10, choices=GENERO_CHOICES, blank=True)
+
     usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil_cliente')
     telefono = models.CharField(max_length=20, blank=True)
     talla_brassiere = models.CharField(max_length=5, choices=TALLA_BRASSIERE_CHOICES, blank=True)

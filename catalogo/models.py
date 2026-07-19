@@ -132,6 +132,9 @@ class ConfiguracionNegocio(models.Model):
     """HU-37 y HU-40 — configuración general (singleton: una sola fila)"""
 
     # HU-40: datos bancarios y WhatsApp
+    direccion_local = models.CharField(max_length=255, blank=True, help_text="Dirección física de la tienda")
+    mapa_url = models.URLField(blank=True, help_text="Link de Google Maps al local")
+    foto_local = models.ImageField(upload_to='local/', blank=True, null=True)
     nombre_negocio = models.CharField(max_length=100, default="Mi Tienda")
     whatsapp_numero = models.CharField(max_length=20, help_text="Con código de país, ej: 59171234567")
     banco_nombre = models.CharField(max_length=100, blank=True)

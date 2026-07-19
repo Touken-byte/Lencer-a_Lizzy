@@ -22,10 +22,17 @@
     <button type="submit" class="btn" style="background-color:#a83279; color:white;">
         <i class="fa-solid fa-floppy-disk"></i> Guardar cambios
     </button>
-    <a href="{% url 'frontend:favoritos' %}" class="btn btn-outline-secondary">
-        <i class="fa-solid fa-heart"></i> Ver mis favoritos
-    </a>
+
 </form>
 </div>
 </div>
+
+<script>
+function toggleTallaBrassiere() {
+    var genero = document.getElementById('id_genero').value;
+    var campo = document.getElementById('div_talla_brassiere');
+    campo.style.display = (genero === 'mujer') ? 'block' : 'none';
+}
+document.addEventListener('DOMContentLoaded', toggleTallaBrassiere);
+</script>
 {% endblock %}

@@ -78,7 +78,7 @@ class Pago(models.Model):
         ('qr', 'Pago con QR'),
         ('transferencia', 'Transferencia bancaria'),
         ('efectivo', 'Efectivo al recibir'),
-        ('apartado', 'Apartado / cuotas'),
+        ('whatsapp', 'Coordinar por WhatsApp (pago presencial)'),
     ]
 
     ESTADO_CHOICES = [

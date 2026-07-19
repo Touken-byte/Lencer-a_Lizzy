@@ -14,6 +14,10 @@
         <div class="form-check">{{ radio.tag }} <label class="form-check-label">{{ radio.choice_label }}</label></div>
         {% endfor %}
     </div>
+    <div class="alert alert-warning small">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        Si eliges <strong>efectivo</strong>, tienes un plazo máximo de <strong>2 días</strong> para recoger y pagar tu pedido, o será cancelado automáticamente.
+    </div>
 
     <div class="mb-3">
         <label class="form-label">Dirección (si aplica envío a domicilio)</label>
@@ -39,6 +43,13 @@
 </form>
 </div>
 
+{% if config_negocio.whatsapp_numero %}
+<p class="small">
+    <i class="fa-brands fa-whatsapp text-success"></i>
+    ¿Dudas sobre el pago? Escríbenos:
+    <a href="https://wa.me/{{ config_negocio.whatsapp_numero }}" target="_blank">{{ config_negocio.whatsapp_numero }}</a>
+</p>
+{% endif %}
 <div class="col-md-5">
 <h5>Resumen</h5>
 <ul class="list-group mb-3">

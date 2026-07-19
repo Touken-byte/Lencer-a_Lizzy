@@ -8,7 +8,8 @@ from django.db import transaction
 from .carrito import Carrito
 from .forms_checkout import DireccionForm, CheckoutForm
 from pedidos.models import Pedido, ItemPedido, Pago
-
+import qrcode
+import io, base64
 from catalogo.models import Categoria, Producto
 from clientas.models import PerfilCliente, Favorito
 from .forms import RegistroForm, PerfilForm
@@ -31,6 +32,13 @@ def catalogo(request):
         .prefetch_related('imagenes')
     )
 
+    mi_talla = request.GET.get('mi_talla')
+    if mi_talla and request.user.is_authenticated:
+        perfil_cliente = getattr(request.user, 'perfil_cliente', None)
+        if perfil_cliente and perfil_cliente.talla_calzon:
+            productos = productos.filter(talla=perfil_cliente.talla_calzon)
+
+            
     if categoria_id:
         productos = productos.filter(categoria_id=categoria_id)
     if busqueda:
@@ -228,8 +236,16 @@ def checkout(request):
 @login_required(login_url='frontend:login')
 def pedido_confirmado(request, pedido_id):
     pedido = get_object_or_404(Pedido, pk=pedido_id, clienta=request.user)
-    return render(request, 'frontend/pedido_confirmado.html', {'pedido': pedido})
-
+    qr_base64 = None
+    if pedido.pago.metodo == 'qr':
+        from catalogo.models import ConfiguracionNegocio
+        config = ConfiguracionNegocio.obtener()
+        texto = f"Pedido #{pedido.id} - Monto: Bs {pedido.total} - Cuenta: {config.banco_numero_cuenta}"
+        img = qrcode.make(texto)
+        buffer = io.BytesIO()
+        img.save(buffer, format='PNG')
+        qr_base64 = base64.b64encode(buffer.getvalue()).decode()
+    return render(request, 'frontend/pedido_confirmado.html', {'pedido': pedido, 'qr_base64': qr_base64})
 
 @login_required(login_url='frontend:login')
 def mis_pedidos(request):

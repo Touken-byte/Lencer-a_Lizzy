@@ -1,6 +1,8 @@
 from django.contrib import admin
 from .forms import ProductoForm
 from .models import Categoria, Subcategoria, Producto, ImagenProducto, ConfiguracionNegocio
+from django import forms
+from django.core.exceptions import ValidationError
 
 
 @admin.register(Categoria)
@@ -14,11 +16,29 @@ class SubcategoriaAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'categoria')
     list_filter = ('categoria',)
 
+class ImagenProductoFormSet(forms.BaseInlineFormSet):
+    def clean(self):
+        super().clean()
+        portadas = 0
+        total = 0
+        for form in self.forms:
+            if not hasattr(form, 'cleaned_data'):
+                continue
+            if form.cleaned_data.get('DELETE'):
+                continue
+            if form.cleaned_data.get('imagen') or form.instance.pk:
+                total += 1
+                if form.cleaned_data.get('es_portada'):
+                    portadas += 1
+        if portadas > 1:
+            raise ValidationError("Solo puede haber UNA imagen marcada como portada.")
+        if total > 0 and portadas == 0:
+            raise ValidationError("Debes marcar una imagen como portada.")
 
 class ImagenProductoInline(admin.TabularInline):
-    """Permite subir varias fotos del producto en la misma pantalla (HU-28)"""
     model = ImagenProducto
-    extra = 2  # muestra 2 espacios vacíos para subir fotos, mínimo pedido por HU-28
+    formset = ImagenProductoFormSet
+    extra = 2
     fields = ('imagen', 'orden', 'es_portada')
 
 
@@ -89,6 +109,9 @@ class ConfiguracionNegocioAdmin(admin.ModelAdmin):
         }),
         ('Apartados (HU-37)', {
             'fields': ('monto_minimo_apartado',)
+        }),
+        ('Ubicación del local', {
+            'fields': ('direccion_local', 'mapa_url', 'foto_local')
         }),
     )
 

@@ -33,3 +33,4 @@ media/
 
 # Sistema
 .DS_Store
+.env

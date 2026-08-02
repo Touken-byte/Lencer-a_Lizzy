@@ -7,7 +7,7 @@
 <form method="post">
     {% csrf_token %}
     {% for field in form %}
-    <div class="mb-3">
+    <div class="mb-3" {% if field.name == 'talla_brassiere' %}id="div_talla_brassiere"{% elif field.name == 'talla_calzon' %}id="div_talla_calzon"{% endif %}>
         <label class="form-label">{{ field.label }}</label>
         {{ field }}
         {% if field.errors %}<div class="text-danger small">{{ field.errors|striptags }}</div>{% endif %}
@@ -20,4 +20,17 @@
 <p class="mt-3 text-center">¿Ya tienes cuenta? <a href="{% url 'frontend:login' %}">Inicia sesión</a></p>
 </div>
 </div>
+<script>
+function toggleTallaRegistro() {
+    var genero = document.getElementById('id_genero').value;
+    var brassiere = document.getElementById('div_talla_brassiere');
+    var calzon = document.getElementById('div_talla_calzon');
+    if (brassiere) brassiere.style.display = (genero === 'mujer') ? 'block' : 'none';
+    if (calzon) calzon.style.display = 'block';
+}
+document.addEventListener('DOMContentLoaded', toggleTallaRegistro);
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('id_genero').addEventListener('change', toggleTallaRegistro);
+});
+</script>
 {% endblock %}

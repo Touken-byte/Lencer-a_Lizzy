@@ -1,0 +1,5 @@
+{% extends "admin/change_form.html" %}
+{% block submit_buttons_bottom %}
+{{ block.super }}
+<a href="{% url 'admin:catalogo_categoria_changelist' %}" class="button" style="margin-left:10px;">Cancelar</a>
+{% endblock %}

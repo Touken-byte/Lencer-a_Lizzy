@@ -11,14 +11,15 @@ class Carrito:
             carrito = {}
         self.carrito = carrito
 
-    def agregar(self, producto_id, talla, cantidad=1):
-        clave = f"{producto_id}_{talla}"
+    def agregar(self, producto_id, talla, color='', cantidad=1):
+        clave = f"{producto_id}_{talla}_{color}"
         if clave in self.carrito:
             self.carrito[clave]['cantidad'] += cantidad
         else:
             self.carrito[clave] = {
                 'producto_id': producto_id,
                 'talla': talla,
+                'color': color,
                 'cantidad': cantidad,
             }
         self.guardar()
@@ -45,10 +46,10 @@ class Carrito:
         self.session.modified = True
 
     def obtener_items(self):
-        """Devuelve lista de dicts con producto real, talla, cantidad, subtotal"""
+        """Devuelve lista de dicts con producto real, talla, color, cantidad, subtotal"""
         items = []
         productos_ids = [v['producto_id'] for v in self.carrito.values()]
-        productos = Producto.objects.filter(id__in=productos_ids).prefetch_related('imagenes')
+        productos = Producto.objects.filter(id__in=productos_ids).prefetch_related('imagenes', 'variantes')
         productos_dict = {p.id: p for p in productos}
 
         for clave, data in self.carrito.items():
@@ -60,6 +61,7 @@ class Carrito:
                 'clave': clave,
                 'producto': producto,
                 'talla': data['talla'],
+                'color': data.get('color', ''),
                 'cantidad': data['cantidad'],
                 'subtotal': subtotal,
             })

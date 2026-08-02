@@ -10,8 +10,8 @@ class ProductoFilter(django_filters.FilterSet):
     """
     categoria = django_filters.NumberFilter(field_name='categoria__id')
     subcategoria = django_filters.NumberFilter(field_name='subcategoria__id')
-    talla = django_filters.CharFilter(field_name='talla', lookup_expr='iexact')
-    color = django_filters.CharFilter(field_name='color', lookup_expr='icontains')
+    talla = django_filters.CharFilter(field_name='variantes__talla', lookup_expr='iexact')
+    color = django_filters.CharFilter(field_name='variantes__color', lookup_expr='icontains')
     en_oferta = django_filters.BooleanFilter(field_name='en_oferta')
 
     class Meta:

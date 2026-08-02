@@ -1,0 +1,68 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Chat con la vendedora{% endblock %}
+{% block contenido %}
+<h4 class="mb-3" style="color:#a83279;"><i class="fa-solid fa-comments"></i> Chat con la vendedora</h4>
+
+<div class="rounded p-3 mb-3" id="caja-chat" style="height:400px; overflow-y:auto; background:var(--color-fondo); border:1px solid var(--color-borde);">
+    {% for m in mensajes %}
+    <div class="d-flex mb-2 {% if m.emisor == 'clienta' %}justify-content-end{% endif %}">
+        <div class="p-2 rounded burbuja-chat" style="max-width:65%; background:{% if m.emisor == 'clienta' %}var(--color-marca); color:white;{% else %}var(--color-fondo-alt); color:var(--color-texto); border:1px solid var(--color-borde);{% endif %}">
+            {% if m.texto %}<p class="mb-1">{{ m.texto }}</p>{% endif %}
+            {% if m.imagen %}<img src="{{ m.imagen.url }}" class="img-fluid rounded mb-1 media-chat">{% endif %}
+            {% for extra in m.imagenes_extra.all %}
+                <img src="{{ extra.imagen.url }}" class="img-fluid rounded mb-1 media-chat">
+            {% endfor %}
+            {% if m.video %}
+                <video src="{{ m.video.url }}" controls class="rounded mb-1 media-chat"></video>
+            {% endif %}
+            <small class="d-block text-end" style="opacity:0.7;">{{ m.creado|date:"d/m H:i" }}</small>
+        </div>
+    </div>
+    {% empty %}
+    <p class="text-muted text-center mt-5">Aún no hay mensajes. ¡Escribe el primero!</p>
+    {% endfor %}
+</div>
+
+<form method="post" enctype="multipart/form-data" class="d-flex gap-2" id="form-chat">
+    {% csrf_token %}
+    {{ form.texto }}
+    <label class="btn btn-outline-secondary mb-0">
+        <i class="fa-solid fa-paperclip"></i>
+        <input type="file" name="imagenes" multiple accept="image/*" style="display:none;" onchange="this.form.submit()">
+    </label>
+    <label class="btn btn-outline-secondary mb-0">
+        <i class="fa-solid fa-video"></i>
+        <input type="file" name="video" id="input-video" accept="video/*" style="display:none;">
+    </label>
+    <button type="submit" class="btn" style="background-color:var(--color-marca); color:white;">
+        <i class="fa-solid fa-paper-plane"></i>
+    </button>
+</form>
+
+<script>
+document.getElementById('input-video').addEventListener('change', function (e) {
+    var archivo = e.target.files[0];
+    if (!archivo) return;
+    var video = document.createElement('video');
+    video.preload = 'metadata';
+    video.onloadedmetadata = function () {
+        window.URL.revokeObjectURL(video.src);
+        if (video.duration > 60) {
+            alert('El video no puede durar más de 1 minuto.');
+            e.target.value = '';
+        } else {
+            document.getElementById('form-chat').submit();
+        }
+    };
+    video.src = URL.createObjectURL(archivo);
+});
+</script>
+
+{% if form.errors %}<div class="text-danger small mt-2">{{ form.errors }}</div>{% endif %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var caja = document.querySelector('.border.rounded.p-3.mb-3');
+    if (caja) { caja.scrollTop = caja.scrollHeight; }
+});
+</script>
+{% endblock %}

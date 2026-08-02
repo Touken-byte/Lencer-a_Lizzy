@@ -1,0 +1,71 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<a href="{% url 'admin_panel_chats' %}" class="btn btn-outline-secondary btn-sm mb-3">
+    <i class="fas fa-arrow-left"></i> Volver a bandeja
+</a>
+<div class="card">
+    <div class="card-header chat-header-admin">
+        Chat con {{ usuario.username }}
+    </div>
+    <div class="card-body chat-body-admin" style="height:400px; overflow-y:auto;">
+        {% for m in mensajes %}
+        <div class="d-flex mb-2 {% if m.emisor == 'vendedora' %}justify-content-end{% endif %}">
+            <div class="p-2 rounded {% if m.emisor == 'vendedora' %}burbuja-vendedora{% else %}burbuja-clienta{% endif %}" style="max-width:70%;">
+                {% if m.automatico %}<small class="d-block font-italic" style="opacity:0.8;">Mensaje automático</small>{% endif %}
+                {% if m.texto %}<p class="mb-1">{{ m.texto }}</p>{% endif %}
+               {% if m.imagen %}<img src="{{ m.imagen.url }}" class="img-fluid rounded mb-1" style="max-height:200px;">{% endif %}
+                {% for extra in m.imagenes_extra.all %}
+                    <img src="{{ extra.imagen.url }}" class="img-fluid rounded mb-1" style="max-height:200px;">
+                {% endfor %}
+                {% if m.video %}
+                    <video src="{{ m.video.url }}" controls class="rounded mb-1" style="max-width:100%; max-height:250px;"></video>
+                {% endif %}
+                <small class="d-block text-right" style="opacity:0.7;">{{ m.creado|date:"d/m H:i" }}</small>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+<div class="card-footer">
+        <form method="post" enctype="multipart/form-data" class="form-inline" id="form-chat-admin">
+            {% csrf_token %}
+            {{ form.texto }}
+            <label class="btn btn-outline-secondary mb-0 ml-2">
+                <i class="fas fa-paperclip"></i>
+                <input type="file" name="imagenes" multiple accept="image/*" style="display:none;" onchange="this.form.submit()">
+            </label>
+            <label class="btn btn-outline-secondary mb-0 ml-2">
+                <i class="fas fa-video"></i>
+                <input type="file" name="video" id="input-video-admin" accept="video/*" style="display:none;">
+            </label>
+            <button type="submit" class="btn ml-2 btn-enviar-chat">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+
+    <script>
+    document.getElementById('input-video-admin').addEventListener('change', function (e) {
+        var archivo = e.target.files[0];
+        if (!archivo) return;
+        var video = document.createElement('video');
+        video.preload = 'metadata';
+        video.onloadedmetadata = function () {
+            window.URL.revokeObjectURL(video.src);
+            if (video.duration > 60) {
+                alert('El video no puede durar más de 1 minuto.');
+                e.target.value = '';
+            } else {
+                document.getElementById('form-chat-admin').submit();
+            }
+        };
+        video.src = URL.createObjectURL(archivo);
+    });
+    </script>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var caja = document.querySelector('.card-body');
+    if (caja) { caja.scrollTop = caja.scrollHeight; }
+});
+</script>
+{% endblock %}

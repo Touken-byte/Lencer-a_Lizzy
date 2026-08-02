@@ -6,7 +6,7 @@ from .models import Producto
 class ProductoForm(forms.ModelForm):
     class Meta:
         model = Producto
-        fields = '__all__'
+        fields = ['nombre', 'descripcion', 'categoria', 'subcategoria', 'precio', 'activo', 'en_oferta', 'porcentaje_descuento']
 
     def clean(self):
         cleaned_data = super().clean()
@@ -16,7 +16,6 @@ class ProductoForm(forms.ModelForm):
         subcategoria = cleaned_data.get('subcategoria')
         categoria = cleaned_data.get('categoria')
 
-        # HU-31: si está en oferta, el descuento debe ser mayor a 0
         if en_oferta and (not porcentaje or porcentaje <= 0):
             raise ValidationError({
                 'porcentaje_descuento': 'Si el producto está en oferta, el descuento debe ser mayor a 0%.'
@@ -27,11 +26,9 @@ class ProductoForm(forms.ModelForm):
                 'porcentaje_descuento': 'No se puede asignar un descuento si el producto no está marcado en oferta.'
             })
 
-        # HU-28: precio obligatorio mayor a 0
         if precio is not None and precio <= 0:
             raise ValidationError({'precio': 'El precio debe ser mayor a 0.'})
 
-        # Coherencia: la subcategoría debe pertenecer a la categoría elegida
         if subcategoria and categoria and subcategoria.categoria_id != categoria.id:
             raise ValidationError({
                 'subcategoria': 'La subcategoría seleccionada no pertenece a la categoría elegida.'

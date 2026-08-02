@@ -1,0 +1,68 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Pedido #{{ pedido.id }}{% endblock %}
+{% block contenido %}
+<a href="{% url 'frontend:mis_pedidos' %}" class="btn btn-outline-secondary btn-sm mb-3">
+    <i class="fa-solid fa-arrow-left"></i> Volver a mis pedidos
+</a>
+
+<h3 style="color:var(--color-marca);"Pedido #{{ pedido.id }}</h3>
+<p class="text-muted">Realizado el {{ pedido.creado|date:"d/m/Y" }}</p>
+
+{% if pedido.estado == 'cancelado' %}
+<div class="alert alert-danger">Este pedido fue cancelado.</div>
+{% elif pedido.estado == 'entregado' %}
+<div class="alert alert-success d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div>
+        <i class="fa-solid fa-circle-check"></i>
+        <strong>Tu pedido ha sido entregado.</strong> Si no lo recogiste o hubo algún problema, avísanos.
+    </div>
+    <a href="{% url 'chat:chat_clienta' %}?pedido={{ pedido.id }}" class="btn btn-sm btn-outline-danger">
+        <i class="fa-solid fa-triangle-exclamation"></i> Hacer un reclamo
+    </a>
+</div>
+{% endif %}
+
+{% if pedido.estado != 'cancelado' %}
+<!-- Línea de progreso (HU-22) -->
+<div class="d-flex justify-content-between position-relative my-5">
+    <div class="position-absolute top-50 start-0 w-100" style="height:4px; background:var(--color-borde); z-index:0;"></div>
+    <div class="position-absolute top-50 start-0" style="height:4px; background:var(--color-marca); z-index:1;
+        width:{% widthratio paso_actual pasos|length|add:"-1" 100 %}%;"></div>
+
+    {% for paso in pasos %}
+    <div class="text-center position-relative" style="z-index:2; flex:1;">
+        <div class="rounded-circle mx-auto d-flex align-items-center justify-content-center"
+             style="width:36px; height:36px; background:{% if forloop.counter0 <= paso_actual %}var(--color-marca){% else %}var(--color-borde){% endif %}; color:white;">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <p class="small mt-2 mb-0">{{ paso|capfirst }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- Fecha estimada (HU-23) -->
+{% if pedido.fecha_estimada_entrega %}
+<div class="alert {% if pedido.alerta_atraso %}alert-danger{% else %}alert-info{% endif %}">
+    <i class="fa-solid {% if pedido.alerta_atraso %}fa-triangle-exclamation{% else %}fa-calendar{% endif %}"></i>
+    {% if pedido.alerta_atraso %}
+        <strong>Tu pedido está por llegar o hay un posible atraso.</strong> Fecha estimada:
+    {% else %}
+        Fecha estimada de entrega:
+    {% endif %}
+    <strong>{{ pedido.fecha_estimada_entrega|date:"d/m/Y" }}</strong>
+</div>
+{% endif %}
+
+<h5 class="mt-4">Productos</h5>
+<ul class="list-group mb-3">
+{% for item in pedido.items.all %}
+<li class="list-group-item d-flex justify-content-between">
+    <span>{{ item.cantidad }}x {{ item.producto.nombre }} ({{ item.talla }})</span>
+    <span>Bs {{ item.subtotal }}</span>
+</li>
+{% endfor %}
+</ul>
+<h5>Total: <strong style="color:var(--color-marca);">Bs {{ pedido.total }}</strong></h5>
+<p class="text-muted">Pago: {{ pedido.pago.get_metodo_display }} - {{ pedido.pago.get_estado_display }}</p>
+{% endblock %}

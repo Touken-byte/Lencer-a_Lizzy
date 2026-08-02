@@ -1,0 +1,39 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Resumen de ventas{% endblock %}
+{% block contenido %}
+<h3 class="mb-1" style="color:#6c3fa0;">Resumen de ventas</h3>
+<p class="text-muted text-capitalize mb-4">{{ mes_actual }}</p>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="card text-center p-3 shadow-sm">
+            <h2 style="color:#6c3fa0;">{{ total_pedidos }}</h2>
+            <p class="text-muted mb-0">Pedidos este mes</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center p-3 shadow-sm">
+            <h2 style="color:#6c3fa0;">Bs {{ monto_total }}</h2>
+            <p class="text-muted mb-0">Monto total</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center p-3 shadow-sm">
+            <h2 style="color:#6c3fa0;">{{ entregados }}</h2>
+            <p class="text-muted mb-0">Pedidos entregados</p>
+        </div>
+    </div>
+</div>
+
+<h5>Por método de pago</h5>
+<ul class="list-group">
+{% for m in por_metodo %}
+<li class="list-group-item d-flex justify-content-between">
+    <span>{{ m.metodo|capfirst }}</span>
+    <span>{{ m.cantidad }} pedido(s)</span>
+</li>
+{% empty %}
+<li class="list-group-item text-muted">Sin datos todavía.</li>
+{% endfor %}
+</ul>
+{% endblock %}

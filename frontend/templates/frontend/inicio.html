@@ -8,4 +8,27 @@
         <i class="fa-solid fa-shirt"></i> Ver catálogo
     </a>
 </div>
+{% if ofertas %}
+<h4 class="mt-5 mb-3" style="color:#a83279;"><i class="fa-solid fa-fire"></i> Ofertas destacadas</h4>
+<div class="row g-3">
+    {% for producto in ofertas %}
+    <div class="col-6 col-md-3">
+        <div class="card h-100 shadow-sm">
+            {% with portada=producto.imagen_portada %}
+            {% if portada %}
+                <img src="{{ portada.imagen.url }}" class="card-img-top" style="height:150px; object-fit:cover;">
+            {% endif %}
+            {% endwith %}
+            <div class="card-body">
+                <h6>{{ producto.nombre }}</h6>
+                <span class="text-muted text-decoration-line-through small">Bs {{ producto.precio }}</span>
+                <strong style="color:#a83279;"> Bs {{ producto.precio_final }}</strong>
+                <span class="badge bg-danger ms-1">-{{ producto.porcentaje_descuento }}%</span>
+                <a href="{% url 'frontend:producto_detalle' producto.pk %}" class="btn btn-sm w-100 mt-2" style="background-color:#a83279; color:white;">Ver</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 {% endblock %}

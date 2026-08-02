@@ -3,7 +3,7 @@ from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from catalogo.models import Categoria, Producto, ConfiguracionNegocio
+from catalogo.models import Categoria, Producto, VarianteProducto, ConfiguracionNegocio
 from django.db import transaction
 from .carrito import Carrito
 from .forms_checkout import DireccionForm, CheckoutForm
@@ -13,10 +13,19 @@ import io, base64
 from catalogo.models import Categoria, Producto
 from clientas.models import PerfilCliente, Favorito
 from .forms import RegistroForm, PerfilForm
-
+from django.utils import timezone
+from datetime import timedelta
+from django.db.models import Sum, Count
+from django.utils import timezone
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 def inicio(request):
-    return render(request, 'frontend/inicio.html')
+    ofertas = (
+        Producto.objects.filter(activo=True, en_oferta=True)
+        .select_related('categoria')
+        .prefetch_related('imagenes')[:8]
+    )
+    return render(request, 'frontend/inicio.html', {'ofertas': ofertas})
 
 
 def catalogo(request):
@@ -35,21 +44,41 @@ def catalogo(request):
     mi_talla = request.GET.get('mi_talla')
     if mi_talla and request.user.is_authenticated:
         perfil_cliente = getattr(request.user, 'perfil_cliente', None)
-        if perfil_cliente and perfil_cliente.talla_calzon:
-            productos = productos.filter(talla=perfil_cliente.talla_calzon)
+        if perfil_cliente:
+            from django.db.models import Q
 
-            
+            GENERO_A_CATEGORIAS = {
+                'mujer': ['Mujer', 'Otros'],
+                'hombre': ['Hombre', 'Otros'],
+                'otro': None,  # "Otro" no restringe por categoría, ve de todo
+            }
+
+            filtro_talla = Q()
+            if perfil_cliente.talla_calzon:
+                filtro_talla |= Q(subcategoria__tipo_talla='letra', variantes__talla=perfil_cliente.talla_calzon)
+            if perfil_cliente.talla_brassiere:
+                filtro_talla |= Q(subcategoria__tipo_talla='brassiere', variantes__talla=perfil_cliente.talla_brassiere)
+
+            if filtro_talla:
+                productos = productos.filter(filtro_talla)
+
+            categorias_genero = GENERO_A_CATEGORIAS.get(perfil_cliente.genero)
+            if categorias_genero:
+                productos = productos.filter(categoria__nombre__in=categorias_genero)
+
     if categoria_id:
         productos = productos.filter(categoria_id=categoria_id)
     if busqueda:
         productos = productos.filter(nombre__icontains=busqueda)
     if talla:
-        productos = productos.filter(talla=talla)
+        productos = productos.filter(variantes__talla=talla)
     if color:
-        productos = productos.filter(color__iexact=color)
+        productos = productos.filter(variantes__color__iexact=color)
+
+    productos = productos.distinct()
 
     colores_disponibles = (
-        Producto.objects.filter(activo=True)
+        VarianteProducto.objects.filter(producto__activo=True)
         .exclude(color='')
         .values_list('color', flat=True)
         .distinct()
@@ -95,8 +124,9 @@ def registro(request):
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            messages.success(request, "¡Registro exitoso! Bienvenida.")
-            return redirect('frontend:perfil')
+            genero = form.cleaned_data.get('genero') or 'otro'
+            nombre = user.first_name or user.username
+            return render(request, 'frontend/bienvenida.html', {'nombre': nombre, 'genero': genero})
     else:
         form = RegistroForm()
     return render(request, 'frontend/registro.html', {'form': form})
@@ -106,7 +136,13 @@ def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            auth_login(request, form.get_user())
+            user = form.get_user()
+            ultimo_login = user.last_login
+            auth_login(request, user)
+            if ultimo_login:
+                nuevos = Producto.objects.filter(activo=True, creado__gt=ultimo_login).count()
+                if nuevos > 0:
+                    messages.info(request, f"¡Hay {nuevos} producto(s) nuevo(s) desde tu última visita!")
             return redirect('frontend:catalogo')
     else:
         form = AuthenticationForm()
@@ -151,18 +187,24 @@ def favorito_toggle(request, producto_id):
         favorito, creado = Favorito.objects.get_or_create(usuario=request.user, producto_id=producto_id)
         if not creado:
             favorito.delete()
-    siguiente = request.POST.get('siguiente') or 'frontend:catalogo'
-    return redirect(siguiente)
-def agregar_al_carrito(request, producto_id):
-    if request.method == 'POST':
-        talla = request.POST.get('talla', 'UNICA')
-        cantidad = int(request.POST.get('cantidad', 1))
-        carrito = Carrito(request)
-        carrito.agregar(producto_id, talla, cantidad)
-        messages.success(request, "Producto agregado al carrito.")
+
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            from django.http import JsonResponse
+            return JsonResponse({'es_favorito': creado})
+
     siguiente = request.POST.get('siguiente') or 'frontend:catalogo'
     return redirect(siguiente)
 
+def agregar_al_carrito(request, producto_id):
+    if request.method == 'POST':
+        talla = request.POST.get('talla', 'UNICA')
+        color = request.POST.get('color', '')
+        cantidad = int(request.POST.get('cantidad', 1))
+        carrito = Carrito(request)
+        carrito.agregar(producto_id, talla, color, cantidad)
+        messages.success(request, "Producto agregado al carrito.")
+    siguiente = request.POST.get('siguiente') or 'frontend:catalogo'
+    return redirect(siguiente)
 
 def ver_carrito(request):
     carrito = Carrito(request)
@@ -200,25 +242,49 @@ def checkout(request):
         form = CheckoutForm(request.POST, usuario=request.user)
         if form.is_valid():
             with transaction.atomic():
+                variantes_bloqueadas = {}
+                for item in items:
+                    variante = VarianteProducto.objects.select_for_update().filter(
+                        producto=item['producto'], talla=item['talla'], color=item['color']
+                    ).first()
+                    if not variante or variante.stock < item['cantidad']:
+                        disponibles = variante.stock if variante else 0
+                        etiqueta = item['talla']
+                        if item['color']:
+                            etiqueta += f" - {item['color']}"
+                        messages.error(
+                            request,
+                            f"No hay suficiente stock de {item['producto'].nombre} ({etiqueta}): "
+                            f"pediste {item['cantidad']}, quedan {disponibles}."
+                        )
+                        return redirect('frontend:ver_carrito')
+                    variantes_bloqueadas[item['clave']] = variante
+
                 pedido = Pedido.objects.create(
                     clienta=request.user,
-                    direccion=form.cleaned_data['direccion'] if form.cleaned_data['tipo_entrega'] == 'domicilio' else None,
+                    direccion=None,
                     tipo_entrega=form.cleaned_data['tipo_entrega'],
                     nota=form.cleaned_data['nota'],
                 )
                 for item in items:
+                    variante = variantes_bloqueadas[item['clave']]
                     ItemPedido.objects.create(
                         pedido=pedido,
                         producto=item['producto'],
                         talla=item['talla'],
+                        color=item['color'],
                         cantidad=item['cantidad'],
                         precio_unitario=item['producto'].precio_final,
                     )
+                    variante.stock -= item['cantidad']
+                    variante.save(update_fields=['stock'])
+
                 pedido.recalcular_total()
 
                 Pago.objects.create(
                     pedido=pedido,
                     metodo=form.cleaned_data['metodo_pago'],
+                    nombre_referencia=form.cleaned_data.get('nombre_referencia', ''),
                 )
 
                 carrito.vaciar()
@@ -235,17 +301,13 @@ def checkout(request):
 
 @login_required(login_url='frontend:login')
 def pedido_confirmado(request, pedido_id):
+    from catalogo.models import ConfiguracionNegocio
     pedido = get_object_or_404(Pedido, pk=pedido_id, clienta=request.user)
-    qr_base64 = None
-    if pedido.pago.metodo == 'qr':
-        from catalogo.models import ConfiguracionNegocio
-        config = ConfiguracionNegocio.obtener()
-        texto = f"Pedido #{pedido.id} - Monto: Bs {pedido.total} - Cuenta: {config.banco_numero_cuenta}"
-        img = qrcode.make(texto)
-        buffer = io.BytesIO()
-        img.save(buffer, format='PNG')
-        qr_base64 = base64.b64encode(buffer.getvalue()).decode()
-    return render(request, 'frontend/pedido_confirmado.html', {'pedido': pedido, 'qr_base64': qr_base64})
+    config = ConfiguracionNegocio.obtener()
+    return render(request, 'frontend/pedido_confirmado.html', {
+        'pedido': pedido,
+        'config_negocio': config,
+    })
 
 @login_required(login_url='frontend:login')
 def mis_pedidos(request):
@@ -268,3 +330,46 @@ def gestionar_direcciones(request):
 
     direcciones = request.user.direcciones.all()
     return render(request, 'frontend/direcciones.html', {'form': form, 'direcciones': direcciones})
+
+@login_required(login_url='frontend:login')
+def pedido_detalle(request, pedido_id):
+    pedido = get_object_or_404(
+        Pedido.objects.prefetch_related('items', 'pago'), pk=pedido_id, clienta=request.user
+    )
+    if pedido.notificacion_entrega_pendiente:
+        pedido.notificacion_entrega_pendiente = False
+        pedido.save(update_fields=['notificacion_entrega_pendiente'])
+
+    pasos = ['confirmado', 'preparacion', 'entregado']
+    paso_actual = pasos.index(pedido.estado) if pedido.estado in pasos else 0
+    return render(request, 'frontend/pedido_detalle.html', {
+        'pedido': pedido,
+        'pasos': pasos,
+        'paso_actual': paso_actual,
+    })
+
+@user_passes_test(lambda u: u.is_staff, login_url='frontend:login')
+def resumen_ventas(request):
+    hoy = timezone.now()
+    pedidos_mes = Pedido.objects.filter(
+        creado__year=hoy.year, creado__month=hoy.month
+    ).exclude(estado='cancelado')
+
+    total_pedidos = pedidos_mes.count()
+    monto_total = pedidos_mes.aggregate(total=Sum('total'))['total'] or 0
+    entregados = pedidos_mes.filter(estado='entregado').count()
+
+    por_metodo = (
+        Pago.objects.filter(pedido__in=pedidos_mes)
+        .values('metodo')
+        .annotate(cantidad=Count('id'))
+        .order_by('-cantidad')
+    )
+
+    return render(request, 'frontend/resumen_ventas.html', {
+        'total_pedidos': total_pedidos,
+        'monto_total': monto_total,
+        'entregados': entregados,
+        'por_metodo': por_metodo,
+        'mes_actual': hoy.strftime('%B %Y'),
+    })

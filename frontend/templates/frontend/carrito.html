@@ -1,47 +1,80 @@
 {% extends "frontend/base.html" %}
 {% block titulo %}Mi carrito - Lencería Lizzy{% endblock %}
 {% block contenido %}
-<h3 class="mb-4" style="color:#a83279;"><i class="fa-solid fa-cart-shopping"></i> Mi carrito</h3>
+<h3 class="mb-4" style="color:var(--color-marca);">Mi carrito</h3>
 
 {% if items %}
-<div class="table-responsive">
-<table class="table align-middle">
-<thead><tr><th>Producto</th><th>Talla</th><th>Cantidad</th><th>Subtotal</th><th></th></tr></thead>
-<tbody>
-{% for item in items %}
-<tr>
-    <td>{{ item.producto.nombre }}</td>
-    <td>{{ item.talla }}</td>
-    <td style="width:150px;">
-        <form method="post" action="{% url 'frontend:actualizar_carrito' item.clave %}" class="d-flex gap-1">
-            {% csrf_token %}
-            <input type="number" name="cantidad" value="{{ item.cantidad }}" min="1" class="form-control form-control-sm">
-            <button type="submit" class="btn btn-sm btn-outline-secondary">
-                <i class="fa-solid fa-rotate"></i>
-            </button>
-        </form>
-    </td>
-    <td>Bs {{ item.subtotal }}</td>
-    <td>
-        <form method="post" action="{% url 'frontend:eliminar_del_carrito' item.clave %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
-        </form>
-    </td>
-</tr>
-{% endfor %}
-</tbody>
-</table>
-</div>
+<div class="row">
+    <div class="col-md-8">
+        {% for item in items %}
+        <div class="card mb-3">
+            <div class="card-body d-flex align-items-center gap-3">
+                {% with portada=item.producto.imagen_portada %}
+                {% if portada %}
+                    <img src="{{ portada.imagen.url }}" class="rounded" style="width:80px; height:80px; object-fit:cover;">
+                {% else %}
+                    <div class="bg-light rounded d-flex align-items-center justify-content-center" style="width:80px; height:80px;">
+                        <i class="fa-solid fa-shirt text-secondary"></i>
+                    </div>
+                {% endif %}
+                {% endwith %}
 
-<div class="d-flex justify-content-between align-items-center mt-3">
-    <h5>Total: <strong style="color:#a83279;">Bs {{ total }}</strong></h5>
-    <a href="{% url 'frontend:checkout' %}" class="btn btn-lg" style="background-color:#a83279; color:white;">
-        <i class="fa-solid fa-arrow-right"></i> Continuar al pago
-    </a>
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">{{ item.producto.nombre }}</h6>
+                    <p class="text-muted small mb-1">
+                        Talla: {{ item.talla }}{% if item.color %} - Color: {{ item.color }}{% endif %}
+                    </p>
+                    <p class="mb-0"><strong style="color:var(--color-marca);">Bs {{ item.producto.precio_final }}</strong> c/u</p>
+                </div>
+
+                <form method="post" action="{% url 'frontend:actualizar_carrito' item.clave %}" class="d-flex align-items-center gap-2">
+                    {% csrf_token %}
+                    <input type="number" name="cantidad" value="{{ item.cantidad }}" min="1" class="form-control" style="width:70px;">
+                    <button type="submit" class="btn btn-sm btn-outline-secondary">
+                        <i class="fa-solid fa-rotate"></i>
+                    </button>
+                </form>
+
+                <div class="text-end" style="min-width:90px;">
+                    <strong>Bs {{ item.subtotal }}</strong>
+                </div>
+
+                <form method="post" action="{% url 'frontend:eliminar_del_carrito' item.clave %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-outline-danger">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5>Resumen</h5>
+                <div class="d-flex justify-content-between mb-3">
+                    <span>Total</span>
+                    <strong style="color:var(--color-marca);">Bs {{ total }}</strong>
+                </div>
+                <a href="{% url 'frontend:checkout' %}" class="btn btn-lg w-100" style="background-color:var(--color-marca); color:white;" color:white;">
+                    <i class="fa-solid fa-check"></i> Confirmar pedido
+                </a>
+                <a href="{% url 'frontend:catalogo' %}" class="btn btn-outline-secondary w-100 mt-2">
+                    <i class="fa-solid fa-arrow-left"></i> Seguir comprando
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 {% else %}
-<p class="text-muted">Tu carrito está vacío.</p>
-<a href="{% url 'frontend:catalogo' %}" class="btn" style="background-color:#a83279; color:white;">Ver catálogo</a>
+<div class="text-center py-5">
+    <i class="fa-solid fa-cart-shopping fa-3x text-secondary mb-3"></i>
+    <p class="text-muted">Tu carrito está vacío.</p>
+    <a href="{% url 'frontend:catalogo' %}" class="btn" style="background-color:var(--color-marca); color:white;" color:white;">
+        Ir al catálogo
+    </a>
+</div>
 {% endif %}
 {% endblock %}

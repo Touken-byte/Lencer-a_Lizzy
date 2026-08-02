@@ -1,0 +1,95 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}¡Bienvenida! - Lencería Lizzy{% endblock %}
+{% block contenido %}
+<div id="bienvenida-overlay" class="bienvenida-overlay">
+    <div class="petalos-contenedor" id="petalos-contenedor"></div>
+    <div class="bienvenida-texto">
+        <i class="fa-solid fa-heart bienvenida-icono"></i>
+        <h1>¡Bienvenid{% if genero == 'hombre' %}o{% else %}a{% endif %}, {{ nombre }}!</h1>
+        <p>Gracias por unirte a Lencería Lizzy</p>
+    </div>
+</div>
+
+<style>
+.bienvenida-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: radial-gradient(circle at center, rgba(35,20,35,0.9), rgba(10,5,10,0.96));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.8s ease;
+}
+.bienvenida-salida { opacity: 0; pointer-events: none; }
+.bienvenida-texto {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    padding: 0 1.5rem;
+    animation: bienvenida-aparecer 1s ease;
+}
+.bienvenida-texto h1 { font-size: 2.4rem; font-weight: 700; margin-bottom: 0.5rem; }
+.bienvenida-texto p { font-size: 1.1rem; opacity: 0.85; }
+.bienvenida-icono { font-size: 2.3rem; margin-bottom: 1rem; color: #ff5aab; }
+@keyframes bienvenida-aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.petalos-contenedor { position: absolute; inset: 0; z-index: 1; }
+.petalo {
+    position: absolute;
+    top: -20px;
+    border-radius: 60% 0 60% 0;
+    opacity: 0.9;
+    box-shadow: 0 0 6px rgba(255,255,255,0.15);
+    animation-name: petalo-caer;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+@keyframes petalo-caer {
+    0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0.95; }
+    100% { transform: translateY(115vh) translateX(20px) rotate(360deg); opacity: 0.3; }
+}
+</style>
+
+<script>
+(function () {
+    var genero = "{{ genero }}";
+    var colores;
+    if (genero === 'hombre') {
+        colores = ['#4a4a4a', '#5c5c5c', '#3a3a3a', '#6e6e6e'];
+    } else if (genero === 'mujer') {
+        colores = ['#ff8fc7', '#ff5aab', '#e6399a', '#ffb6d9'];
+    } else {
+        colores = ['#d4af37', '#e8cf7a', '#f2e2a8', '#c9a24b'];
+    }
+
+    var contenedor = document.getElementById('petalos-contenedor');
+    var total = 45;
+    for (var i = 0; i < total; i++) {
+        var petalo = document.createElement('div');
+        petalo.className = 'petalo';
+        var tam = 14 + Math.random() * 12;
+        petalo.style.left = (Math.random() * 100) + 'vw';
+        petalo.style.width = tam + 'px';
+        petalo.style.height = tam + 'px';
+        petalo.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+        petalo.style.animationDuration = (3 + Math.random() * 3) + 's';
+        petalo.style.animationDelay = (Math.random() * 2.5) + 's';
+        contenedor.appendChild(petalo);
+    }
+
+    setTimeout(function () {
+        var overlay = document.getElementById('bienvenida-overlay');
+        overlay.classList.add('bienvenida-salida');
+        setTimeout(function () {
+            window.location.href = "{% url 'frontend:catalogo' %}";
+        }, 800);
+    }, 6500);
+})();
+</script>
+{% endblock %}

@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'clientas',
     'frontend',
     'pedidos',
+    'chat',
 ]
 
 MIDDLEWARE = [
@@ -94,6 +95,8 @@ REST_FRAMEWORK = {
     ),
 }
 
+LOGIN_REDIRECT_URL = '/admin/'
+LOGOUT_REDIRECT_URL = 'admin:login'
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -146,11 +149,26 @@ JAZZMIN_SETTINGS = {
     "site_header": "Lencería Lizzy",
     "site_brand": "Lencería Lizzy",
     "welcome_sign": "Bienvenida, Lizzy",
+    "custom_css": "css/admin_custom.css",
+    "custom_js": "js/admin_tema.js",
     "copyright": "Lencería Lizzy",
     "search_model": ["catalogo.Producto"],
     "topmenu_links": [
         {"name": "Ver sitio", "url": "/", "new_window": True},
+        {"name": "🚪 CERRAR SESIÓN", "url": "/admin/salir/"},
     ],
+    "custom_links": {
+        "chat": [{
+            "name": "Bandeja de chats",
+            "url": "admin_panel_chats",
+            "icon": "fas fa-comments",
+        }],
+        "pedidos": [{
+            "name": "Resumen de ventas",
+            "url": "admin_resumen_ventas",
+            "icon": "fas fa-chart-line",
+        }],
+    },
     "show_sidebar": True,
     "navigation_expanded": True,
     "icons": {
@@ -167,6 +185,7 @@ JAZZMIN_SETTINGS = {
 
 JAZZMIN_UI_TWEAKS = {
     "theme": "flatly",
+    "default_theme_mode": "auto",
     "navbar": "navbar-dark",
     "no_navbar_border": True,
     "button_classes": {

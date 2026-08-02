@@ -1,18 +1,28 @@
 {% extends "frontend/base.html" %}
 {% block titulo %}Mis pedidos{% endblock %}
 {% block contenido %}
-<h3 class="mb-4" style="color:#a83279;">Mis pedidos</h3>
+<h3 class="mb-4" style="color:var(--color-marca);">Mis pedidos</h3>
 {% for pedido in pedidos %}
+<a href="{% url 'frontend:pedido_detalle' pedido.id %}" class="text-decoration-none text-dark">
 <div class="card mb-3">
     <div class="card-body">
         <div class="d-flex justify-content-between">
-            <h6>Pedido #{{ pedido.id }} - {{ pedido.creado|date:"d/m/Y" }}</h6>
-            <span class="badge bg-info">{{ pedido.get_estado_display }}</span>
+            <h6>
+                Pedido #{{ pedido.id }} - {{ pedido.creado|date:"d/m/Y" }}
+                {% if pedido.notificacion_entrega_pendiente %}
+                <span class="badge rounded-pill bg-danger">Nuevo</span>
+                {% endif %}
+            </h6>
+            <span class="badge {% if pedido.alerta_atraso %}bg-danger{% else %}bg-info{% endif %}">
+                {% if pedido.alerta_atraso %}<i class="fa-solid fa-triangle-exclamation"></i> {% endif %}
+                {{ pedido.get_estado_display }}
+            </span>
         </div>
         <p class="text-muted mb-1">{{ pedido.items.count }} producto(s) - Total: Bs {{ pedido.total }}</p>
         <p class="text-muted small mb-0">Pago: {{ pedido.pago.get_metodo_display }} - {{ pedido.pago.get_estado_display }}</p>
     </div>
 </div>
+</a>
 {% empty %}
 <p class="text-muted">Aún no tienes pedidos.</p>
 {% endfor %}

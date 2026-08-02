@@ -1,0 +1,21 @@
+{% extends "admin/base_site.html" %}
+{% block content %}
+<div class="card">
+  <div class="card-header" style="background-color:var(--admin-marca); color:white;">
+    <i class="fas fa-bullhorn"></i> Notificar a todas las clientas
+  </div>
+  <div class="card-body">
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label>Mensaje</label>
+        <textarea name="texto" class="form-control" rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn" style="background-color:var(--admin-marca) color:white;">
+        <i class="fas fa-paper-plane"></i> Enviar a todas
+      </button>
+      <a href="{% url 'admin_panel_chats' %}" class="btn btn-outline-secondary">Cancelar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,115 @@
+:root {
+    --admin-marca: #6c3fa0;
+    --admin-marca-hover: #59317f;
+    --admin-marca-clara: #ede7f6;
+}
+
+#jazzy-navbar {
+    background-color: var(--admin-marca) !important;
+}
+
+#jazzy-navbar .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+#jazzy-navbar .nav-link:hover {
+    color: var(--admin-marca-clara) !important;
+}
+
+.sidebar-brand .brand-link {
+    background-color: var(--admin-marca) !important;
+}
+
+.sidebar-menu .nav-link.active {
+    background-color: var(--admin-marca) !important;
+    color: #fff !important;
+}
+
+.sidebar-menu .nav-link:hover {
+    color: var(--admin-marca-clara) !important;
+}
+
+a {
+    color: var(--admin-marca);
+}
+
+a:hover {
+    color: var(--admin-marca-hover);
+}
+
+.btn-primary,
+.badge-primary,
+.page-item.active .page-link,
+.btn-outline-primary:hover {
+    background-color: var(--admin-marca) !important;
+    border-color: var(--admin-marca) !important;
+}
+
+.btn-outline-primary {
+    color: var(--admin-marca) !important;
+    border-color: var(--admin-marca) !important;
+}
+
+.page-link {
+    color: var(--admin-marca) !important;
+}
+
+.form-control:focus,
+.select2-selection:focus {
+    border-color: var(--admin-marca) !important;
+    box-shadow: 0 0 0 0.2rem rgba(108, 63, 160, 0.25) !important;
+}
+
+.card-header {
+    background-color: var(--admin-marca) !important;
+    color: #fff !important;
+}
+
+.app-main {
+    position: relative;
+    min-height: 100vh;
+    background-image: url("../img/admin/fadmin_claro.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+[data-bs-theme="dark"] .app-main {
+    background-image: linear-gradient(rgba(20,15,30,0.25), rgba(20,15,30,0.25)), url("../img/admin/fadmin_oscuro.jpeg");
+}
+
+.chat-header-admin {
+    background-color: var(--admin-marca) !important;
+    color: #fff !important;
+}
+
+.chat-body-admin {
+    background-color: var(--admin-marca-clara);
+}
+
+[data-bs-theme="dark"] .chat-body-admin {
+    background-color: #1c1219;
+}
+
+.burbuja-vendedora {
+    background-color: var(--admin-marca);
+    color: #fff;
+}
+
+.burbuja-clienta {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #222;
+}
+
+[data-bs-theme="dark"] .burbuja-clienta {
+    background-color: #2a2330;
+    border: 1px solid #443344;
+    color: #eee;
+}
+
+.btn-enviar-chat {
+    background-color: var(--admin-marca);
+    color: #fff;
+}

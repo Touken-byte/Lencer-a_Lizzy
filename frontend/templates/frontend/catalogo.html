@@ -33,8 +33,12 @@
         <label class="form-label mb-0 small text-muted">Talla</label>
         <select name="talla" class="form-select">
             <option value="">Todas</option>
-            {% for valor, etiqueta in tallas %}
-            <option value="{{ valor }}" {% if talla_activa == valor %}selected{% endif %}>{{ etiqueta }}</option>
+            {% for grupo, opciones in tallas %}
+            <optgroup label="{{ grupo }}">
+                {% for valor, etiqueta in opciones %}
+                <option value="{{ valor }}" {% if talla_activa == valor %}selected{% endif %}>{{ etiqueta }}</option>
+                {% endfor %}
+            </optgroup>
             {% endfor %}
         </select>
     </div>
@@ -111,9 +115,12 @@
                 <h6 class="card-title">{{ producto.nombre }}</h6>
 
                 <div class="mb-2">
+                    {% if producto.es_nuevo %}
+                        <span class="badge" style="background-color:#a83279;">Nuevo</span>
+                    {% endif %}
                     {% if producto.agotado %}
                         <span class="badge bg-secondary">Agotado</span>
-                    {% elif producto.stock <= 3 %}
+                    {% elif producto.stock_total <= 3 %}
                         <span class="badge bg-warning text-dark">Últimas unidades</span>
                     {% endif %}
                     {% if producto.en_oferta %}
@@ -138,17 +145,15 @@
                         <i class="fa-solid fa-eye"></i> Ver detalle
                     </a>
                     {% if request.user.is_authenticated %}
-                    <form method="post" action="{% url 'frontend:favorito_toggle' producto.id %}">
-                        {% csrf_token %}
-                        <input type="hidden" name="siguiente" value="{{ request.get_full_path }}">
-                        <button type="submit" class="btn btn-sm btn-outline-danger">
-                            {% if producto.id in favoritos_ids %}
-                                <i class="fa-solid fa-heart"></i>
-                            {% else %}
-                                <i class="fa-regular fa-heart"></i>
-                            {% endif %}
-                        </button>
-                    </form>
+                    <button type="button"
+                            class="btn btn-sm btn-outline-danger btn-favorito"
+                            data-producto-id="{{ producto.id }}">
+                        {% if producto.id in favoritos_ids %}
+                            <i class="fa-solid fa-heart"></i>
+                        {% else %}
+                            <i class="fa-regular fa-heart"></i>
+                        {% endif %}
+                    </button>
                     {% endif %}
                 </div>
             </div>
@@ -164,4 +169,29 @@
     </p>
     {% endfor %}
 </div>
+<script>
+document.querySelectorAll('.btn-favorito').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        var productoId = btn.dataset.productoId;
+        fetch(`/favoritos/${productoId}/toggle/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+        })
+        .then(res => res.json())
+        .then(data => {
+            var icono = btn.querySelector('i');
+            if (data.es_favorito) {
+                icono.classList.remove('fa-regular');
+                icono.classList.add('fa-solid');
+            } else {
+                icono.classList.remove('fa-solid');
+                icono.classList.add('fa-regular');
+            }
+        });
+    });
+});
+</script>
 {% endblock %}

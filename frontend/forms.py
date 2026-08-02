@@ -7,6 +7,18 @@ from clientas.models import PerfilCliente
 class RegistroForm(UserCreationForm):
     email = forms.EmailField(required=True, label="Correo")
     telefono = forms.CharField(max_length=20, required=False, label="Teléfono")
+    genero = forms.ChoiceField(
+        choices=PerfilCliente.GENERO_CHOICES, required=False, label="Género",
+        widget=forms.Select(attrs={'id': 'id_genero'})
+    )
+    talla_calzon = forms.ChoiceField(
+        choices=[('', '---------')] + PerfilCliente.TALLA_CALZON_CHOICES,
+        required=False, label="Talla de calzón"
+    )
+    talla_brassiere = forms.ChoiceField(
+        choices=[('', '---------')] + PerfilCliente.TALLA_BRASSIERE_CHOICES,
+        required=False, label="Talla de brasier"
+    )
 
     class Meta:
         model = User
@@ -22,7 +34,10 @@ class RegistroForm(UserCreationForm):
         if commit:
             PerfilCliente.objects.create(
                 usuario=user,
-                telefono=self.cleaned_data.get('telefono', '')
+                telefono=self.cleaned_data.get('telefono', ''),
+                genero=self.cleaned_data.get('genero', ''),
+                talla_calzon=self.cleaned_data.get('talla_calzon', ''),
+                talla_brassiere=self.cleaned_data.get('talla_brassiere', ''),
             )
         return user
 

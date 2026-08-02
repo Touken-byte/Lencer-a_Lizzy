@@ -50,47 +50,136 @@
 
         <p>{{ producto.descripcion|default:"Sin descripción disponible." }}</p>
 
-        <p>
-            <strong>Talla:</strong> {{ producto.get_talla_display }}<br>
-            {% if producto.color %}<strong>Color:</strong> {{ producto.color }}<br>{% endif %}
-            <strong>Disponibilidad:</strong>
-            {% if producto.agotado %}
-                <span class="badge bg-secondary">Agotado</span>
-            {% elif producto.stock <= 3 %}
-                <span class="badge bg-warning text-dark">Últimas unidades ({{ producto.stock }})</span>
-            {% else %}
-                <span class="badge bg-success">Disponible</span>
-            {% endif %}
-        </p>
+        {% if producto.agotado %}
+            <div class="alert alert-secondary">Este producto está agotado por el momento.</div>
+        {% else %}
+        <form method="post" action="{% url 'frontend:agregar_al_carrito' producto.id %}" id="form-agregar">
+            {% csrf_token %}
+            <div class="row g-2 mb-2">
+                <div class="col-auto">
+                    <label class="form-label mb-0 small">Talla</label>
+                    <select name="talla" id="select-talla" class="form-select"></select>
+                </div>
+                <div class="col-auto" id="col-color" style="display:none;">
+                    <label class="form-label mb-0 small">Color</label>
+                    <select name="color" id="select-color" class="form-select"></select>
+                </div>
+                <div class="col-auto">
+                    <label class="form-label mb-0 small">Cantidad</label>
+                    <input type="number" name="cantidad" id="input-cantidad" value="1" min="1" max="1" class="form-control" style="max-width:80px;">
+                </div>
+            </div>
+            <p class="small text-muted" id="texto-stock"></p>
+            <button type="submit" class="btn btn-lg w-100" style="background-color:#a83279; color:white;">
+                <i class="fa-solid fa-cart-plus"></i> Agregar al carrito
+            </button>
+        </form>
+        {% endif %}
 
-        <div class="d-flex gap-2 mt-2">
-            <form method="post" action="{% url 'frontend:agregar_al_carrito' producto.id %}" class="d-flex gap-2 flex-grow-1">
-                {% csrf_token %}
-                <select name="talla" class="form-select" style="max-width:100px;">
-                    <option value="{{ producto.talla }}">{{ producto.get_talla_display }}</option>
-                </select>
-                <input type="number" name="cantidad" value="1" min="1" max="{{ producto.stock }}" class="form-control" style="max-width:80px;">
-                <button type="submit" class="btn btn-lg" style="background-color:#a83279; color:white;" {% if producto.agotado %}disabled{% endif %}>
-                    <i class="fa-solid fa-cart-plus"></i> Agregar
-                </button>
-            </form>
-            {% if request.user.is_authenticated %}
-            <form method="post" action="{% url 'frontend:favorito_toggle' producto.id %}">
-                {% csrf_token %}
-                <input type="hidden" name="siguiente" value="{{ request.get_full_path }}">
-                <button type="submit" class="btn btn-lg btn-outline-danger">
-                    {% if es_favorito %}<i class="fa-solid fa-heart"></i>{% else %}<i class="fa-regular fa-heart"></i>{% endif %}
-                </button>
-            </form>
-            {% endif %}
-            {% if config_negocio.whatsapp_numero %}
-            <a href="https://wa.me/{{ config_negocio.whatsapp_numero }}?text=Hola%2C%20me%20interesa%20{{ producto.nombre|urlencode }}"
-               target="_blank" class="btn btn-lg btn-success">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            {% endif %}
-        </div>
-        <p class="text-muted small mt-2">(El carrito se activa en el Sprint 3)</p>
+        {% if request.user.is_authenticated %}
+        <form method="post" action="{% url 'frontend:favorito_toggle' producto.id %}" class="mt-2">
+            {% csrf_token %}
+            <input type="hidden" name="siguiente" value="{{ request.get_full_path }}">
+            <button type="submit" class="btn btn-outline-danger">
+                {% if es_favorito %}<i class="fa-solid fa-heart"></i> Quitar de favoritos{% else %}<i class="fa-regular fa-heart"></i> Agregar a favoritos{% endif %}
+            </button>
+        </form>
+        {% endif %}
+
+        {% if config_negocio.whatsapp_numero %}
+        <a href="https://wa.me/{{ config_negocio.whatsapp_numero }}?text=Hola%2C%20me%20interesa%20{{ producto.nombre|urlencode }}"
+           target="_blank" class="btn btn-lg btn-success mt-2">
+            <i class="fa-brands fa-whatsapp"></i> Preguntar por WhatsApp
+        </a>
+        {% endif %}
     </div>
 </div>
+
+<script>
+const variantes = [
+    {% for v in producto.variantes_ordenadas %}{% if v.stock > 0 %}
+    { talla: "{{ v.talla }}", talla_texto: "{{ v.get_talla_display }}", color: "{{ v.color|escapejs }}", stock: {{ v.stock }} },
+    {% endif %}{% endfor %}
+];
+
+const selectTalla = document.getElementById('select-talla');
+const selectColor = document.getElementById('select-color');
+const colColor = document.getElementById('col-color');
+const inputCantidad = document.getElementById('input-cantidad');
+const textoStock = document.getElementById('texto-stock');
+
+function tallasUnicas() {
+    const vistas = new Set();
+    return variantes.filter(v => {
+        if (vistas.has(v.talla)) return false;
+        vistas.add(v.talla);
+        return true;
+    });
+}
+
+function coloresParaTalla(talla) {
+    return variantes.filter(v => v.talla === talla && v.color);
+}
+
+function actualizarColores() {
+    const talla = selectTalla.value;
+    if (!talla) {
+        colColor.style.display = 'none';
+        selectColor.innerHTML = '';
+        textoStock.textContent = 'Elige una talla para ver el stock disponible.';
+        return;
+    }
+    const colores = coloresParaTalla(talla);
+    if (colores.length > 0) {
+        colColor.style.display = 'block';
+        selectColor.innerHTML = '<option value="">Selecciona un color</option>' +
+            colores.map(v => `<option value="${v.color}">${v.color}</option>`).join('');
+    } else {
+        colColor.style.display = 'none';
+        selectColor.innerHTML = '';
+    }
+    actualizarStock();
+}
+
+function actualizarStock() {
+    const talla = selectTalla.value;
+    const color = colColor.style.display === 'block' ? selectColor.value : '';
+    const variante = variantes.find(v => v.talla === talla && v.color === color);
+    const stock = variante ? variante.stock : 0;
+    inputCantidad.max = stock;
+    if (parseInt(inputCantidad.value) > stock) inputCantidad.value = stock || 1;
+    textoStock.textContent = stock > 0 ? `${stock} unidad(es) disponible(s)` : 'Sin stock para esta combinación';
+}
+
+const botonAgregar = document.querySelector('#form-agregar button[type="submit"]');
+
+function actualizarBotonAgregar() {
+    if (!botonAgregar) return;
+    const talla = selectTalla.value;
+    const requiereColor = colColor.style.display === 'block';
+    const color = requiereColor ? selectColor.value : '';
+    const seleccionCompleta = talla && (!requiereColor || color);
+    const variante = variantes.find(v => v.talla === talla && v.color === color);
+    const hayStock = variante && variante.stock > 0;
+    botonAgregar.disabled = !(seleccionCompleta && hayStock);
+}
+
+if (selectTalla && variantes.length > 0) {
+    selectTalla.innerHTML = '<option value="">Selecciona una talla</option>' +
+        tallasUnicas().map(v => `<option value="${v.talla}">${v.talla_texto}</option>`).join('');
+    colColor.style.display = 'none';
+    inputCantidad.max = 1;
+    textoStock.textContent = 'Elige una talla para ver el stock disponible.';
+    if (botonAgregar) botonAgregar.disabled = true;
+
+    selectTalla.addEventListener('change', function () {
+        actualizarColores();
+        actualizarBotonAgregar();
+    });
+    selectColor.addEventListener('change', function () {
+        actualizarStock();
+        actualizarBotonAgregar();
+    });
+}
+</script>
 {% endblock %}

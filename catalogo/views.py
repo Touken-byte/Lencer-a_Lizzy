@@ -40,6 +40,12 @@ class ProductoDetalleView(generics.RetrieveAPIView):
     def get_serializer_context(self):
         return {'request': self.request}
 
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def subcategorias_por_categoria(request, categoria_id):
+    """Devuelve las subcategorías de una categoría (para el filtro dinámico del admin)"""
+    subs = Categoria.objects.get(pk=categoria_id).subcategorias.values('id', 'nombre')
+    return Response(list(subs))
 
 @api_view(['GET'])
 @permission_classes([AllowAny])

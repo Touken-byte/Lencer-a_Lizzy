@@ -5,7 +5,7 @@
     <i class="fa-solid fa-arrow-left"></i> Volver a mis pedidos
 </a>
 
-<h3 style="color:var(--color-marca);"Pedido #{{ pedido.id }}</h3>
+<h3 style="color:var(--color-marca);">Pedido #{{ pedido.id }}</h3>
 <p class="text-muted">Realizado el {{ pedido.creado|date:"d/m/Y" }}</p>
 
 {% if pedido.estado == 'cancelado' %}

@@ -27,12 +27,4 @@
 </div>
 </div>
 
-<script>
-function toggleTallaBrassiere() {
-    var genero = document.getElementById('id_genero').value;
-    var campo = document.getElementById('div_talla_brassiere');
-    campo.style.display = (genero === 'mujer') ? 'block' : 'none';
-}
-document.addEventListener('DOMContentLoaded', toggleTallaBrassiere);
-</script>
 {% endblock %}

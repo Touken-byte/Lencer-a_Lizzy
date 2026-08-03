@@ -7,7 +7,7 @@ from django.core.exceptions import ValidationError
 from django.utils import timezone
 
 def validar_fecha_futura(value):
-    if value < timezone.now().date():
+    if value < timezone.localtime(timezone.now()).date():
         raise ValidationError("La fecha estimada de entrega no puede ser anterior a hoy.")
 
 class Pedido(models.Model):
@@ -78,7 +78,7 @@ class Pedido(models.Model):
             return False
         if not self.fecha_estimada_entrega:
             return False
-        return self.fecha_estimada_entrega <= timezone.now().date() + timedelta(days=1)
+        return self.fecha_estimada_entrega <= timezone.localtime(timezone.now()).date() + timedelta(days=1)
 
 
 class ItemPedido(models.Model):

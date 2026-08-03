@@ -15,9 +15,15 @@ from pedidos.models import Pedido, Pago
 
 @staff_member_required
 def resumen_ventas_admin(request):
-    hoy = timezone.now()
+    hoy = timezone.localtime(timezone.now())
+    inicio_mes = hoy.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    if hoy.month == 12:
+        fin_mes = inicio_mes.replace(year=hoy.year + 1, month=1)
+    else:
+        fin_mes = inicio_mes.replace(month=hoy.month + 1)
+
     pedidos_mes = Pedido.objects.filter(
-        creado__year=hoy.year, creado__month=hoy.month
+        creado__gte=inicio_mes, creado__lt=fin_mes
     ).exclude(estado='cancelado')
 
     total_pedidos = pedidos_mes.count()

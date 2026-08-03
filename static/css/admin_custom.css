@@ -113,3 +113,8 @@ a:hover {
     background-color: var(--admin-marca);
     color: #fff;
 }
+/* Fix: calendario y reloj del admin quedaban ocultos detrás del layout de Jazzmin */
+.calendarbox, .clockbox {
+    z-index: 1050 !important;
+    position: absolute !important;
+}

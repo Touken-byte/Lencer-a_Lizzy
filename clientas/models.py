@@ -80,3 +80,16 @@ class DireccionEntrega(models.Model):
                 usuario=self.usuario, es_predeterminada=True
             ).exclude(pk=self.pk).update(es_predeterminada=False)
         super().save(*args, **kwargs)
+
+class CarritoGuardado(models.Model):
+    """Respaldo del carrito en base de datos, para que sobreviva al logout"""
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name='carrito_guardado')
+    datos = models.JSONField(default=dict, blank=True)
+    actualizado = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Carrito guardado"
+        verbose_name_plural = "Carritos guardados"
+
+    def __str__(self):
+        return f"Carrito de {self.usuario.username}"

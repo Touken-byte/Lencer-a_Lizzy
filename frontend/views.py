@@ -8,8 +8,6 @@ from django.db import transaction
 from .carrito import Carrito
 from .forms_checkout import DireccionForm, CheckoutForm
 from pedidos.models import Pedido, ItemPedido, Pago
-import qrcode
-import io, base64
 from catalogo.models import Categoria, Producto
 from clientas.models import PerfilCliente, Favorito
 from .forms import RegistroForm, PerfilForm
@@ -350,9 +348,15 @@ def pedido_detalle(request, pedido_id):
 
 @user_passes_test(lambda u: u.is_staff, login_url='frontend:login')
 def resumen_ventas(request):
-    hoy = timezone.now()
+    hoy = timezone.localtime(timezone.now())
+    inicio_mes = hoy.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
+    if hoy.month == 12:
+        fin_mes = inicio_mes.replace(year=hoy.year + 1, month=1)
+    else:
+        fin_mes = inicio_mes.replace(month=hoy.month + 1)
+
     pedidos_mes = Pedido.objects.filter(
-        creado__year=hoy.year, creado__month=hoy.month
+        creado__gte=inicio_mes, creado__lt=fin_mes
     ).exclude(estado='cancelado')
 
     total_pedidos = pedidos_mes.count()

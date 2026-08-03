@@ -6,7 +6,13 @@ CARRITO_SESSION_KEY = 'carrito'
 class Carrito:
     def __init__(self, request):
         self.session = request.session
+        self.usuario = request.user if request.user.is_authenticated else None
         carrito = self.session.get(CARRITO_SESSION_KEY)
+        if not carrito and self.usuario:
+            from clientas.models import CarritoGuardado
+            guardado = CarritoGuardado.objects.filter(usuario=self.usuario).first()
+            if guardado and guardado.datos:
+                carrito = guardado.datos
         if not carrito:
             carrito = {}
         self.carrito = carrito
@@ -38,12 +44,21 @@ class Carrito:
             self.guardar()
 
     def vaciar(self):
+        self.carrito = {}
         self.session[CARRITO_SESSION_KEY] = {}
         self.session.modified = True
+        if self.usuario:
+            from clientas.models import CarritoGuardado
+            CarritoGuardado.objects.filter(usuario=self.usuario).delete()
 
     def guardar(self):
         self.session[CARRITO_SESSION_KEY] = self.carrito
         self.session.modified = True
+        if self.usuario:
+            from clientas.models import CarritoGuardado
+            CarritoGuardado.objects.update_or_create(
+                usuario=self.usuario, defaults={'datos': self.carrito}
+            )
 
     def obtener_items(self):
         """Devuelve lista de dicts con producto real, talla, color, cantidad, subtotal"""

@@ -30,3 +30,27 @@
         });
     });
 })();
+
+(function () {
+    var CLAVE_SCROLL = 'jazzmin-sidebar-scroll';
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var sidebar = document.querySelector('.sidebar-wrapper') || document.querySelector('#jazzy-sidebar');
+        if (!sidebar) return;
+
+        var guardado = sessionStorage.getItem(CLAVE_SCROLL);
+        if (guardado !== null) {
+            sidebar.scrollTop = parseInt(guardado, 10);
+        }
+
+        sidebar.addEventListener('scroll', function () {
+            sessionStorage.setItem(CLAVE_SCROLL, sidebar.scrollTop);
+        });
+
+        sidebar.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                sessionStorage.setItem(CLAVE_SCROLL, sidebar.scrollTop);
+            });
+        });
+    });
+})();

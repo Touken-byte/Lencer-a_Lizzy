@@ -11,12 +11,6 @@
     {% if pedido.pago.metodo == 'qr' and config_negocio.qr_pago %}
         <img src="{{ config_negocio.qr_pago.url }}" style="max-width:250px;" class="my-3 rounded shadow-sm">
         <p class="text-muted small">Escanea este QR para pagar Bs {{ pedido.total }}</p>
-    {% elif pedido.pago.metodo == 'transferencia' %}
-        <div class="alert alert-info d-inline-block mt-3">
-            Banco: {{ config_negocio.banco_nombre }}<br>
-            Titular: {{ config_negocio.banco_titular }}<br>
-            Cuenta: {{ config_negocio.banco_numero_cuenta }}
-        </div>
     {% endif %}
 
     <div class="mt-4">

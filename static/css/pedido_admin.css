@@ -3,3 +3,18 @@
     padding-bottom: 12px !important;
     font-size: 0.95rem;
 }
+
+#result_list {
+    font-size: 12px;
+}
+
+#result_list th,
+#result_list td {
+    padding: 4px 8px;
+    white-space: nowrap;
+}
+
+.results {
+    overflow-x: auto;
+    max-width: 100%;
+}

@@ -23,6 +23,7 @@ class Subcategoria(models.Model):
     TIPO_TALLA_CHOICES = [
         ('letra', 'Letra (XS, S, M, L, XL, XXL)'),
         ('brassiere', 'Brasier (Banda + Copa, ej: 75B)'),
+        ('sin_talla', 'Sin talla (accesorios, pañuelos, etc.)'),
     ]
 
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='subcategorias')
@@ -164,11 +165,16 @@ class VarianteProducto(models.Model):
     def agotada(self):
         return self.stock == 0
 
+    
     def clean(self):
         errors = {}
         if self.producto_id and self.talla:
             tipo = self.producto.subcategoria.tipo_talla
-            if tipo == 'brassiere' and self.talla not in Producto.TALLA_BRASSIERE_VALORES:
+            if tipo == 'sin_talla':
+                self.talla = 'UNICA'
+            elif self.talla == 'UNICA':
+                pass  # Talla Única se permite sin importar el tipo de subcategoría
+            elif tipo == 'brassiere' and self.talla not in Producto.TALLA_BRASSIERE_VALORES:
                 errors['talla'] = 'Esta subcategoría requiere una talla de brasier (ej: 75B).'
             elif tipo == 'letra' and self.talla not in Producto.TALLA_LETRA_VALORES:
                 errors['talla'] = 'Esta subcategoría requiere una talla estándar (XS, S, M, L, XL, XXL).'

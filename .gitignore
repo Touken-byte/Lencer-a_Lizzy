@@ -34,3 +34,5 @@ media/
 # Sistema
 .DS_Store
 .env
+__pycache__/
+.~lock.*

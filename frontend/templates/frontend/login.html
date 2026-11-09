@@ -8,10 +8,12 @@
 <form method="post">
     {% csrf_token %}
     {% for field in form %}
-    <div class="mb-3">
-        <label class="form-label">{{ field.label }}</label>
-        {{ field }}
-    </div>
+        <div class="mb-3">
+            <label class="form-label">
+                {% if field.name == 'username' %}Correo electrónico o usuario{% else %}{{ field.label }}{% endif %}
+            </label>
+            {{ field }}
+        </div>
     {% endfor %}
     <button type="submit" class="btn w-100" style="background-color:#a83279; color:white;">
         <i class="fa-solid fa-right-to-bracket"></i> Entrar

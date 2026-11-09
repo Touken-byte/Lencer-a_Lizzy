@@ -44,7 +44,7 @@ class ProductoDetalleView(generics.RetrieveAPIView):
 @permission_classes([AllowAny])
 def subcategorias_por_categoria(request, categoria_id):
     """Devuelve las subcategorías de una categoría (para el filtro dinámico del admin)"""
-    subs = Categoria.objects.get(pk=categoria_id).subcategorias.values('id', 'nombre')
+    subs = Categoria.objects.get(pk=categoria_id).subcategorias.values('id', 'nombre', 'tipo_talla')
     return Response(list(subs))
 
 @api_view(['GET'])

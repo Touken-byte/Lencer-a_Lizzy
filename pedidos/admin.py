@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.html import format_html
 from .models import Pedido, ItemPedido, Pago
 
 
@@ -13,9 +14,6 @@ class PagoInline(admin.StackedInline):
     extra = 0
 
 
-from django.utils.html import format_html
-
-
 @admin.register(Pedido)
 class PedidoAdmin(admin.ModelAdmin):
     list_display = (
@@ -27,7 +25,11 @@ class PedidoAdmin(admin.ModelAdmin):
     list_editable = ('estado', 'fecha_estimada_entrega')
     inlines = [ItemPedidoInline, PagoInline]
     readonly_fields = ('total', 'creado', 'actualizado')
-    actions = ['verificar_pago_seleccionados', 'rechazar_pago_seleccionados']
+    actions = [
+        'verificar_pago_seleccionados',
+        'rechazar_pago_seleccionados',
+        'marcar_entregado_seleccionados',
+    ]
 
     @admin.display(description='Método de pago')
     def metodo_pago_display(self, obj):
@@ -58,28 +60,8 @@ class PedidoAdmin(admin.ModelAdmin):
                 '⚠ Atraso'
             )
         return '—'
+
     @admin.action(description='✅ Verificar pago de los pedidos seleccionados')
-    def verificar_pago_seleccionados(self, request, queryset):
-        actualizados = 0
-        for pedido in queryset:
-            pago = getattr(pedido, 'pago', None)
-            if pago and pago.estado != 'verificado':
-                pago.estado = 'verificado'
-                pago.save()
-                actualizados += 1
-        self.message_user(request, f"{actualizados} pago(s) marcado(s) como verificado.")
-
-    @admin.action(description='❌ Rechazar pago de los pedidos seleccionados')
-    def rechazar_pago_seleccionados(self, request, queryset):
-        actualizados = 0
-        for pedido in queryset:
-            pago = getattr(pedido, 'pago', None)
-            if pago and pago.estado != 'rechazado':
-                pago.estado = 'rechazado'
-                pago.save()
-                actualizados += 1
-        self.message_user(request, f"{actualizados} pago(s) marcado(s) como rechazado.")@admin.action(description='✅ Verificar pago de los pedidos seleccionados')
-
     def verificar_pago_seleccionados(self, request, queryset):
         actualizados = 0
         for pedido in queryset:
@@ -101,6 +83,16 @@ class PedidoAdmin(admin.ModelAdmin):
                 actualizados += 1
         self.message_user(request, f"{actualizados} pago(s) marcado(s) como rechazado.")
 
+    @admin.action(description='📦 Marcar como ENTREGADO los pedidos seleccionados')
+    def marcar_entregado_seleccionados(self, request, queryset):
+        actualizados = 0
+        for pedido in queryset:
+            if pedido.estado != 'entregado':
+                pedido.estado = 'entregado'
+                pedido.notificacion_entrega_pendiente = True
+                pedido.save(update_fields=['estado', 'notificacion_entrega_pendiente'])
+                actualizados += 1
+        self.message_user(request, f"{actualizados} pedido(s) marcado(s) como entregado.")
 
     class Media:
         css = {'all': ('css/pedido_admin.css',)}

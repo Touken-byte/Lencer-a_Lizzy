@@ -121,7 +121,7 @@ def registro(request):
         form = RegistroForm(request.POST)
         if form.is_valid():
             user = form.save()
-            auth_login(request, user)
+            auth_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             genero = form.cleaned_data.get('genero') or 'otro'
             nombre = user.first_name or user.username
             return render(request, 'frontend/bienvenida.html', {'nombre': nombre, 'genero': genero})
@@ -132,6 +132,7 @@ def registro(request):
 
 def login_view(request):
     if request.method == 'POST':
+        
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()

@@ -1,17 +1,38 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from django import forms
 from .models import Pedido, ItemPedido, Pago
+
+
+class ItemPedidoInlineForm(forms.ModelForm):
+    """Si no se escribe el precio, se usa el precio final del producto."""
+    class Meta:
+        model = ItemPedido
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['precio_unitario'].required = False
+
+    def clean(self):
+        datos = super().clean()
+        producto = datos.get('producto')
+        if producto and datos.get('precio_unitario') in (None, ''):
+            datos['precio_unitario'] = producto.precio_final
+        return datos
 
 
 class ItemPedidoInline(admin.TabularInline):
     model = ItemPedido
-    extra = 0
+    form = ItemPedidoInlineForm
+    extra = 3
     readonly_fields = ('subtotal',)
 
 
 class PagoInline(admin.StackedInline):
     model = Pago
-    extra = 0
+    extra = 1
+    max_num = 1
 
 
 @admin.register(Pedido)
@@ -19,9 +40,9 @@ class PedidoAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'clienta', 'estado', 'tipo_entrega',
         'metodo_pago_display', 'estado_pago_display', 'nombre_referencia_display',
-        'fecha_estimada_entrega', 'alerta_display', 'total', 'creado',
+        'fecha_estimada_entrega', 'alerta_display', 'total', 'fecha_venta', 'lugar_venta', 'origen', 'creado',
     )
-    list_filter = ('estado', 'tipo_entrega')
+    list_filter = ('estado', 'tipo_entrega', 'origen', 'lugar_venta')
     list_editable = ('estado', 'fecha_estimada_entrega')
     inlines = [ItemPedidoInline, PagoInline]
     readonly_fields = ('total', 'creado', 'actualizado')
@@ -30,6 +51,19 @@ class PedidoAdmin(admin.ModelAdmin):
         'rechazar_pago_seleccionados',
         'marcar_entregado_seleccionados',
     ]
+
+    def save_related(self, request, form, formsets, change):
+        super().save_related(request, form, formsets, change)
+        pedido = form.instance
+        if pedido.origen == 'estimado':
+            pago = Pago.objects.filter(pedido=pedido).first()
+            if pago is None:
+                # Venta en feria sin otro método indicado: efectivo ya cobrado
+                Pago.objects.create(pedido=pedido, metodo='efectivo', estado='verificado')
+            elif pago.estado == 'pendiente':
+                pago.estado = 'verificado'
+                pago.save()
+        pedido.recalcular_total()
 
     @admin.display(description='Método de pago')
     def metodo_pago_display(self, obj):

@@ -6,7 +6,7 @@ from .models import Pago
 from django.db.models.signals import pre_save
 from .models import Pedido
 
-DIAS_ENTREGA_DEFAULT = 5  # días hábiles estimados tras verificar el pago
+DIAS_ENTREGA_DEFAULT = 5  # días corridos estimados tras verificar el pago
 
 
 @receiver(post_save, sender=Pago)
@@ -21,7 +21,7 @@ def actualizar_pedido_al_verificar_pago(sender, instance, **kwargs):
         pedido.estado = 'confirmado'
         campos_a_actualizar.append('estado')
 
-    if not pedido.fecha_estimada_entrega:
+    if not pedido.fecha_estimada_entrega and pedido.estado not in ('entregado', 'cancelado'):
         pedido.fecha_estimada_entrega = timezone.now().date() + timedelta(days=DIAS_ENTREGA_DEFAULT)
         campos_a_actualizar.append('fecha_estimada_entrega')
 

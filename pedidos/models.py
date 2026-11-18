@@ -26,11 +26,33 @@ class Pedido(models.Model):
         ('tienda', 'Recogida en tienda física'),
     ]
 
+    ORIGEN_CHOICES = [
+        ('real', 'Registrada en el momento'),
+        ('estimado', 'Estimada (reconstruida)'),
+        ('prueba', 'Pedido de prueba'),
+    ]
+
+    LUGAR_VENTA_CHOICES = [
+        ('online', 'Tienda en línea'),
+        ('mercado_lourdes', 'Mercado Lourdes'),
+        ('feria_barrio_nuevo', 'Feria Barrio Nuevo'),
+    ]
+
     clienta = models.ForeignKey(User, on_delete=models.PROTECT, related_name='pedidos')
     direccion = models.ForeignKey(
         DireccionEntrega, on_delete=models.SET_NULL, null=True, blank=True, related_name='pedidos'
     )
     tipo_entrega = models.CharField(max_length=15, choices=ENTREGA_CHOICES, default='recogida')
+
+    fecha_venta = models.DateTimeField(
+        default=timezone.now,
+        help_text="Fecha y hora en que ocurrió la venta (puede ser anterior a 'creado' si se registró después)"
+    )
+    lugar_venta = models.CharField(max_length=20, choices=LUGAR_VENTA_CHOICES, default='online')
+    origen = models.CharField(
+        max_length=10, choices=ORIGEN_CHOICES, default='real',
+        help_text="Real = registrada al vender. Estimada = reconstruida de memoria. Prueba = pedido de prueba."
+    )
 
     nota = models.CharField(max_length=300, blank=True, help_text="HU-09: nota para la vendedora")
 

@@ -357,7 +357,7 @@ def resumen_ventas(request):
         fin_mes = inicio_mes.replace(month=hoy.month + 1)
 
     pedidos_mes = Pedido.objects.filter(
-        creado__gte=inicio_mes, creado__lt=fin_mes
+        fecha_venta__gte=inicio_mes, fecha_venta__lt=fin_mes
     ).exclude(estado='cancelado')
 
     total_pedidos = pedidos_mes.count()

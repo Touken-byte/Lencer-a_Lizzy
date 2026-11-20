@@ -1,0 +1,306 @@
+### LUNES 03/08/2026 | LOURDES | 6 pedidos | Bs 184.30
+VE-0241 09:42 | Hilo Dental S rosa Bs14.70
+VE-0001 11:58 | Calzón faja L verde + Calzón clasico M azul
+VE-0242 13:25 | Medias Antideslizantes M gris
+VE-0002 15:07 | Bóxer suelto UNICA azul Bs19.60 + Corpiño S amarillo + Medias M negro
+VE-0243 16:40 | Calzón clasico S blanco
+VE-0003 18:33 | Calzocillo de niño UNICA gris + Colalé L celeste x2 | QR
+
+### MARTES 04/08/2026 | LOURDES | 7 pedidos | Bs 236.00
+VE-0004 09:10 | Corpiño XS blanco
+VE-0005 10:01 | Tirantes UNICA blanco + Bandeau top sin tiros 70A negro | QR
+VE-0006 11:55 | Bóxer ajustado (Boxer Brief) XS rojo Bs35.00
+VE-0244 14:20 | Tanga M negro x2 Bs24.00
+VE-0245 15:05 | Medias infantiles UNICA blanco
+VE-0007 17:32 | Culotte L gris Bs18.00 + Bóxer ajustado (Boxer Brief) L rojo Bs20.00
+VE-0008 17:36 | Bóxer ajustado (Boxer Brief) UNICA azul Bs35.00
+
+### MIÉRCOLES 05/08/2026 | LOURDES | 6 pedidos | Bs 264.00
+VE-0246 10:35 | Boyshort M negro
+VE-0009 13:07 | Cachetero Liso S verde + Top clásico 70A rojo + Corpiño sin armado 70A blanco x2
+VE-0011 14:50 | Corpiño S rosa
+VE-0010 14:52 | Tanga M rojo Bs19.00 + Bóxer ajustado (Boxer Brief) M rojo Bs20.00
+VE-0012 17:21 | Medias Antideslizantes S negro + Bóxer ajustado (Boxer Brief) M rojo Bs20.00 | QR
+VE-0013 18:33 | Pañuelos UNICA rojo + Medias de marca UNICA azul
+
+### JUEVES 06/08/2026 | LOURDES | 8 pedidos | Bs 289.75
+VE-0014 09:00 | Calzón clasico S verde
+VE-0015 09:37 | Fajas S azul + Bóxer infantill S negro
+VE-0017 11:27 | Corpiño S negro
+VE-0016 11:33 | Top clásico 70A gris + Cubre pezón UNICA blanco + Top clásico 70A azul
+VE-0247 12:30 | Brief M gris
+VE-0018 13:56 | Corpiño XS gris
+VE-0019 14:06 | Slip M blanco Bs23.75
+VE-0020 16:51 | Medias infantiles UNICA blanco + Calzón clasico M azul
+
+### VIERNES 07/08/2026 | LOURDES | 11 pedidos | Bs 273.00
+VE-0021 09:30 | Bóxer suelto M rojo Bs20.00
+VE-0022 10:20 | Tirantes UNICA rosa
+VE-0024 11:01 | Culotte L gris Bs18.00 + Medias M gris x2
+VE-0025 11:35 | Calzón clasico S rosa + Bóxer ajustado (Boxer Brief) XS azul Bs35.00 + Tanga M azul Bs19.00
+VE-0023 11:51 | Culotte L blanco Bs18.00 | QR
+VE-0248 12:15 | Colalé M rosa
+VE-0026 13:38 | Top clásico 70A negro
+VE-0027 14:01 | Corpiño sin armado 70B amarillo
+VE-0028 15:05 | Bóxer suelto S negro Bs20.00 + Pañuelos UNICA blanco
+VE-0249 16:20 | Pañuelos UNICA azul
+VE-0029 17:46 | Culotte M celeste Bs18.00
+
+### SÁBADO 08/08/2026 | LOURDES | 11 pedidos | Bs 339.75
+VE-0030 08:13 | Slip XL gris Bs25.00 + Bandeau top sin tiros 70A rosa | QR
+VE-0031 12:13 | Medias Antideslizantes M blanco
+VE-0032 12:27 | Culotte UNICA amarillo Bs20.00 + Bóxer suelto M negro Bs20.00
+VE-0033 12:35 | Bóxer ajustado (Boxer Brief) UNICA azul Bs35.00
+VE-0034 13:55 | Slip L blanco Bs23.75
+VE-0035 13:59 | Cubre pezón UNICA negro
+VE-0036 14:58 | Medias Antideslizantes S gris
+VE-0037 16:33 | Medias Antideslizantes M gris
+VE-0040 17:08 | Bikini S verde Bs36.00 + Medias Antideslizantes M blanco
+VE-0038 17:09 | Pañuelos UNICA rosa
+VE-0039 17:19 | Corpiño XS azul
+
+### LUNES 10/08/2026 | LOURDES | 5 pedidos | Bs 141.75
+VE-0041 08:32 | Bóxer ajustado (Boxer Brief) XL gris x2 Bs20.00
+VE-0042 12:44 | Top clásico 70A gris + Colalé M amarillo
+VE-0043 15:55 | Culotte XXL azul Bs18.00
+VE-0045 18:03 | Slip M negro Bs23.75
+VE-0044 18:49 | Fajas M azul
+
+### MARTES 11/08/2026 | LOURDES | 7 pedidos | Bs 216.00
+VE-0047 10:09 | Calzón clasico XS blanco + Bandeau top sin tiros 70B rojo
+VE-0046 10:25 | Medias infantiles UNICA gris
+VE-0048 10:44 | Medias M azul
+VE-0050 13:24 | Tirantes UNICA blanco | QR
+VE-0049 13:40 | Medias de marca UNICA blanco + Bikini L rosa Bs36.00
+VE-0051 16:03 | Calzón faja M gris + Corpiño S verde
+VE-0052 16:42 | Bóxer ajustado (Boxer Brief) UNICA gris Bs35.00
+
+### MIÉRCOLES 12/08/2026 | LOURDES | 6 pedidos | Bs 167.00
+VE-0054 10:05 | Corpiño sin armado 70B negro + Calzón clasico M amarillo + Brief S negro
+VE-0053 10:43 | Bóxer suelto M rojo Bs20.00
+VE-0055 10:55 | Calzón clasico M verde
+VE-0056 13:11 | Brief XS blanco
+VE-0057 16:38 | Top clásico 85C amarillo
+VE-0058 18:27 | Medias de marca UNICA negro | QR
+
+### JUEVES 13/08/2026 | LOURDES | 6 pedidos | Bs 224.00
+VE-0059 12:36 | Tirantes UNICA blanco
+VE-0060 13:14 | Bikini S rojo Bs36.00
+VE-0061 14:28 | Medias Antideslizantes M negro + Bikini M azul Bs36.00 + Tanga M gris x2 Bs19.00
+VE-0062 15:36 | Hilo Dental L blanco x2 Bs14.70
+VE-0064 18:01 | Bóxer suelto UNICA verde Bs19.60 | QR
+VE-0063 18:58 | Top clásico 70A rosa + Medias XS negro
+
+### VIERNES 14/08/2026 | LOURDES | 4 pedidos | Bs 146.00
+VE-0065 09:27 | Bóxer suelto M negro Bs20.00 + Medias Antideslizantes M negro x2
+VE-0066 10:57 | Medias Antideslizantes M blanco + Brief M rojo
+VE-0067 12:03 | Medias de marca UNICA azul
+VE-0068 16:29 | Calzocillo de niño UNICA gris + Medias de marca UNICA gris
+
+### SÁBADO 15/08/2026 | LOURDES | 3 pedidos | Bs 91.00
+VE-0069 10:03 | Calzocillo de niño UNICA blanco + Calzón clasico M azul x2 + Calzón clasico M blanco
+VE-0070 11:47 | Brief M verde
+VE-0071 13:31 | Tirantes UNICA blanco
+
+### LUNES 17/08/2026 | LOURDES | 5 pedidos | Bs 128.75
+VE-0072 08:16 | Slip M negro Bs23.75
+VE-0073 09:38 | Tirantes UNICA rosa | QR
+VE-0074 11:15 | Corpiño XS amarillo + Medias M rosa
+VE-0075 12:25 | Cubre pezón UNICA blanco
+VE-0076 15:14 | Medias de marca UNICA gris
+
+### MARTES 18/08/2026 | LOURDES | 4 pedidos | Bs 109.75
+VE-0077 08:00 | Brief M gris + Pañuelos UNICA rosa
+VE-0078 13:55 | Pañuelos UNICA rojo + Slip S negro Bs23.75 | QR
+VE-0079 15:48 | Medias infantiles UNICA azul | QR
+VE-0080 16:49 | Corpiño sin armado 70A gris
+
+### MIÉRCOLES 19/08/2026 | LOURDES | 3 pedidos | Bs 85.00
+VE-0081 09:01 | Bóxer suelto M rojo Bs20.00 + Tirantes UNICA negro
+VE-0082 10:33 | Corpiño XS verde
+VE-0083 16:17 | Bóxer suelto M negro Bs20.00
+
+### JUEVES 20/08/2026 | LOURDES | 4 pedidos | Bs 139.75
+VE-0084 09:28 | Brief S rojo
+VE-0085 10:27 | Bandeau top sin tiros 70A celeste + Slip M negro Bs23.75
+VE-0086 12:39 | Bóxer ajustado (Boxer Brief) M negro Bs20.00 + Bóxer ajustado (Boxer Brief) M blanco Bs20.00 | QR
+VE-0087 14:37 | Medias de marca UNICA azul x2
+
+### VIERNES 21/08/2026 | LOURDES | 2 pedidos | Bs 105.00
+VE-0088 10:08 | Medias M negro + Corpiño S verde + Corpiño XS negro
+VE-0089 13:34 | Top clásico 70A verde
+
+### SÁBADO 22/08/2026 | LOURDES | 5 pedidos | Bs 95.00
+VE-0090 08:19 | Medias M blanco
+VE-0091 12:03 | Fajas M rosa + Medias de marca UNICA azul
+VE-0092 14:49 | Calzón clasico S azul
+VE-0093 16:08 | Bandeau top sin tiros 70B amarillo
+VE-0094 17:26 | Hilo Dental XXL celeste Bs10.00
+
+### MARTES 08/09/2026 | BARRIO NUEVO | 15 pedidos | Bs 436.75
+VE-0097 07:06 | Ropa usada MUJER M rojo | QR
+VE-0095 07:22 | Ropa usada MUJER L rosa
+VE-0096 07:42 | Medias infantiles UNICA negro
+VE-0098 08:03 | Ropa usada MUJER XS blanco
+VE-0099 08:35 | Brief XXL rojo + Cachetero Liso L verde
+VE-0102 09:06 | Cachetero Liso M celeste
+VE-0103 09:06 | Brief S blanco + Bóxer infantill XS negro
+VE-0101 09:18 | Medias Antideslizantes M negro
+VE-0100 09:24 | Slip M rojo Bs23.75 + Cachetero Liso L rosa
+VE-0104 09:38 | Ropa usada MUJER M gris + Bóxer suelto M rojo Bs20.00 | QR
+VE-0105 12:31 | Cubre pezón UNICA blanco
+VE-0106 12:47 | Bikini M verde Bs36.00 + Cachetero Liso XS verde
+VE-0107 13:06 | Medias de marca UNICA negro + Ropa usada MUJER S rosa
+VE-0108 13:47 | Medias XS blanco
+VE-0109 14:37 | Ropa usada HOMBRE S gris + Calzón clasico M verde | QR
+
+### MARTES 15/09/2026 | BARRIO NUEVO | 14 pedidos | Bs 423.35
+VE-0111 06:23 | Slip L rojo Bs23.75
+VE-0110 06:43 | Corpiño sin armado 75C negro
+VE-0112 08:02 | Medias XS blanco | QR
+VE-0113 09:44 | Ropa usada MUJER XL azul
+VE-0114 09:58 | Cachetero con diseño XS amarillo | QR
+VE-0115 10:15 | Ropa usada MUJER S rojo
+VE-0116 10:28 | Medias de marca UNICA negro + Medias Antideslizantes S negro + Cachetero con diseño M celeste
+VE-0117 11:36 | Medias M blanco + Cachetero con diseño M rojo
+VE-0118 11:43 | Cachetero Liso XL rojo + Cachetero con diseño M rojo
+VE-0119 13:22 | Cubre pezón UNICA negro + Cachetero Liso XS blanco + Corpiño sin armado 75C rosa
+VE-0120 13:41 | Cachetero Liso L gris
+VE-0121 14:34 | Bóxer suelto UNICA negro Bs19.60 + Cubre pezón UNICA negro
+VE-0123 15:08 | Ropa usada HOMBRE M azul
+VE-0122 15:30 | Bandeau top sin tiros 70B celeste
+
+### MARTES 22/09/2026 | BARRIO NUEVO | 8 pedidos | Bs 255.00
+VE-0124 07:16 | Medias L gris + Ropa usada MUJER M celeste + Medias XS gris
+VE-0125 07:50 | Top clásico 70A gris + Ropa usada MUJER M amarillo
+VE-0126 09:31 | Traje de baño usado M azul
+VE-0127 09:49 | Cachetero Liso M negro + Top clásico 70A celeste + Cubre pezón UNICA negro
+VE-0129 13:36 | Medias Antideslizantes XXL negro
+VE-0128 13:51 | Bóxer infantill S blanco
+VE-0131 15:13 | Cachetero Liso S blanco
+VE-0130 15:28 | Slip M gris Bs25.00
+
+### MARTES 29/09/2026 | BARRIO NUEVO | 5 pedidos | Bs 220.00
+VE-0133 09:24 | Ropa usada HOMBRE M blanco + Culotte UNICA rosa x2 Bs20.00
+VE-0132 09:32 | Bandeau top sin tiros 70B rosa
+VE-0134 14:07 | Ropa usada HOMBRE M verde + Traje de baño usado S rojo + Cachetero Liso XL rosa
+VE-0135 15:16 | Calzocillo de niño UNICA negro + Corpiño S blanco + Maya usada M negro
+VE-0136 15:30 | Cachetero con diseño S rojo
+
+### MARTES 06/10/2026 | BARRIO NUEVO | 21 pedidos | Bs 609.00
+VE-0137 06:54 | Hilo Dental XL gris Bs10.00
+VE-0138 07:08 | Ropa usada MUJER M amarillo
+VE-0139 07:30 | Biquini usado S rosa + Ropa usada HOMBRE L rojo + Maya usada S negro
+VE-0142 08:04 | Ropa usada MUJER L rosa
+VE-0141 08:06 | Biquini usado S celeste
+VE-0140 08:39 | Bóxer ajustado (Boxer Brief) L rojo Bs20.00 | QR
+VE-0143 08:46 | Tirantes UNICA blanco
+VE-0146 09:05 | Biquini usado M negro + Maya usada S rojo
+VE-0144 09:18 | Ropa usada MUJER XS amarillo
+VE-0145 09:18 | Biquini usado S verde
+VE-0148 10:29 | Cachetero con diseño XL negro
+VE-0147 10:42 | Biquini usado S rojo + Ropa usada MUJER M rojo + Maya usada XL amarillo
+VE-0150 11:33 | Calzocillo de niño UNICA gris
+VE-0149 11:55 | Pañuelos UNICA rojo
+VE-0151 12:07 | Bóxer ajustado (Boxer Brief) M rojo Bs20.00 | QR
+VE-0153 13:35 | Tanga S verde x2 Bs24.00 + Bóxer ajustado (Boxer Brief) UNICA verde Bs35.00 + Biquini usado M negro
+VE-0152 13:46 | Bikini M verde Bs36.00
+VE-0154 13:55 | Maya usada XL celeste + Pañuelos UNICA blanco | QR
+VE-0157 14:40 | Corpiño sin armado 70C celeste
+VE-0155 14:55 | Boyshort XS rojo | QR
+VE-0156 14:59 | Biquini usado M rosa
+
+### MARTES 13/10/2026 | BARRIO NUEVO | 11 pedidos | Bs 363.00
+VE-0159 08:00 | Biquini usado L negro
+VE-0160 08:36 | Corpiño S rojo + Cachetero Liso XL azul
+VE-0158 08:44 | Biquini usado L negro
+VE-0161 10:35 | Cachetero con diseño S rojo
+VE-0163 11:38 | Cachetero Liso S rojo
+VE-0162 11:53 | Biquini usado M amarillo + Ropa usada MUJER M azul + Traje de baño usado S celeste
+VE-0164 12:02 | Maya usada S azul + Maya usada XS verde
+VE-0165 13:09 | Medias Antideslizantes M blanco + Biquini usado L verde + Maya usada M negro
+VE-0166 13:55 | Biquini usado M verde + Biquini usado S celeste
+VE-0167 13:56 | Culotte XS gris Bs18.00
+VE-0168 15:09 | Traje de baño usado L rojo
+
+### MARTES 20/10/2026 | BARRIO NUEVO | 13 pedidos | Bs 409.00
+VE-0169 07:08 | Cachetero Liso M verde + Cubre pezón UNICA blanco
+VE-0170 07:27 | Biquini usado S celeste + Ropa usada MUJER XS azul
+VE-0171 07:32 | Calzón clasico M rojo
+VE-0172 08:44 | Hilo Dental XL rojo Bs10.00
+VE-0173 08:53 | Traje de baño usado M rosa + Hilo Dental XXL celeste Bs10.00
+VE-0175 09:17 | Bóxer ajustado (Boxer Brief) M rojo Bs20.00 + Maya usada M azul
+VE-0174 09:26 | Ropa usada MUJER S blanco + Medias L azul + Ropa usada MUJER S verde
+VE-0176 10:20 | Ropa usada HOMBRE L rojo
+VE-0177 10:50 | Maya usada L azul + Ropa usada MUJER XL blanco
+VE-0179 11:16 | Tanga XL verde Bs24.00
+VE-0178 11:25 | Traje de baño usado M negro
+VE-0180 13:31 | Biquini usado S celeste + Calzón clasico M azul + Biquini usado S azul
+VE-0181 15:23 | Calzón clasico S blanco
+
+### MARTES 27/10/2026 | BARRIO NUEVO | 18 pedidos | Bs 569.00
+VE-0182 07:27 | Colalé L verde | QR
+VE-0183 07:41 | Ropa usada MUJER M negro + Maya usada S rosa + Bikini XS negro Bs20.00
+VE-0184 07:58 | Cachetero con diseño XL rosa
+VE-0186 08:18 | Medias de marca UNICA negro
+VE-0185 08:19 | Maya usada XS negro | QR
+VE-0187 09:47 | Tanga M amarillo Bs24.00
+VE-0188 09:59 | Cachetero con diseño M azul
+VE-0189 10:10 | Cachetero Liso XS gris + Traje de baño usado M rojo | QR
+VE-0190 10:31 | Traje de baño usado L negro + Maya usada XS azul
+VE-0193 11:06 | Medias de marca UNICA gris
+VE-0192 11:30 | Maya usada L azul + Maya usada L azul
+VE-0191 11:57 | Biquini usado M azul + Ropa usada MUJER M negro + Cachetero con diseño XL verde
+VE-0197 12:19 | Ropa usada MUJER M rosa + Traje de baño usado L rojo
+VE-0196 12:26 | Medias de marca UNICA gris + Biquini usado M negro
+VE-0194 12:37 | Medias de marca UNICA azul + Medias Antideslizantes M blanco
+VE-0195 12:48 | Colalé M negro + Medias de marca UNICA negro x2 + Ropa usada MUJER M celeste
+VE-0198 14:30 | Culotte UNICA rosa Bs20.00
+VE-0199 15:06 | Ropa usada MUJER L celeste
+
+### MARTES 03/11/2026 | BARRIO NUEVO | 14 pedidos | Bs 360.00
+VE-0200 07:57 | Cachetero con diseño M rosa
+VE-0202 08:09 | Biquini usado M amarillo
+VE-0201 08:23 | Cachetero con diseño M celeste
+VE-0203 08:54 | Calzón faja M celeste + Medias Antideslizantes M negro
+VE-0205 09:15 | Biquini usado M amarillo + Biquini usado L rosa + Maya usada L amarillo
+VE-0206 09:18 | Ropa usada HOMBRE L rojo
+VE-0207 09:35 | Traje de baño usado M rosa | QR
+VE-0204 09:47 | Cachetero Liso M verde
+VE-0209 10:26 | Biquini usado M amarillo
+VE-0208 10:54 | Traje de baño usado S amarillo + Medias de marca UNICA blanco | QR
+VE-0210 13:39 | Biquini usado S celeste
+VE-0213 14:34 | Biquini usado M negro
+VE-0211 14:35 | Ropa usada MUJER L negro
+VE-0212 14:47 | Corpiño sin armado 70C azul
+
+### MARTES 10/11/2026 | BARRIO NUEVO | 15 pedidos | Bs 435.00
+VE-0214 07:47 | Traje de baño usado S verde + Medias M negro
+VE-0215 08:28 | Ropa usada MUJER M azul
+VE-0216 08:30 | Maya usada M verde
+VE-0219 09:08 | Maya usada XXL negro
+VE-0218 09:44 | Cachetero Liso M celeste
+VE-0217 09:48 | Ropa usada MUJER XL blanco + Cachetero con diseño XS verde
+VE-0220 11:44 | Maya usada S celeste
+VE-0222 12:00 | Maya usada S negro + Ropa usada MUJER M amarillo
+VE-0221 12:51 | Biquini usado S rosa + Biquini usado M verde + Bóxer suelto XS rojo x2 Bs20.00
+VE-0224 13:40 | Medias M gris x2
+VE-0223 13:59 | Cachetero Liso S verde + Traje de baño usado M verde + Colalé M celeste
+VE-0225 14:14 | Slip XL gris Bs25.00
+VE-0227 15:03 | Ropa usada MUJER S gris
+VE-0228 15:48 | Biquini usado M amarillo
+VE-0226 15:57 | Biquini usado XS amarillo
+
+### MARTES 17/11/2026 | BARRIO NUEVO | 12 pedidos | Bs 464.00
+VE-0229 07:09 | Traje de baño usado M negro + Colalé L verde
+VE-0231 07:24 | Culotte XXL rosa Bs18.00 + Fajas M verde + Biquini usado L celeste
+VE-0230 07:41 | Corpiño sin armado 75C rosa + Biquini usado S rojo + Biquini usado L verde
+VE-0232 08:38 | Traje de baño usado L celeste + Brief XS rojo
+VE-0233 09:56 | Maya usada S verde + Biquini usado M celeste
+VE-0234 10:17 | Medias de marca UNICA blanco
+VE-0235 10:26 | Ropa usada MUJER M celeste
+VE-0236 11:13 | Cachetero Liso XL verde + Maya usada XL verde
+VE-0237 13:26 | Ropa usada MUJER M amarillo + Biquini usado L azul
+VE-0238 14:03 | Ropa usada MUJER S blanco
+VE-0239 15:36 | Cachetero con diseño L amarillo
+VE-0240 15:39 | Cubre pezón UNICA blanco + Corpiño S celeste

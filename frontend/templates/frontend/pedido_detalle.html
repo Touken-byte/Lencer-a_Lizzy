@@ -58,11 +58,29 @@
 <ul class="list-group mb-3">
 {% for item in pedido.items.all %}
 <li class="list-group-item d-flex justify-content-between">
-    <span>{{ item.cantidad }}x {{ item.producto.nombre }} ({{ item.talla }})</span>
+    <span>{{ item.cantidad }}x {{ item.producto.nombre }} ({{ item.talla }}{% if item.color %} - {{ item.color }}{% endif %})</span>
     <span>Bs {{ item.subtotal }}</span>
 </li>
 {% endfor %}
 </ul>
 <h5>Total: <strong style="color:var(--color-marca);">Bs {{ pedido.total }}</strong></h5>
 <p class="text-muted">Pago: {{ pedido.pago.get_metodo_display }} - {{ pedido.pago.get_estado_display }}</p>
+
+{% if pedido.pago.metodo == 'qr' and pedido.estado != 'cancelado' and pedido.pago.estado != 'verificado' %}
+<div class="card mt-3"><div class="card-body">
+    <h6 class="fw-bold">Pago con QR</h6>
+    {% if config_negocio.qr_pago %}<img src="{{ config_negocio.qr_pago.url }}" style="max-width:220px;" class="rounded shadow-sm mb-2 d-block">{% endif %}
+    {% if config_negocio.banco_nombre %}
+    <p class="small mb-2">Banco: {{ config_negocio.banco_nombre }}<br>Titular: {{ config_negocio.banco_titular }}<br>Cuenta: {{ config_negocio.banco_numero_cuenta }}</p>
+    {% endif %}
+    {% if pedido.pago.comprobante %}<p class="small text-success mb-2">Ya enviaste un comprobante. Está pendiente de verificación; puedes reemplazarlo.</p>{% endif %}
+    <form method="post" action="{% url 'frontend:subir_comprobante' pedido.id %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="comprobante" accept="image/*" class="form-control mb-2" required>
+        <button type="submit" class="btn w-100" style="background-color:var(--color-marca); color:white;">
+            <i class="fa-solid fa-upload"></i> Subir comprobante
+        </button>
+    </form>
+</div></div>
+{% endif %}
 {% endblock %}

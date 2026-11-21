@@ -412,3 +412,29 @@ def resumen_ventas(request):
         'por_metodo': por_metodo,
         'mes_actual': hoy.strftime('%B %Y'),
     })
+
+
+@login_required(login_url='frontend:login')
+def subir_comprobante(request, pedido_id):
+    from chat.forms import imagen_valida
+    pedido = get_object_or_404(Pedido, pk=pedido_id, clienta=request.user)
+    pago = getattr(pedido, 'pago', None)
+    destino = redirect('frontend:pedido_detalle', pedido_id=pedido.id)
+    if request.method != 'POST' or pago is None:
+        return destino
+    if pago.metodo != 'qr' or pago.estado == 'verificado' or pedido.estado == 'cancelado':
+        messages.error(request, "Este pedido ya no admite comprobante.")
+        return destino
+    archivo = request.FILES.get('comprobante')
+    if not archivo:
+        messages.error(request, "Elige una imagen del comprobante.")
+    elif archivo.size > 5 * 1024 * 1024:
+        messages.error(request, "La imagen debe pesar como máximo 5 MB.")
+    elif not imagen_valida(archivo):
+        messages.error(request, "Solo se permiten imágenes JPG, PNG, WEBP o GIF.")
+    else:
+        pago.comprobante = archivo
+        pago.estado = 'pendiente'
+        pago.save()
+        messages.success(request, "Comprobante enviado. Lo verificaremos pronto.")
+    return destino

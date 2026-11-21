@@ -11,6 +11,7 @@
     {% if pedido.pago.metodo == 'qr' and config_negocio.qr_pago %}
         <img src="{{ config_negocio.qr_pago.url }}" style="max-width:250px;" class="my-3 rounded shadow-sm">
         <p class="text-muted small">Escanea este QR para pagar Bs {{ pedido.total }}</p>
+        <p class="small">Después de pagar, <a href="{% url 'frontend:pedido_detalle' pedido.id %}">sube tu comprobante aquí</a>.</p>
     {% endif %}
 
     <div class="mt-4">

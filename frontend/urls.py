@@ -15,6 +15,7 @@ urlpatterns = [
     path('favoritos/', views.favoritos_lista, name='favoritos'),
     path('favoritos/<int:producto_id>/toggle/', views.favorito_toggle, name='favorito_toggle'),
     path('mis-pedidos/<int:pedido_id>/', views.pedido_detalle, name='pedido_detalle'),
+    path('mis-pedidos/<int:pedido_id>/comprobante/', views.subir_comprobante, name='subir_comprobante'),
     path('carrito/agregar/<int:producto_id>/', views.agregar_al_carrito, name='agregar_al_carrito'),
     path('carrito/', views.ver_carrito, name='ver_carrito'),
     path('carrito/actualizar/<str:clave>/', views.actualizar_carrito, name='actualizar_carrito'),

@@ -3,6 +3,7 @@ from .forms import ProductoForm
 from .models import Categoria, Subcategoria, Producto, VarianteProducto, ImagenProducto, ConfiguracionNegocio
 from django import forms
 from django.core.exceptions import ValidationError
+from django.utils.html import format_html
 
 
 class SubcategoriaInline(admin.TabularInline):
@@ -76,7 +77,7 @@ class VarianteProductoInline(admin.TabularInline):
 class ProductoAdmin(admin.ModelAdmin):
     form = ProductoForm
     list_display = (
-        'nombre', 'categoria', 'subcategoria',
+        'nombre_display', 'categoria', 'subcategoria',
         'precio', 'precio_final_display', 'tallas_texto', 'stock_total', 'estado_display', 'en_oferta',
     )
     list_filter = ('categoria', 'subcategoria', 'activo', 'en_oferta')
@@ -103,6 +104,16 @@ class ProductoAdmin(admin.ModelAdmin):
     )
 
     actions = ['desactivar_producto']
+
+    @admin.display(description='Nombre', ordering='nombre')
+    def nombre_display(self, obj):
+        # Distingue productos con el mismo nombre (ofertas): muestra la oferta y el id
+        if obj.en_oferta and obj.porcentaje_descuento:
+            return format_html(
+                '{} <span style="background:#dc3545;color:#fff;padding:1px 8px;border-radius:10px;font-size:.8em;">Oferta -{}%</span> <small>#{}</small>',
+                obj.nombre, obj.porcentaje_descuento, obj.pk
+            )
+        return format_html('{} <small>#{}</small>', obj.nombre, obj.pk)
 
     @admin.display(description='Precio final')
     def precio_final_display(self, obj):

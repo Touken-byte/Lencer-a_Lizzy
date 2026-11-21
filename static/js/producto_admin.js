@@ -74,3 +74,7 @@ django.jQuery(function($) {
         }
     });
 });
+// Al agregar una variante nueva con "Agregar otra variante", vuelve a filtrar sus tallas
+document.addEventListener('formset:added', function() {
+    django.jQuery('#id_subcategoria').trigger('change');
+});

@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.generic import RedirectView
 from . import views
 
 app_name = 'frontend'
@@ -22,5 +23,5 @@ urlpatterns = [
     path('pedido/<int:pedido_id>/confirmado/', views.pedido_confirmado, name='pedido_confirmado'),
     path('mis-pedidos/', views.mis_pedidos, name='mis_pedidos'),
     path('direcciones/', views.gestionar_direcciones, name='direcciones'),
-    path('resumen-ventas/', views.resumen_ventas, name='resumen_ventas'),
+    path('resumen-ventas/', RedirectView.as_view(pattern_name='admin_resumen_ventas'), name='resumen_ventas'),
 ]

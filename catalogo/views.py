@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework import generics, filters
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
@@ -44,7 +45,7 @@ class ProductoDetalleView(generics.RetrieveAPIView):
 @permission_classes([AllowAny])
 def subcategorias_por_categoria(request, categoria_id):
     """Devuelve las subcategorías de una categoría (para el filtro dinámico del admin)"""
-    subs = Categoria.objects.get(pk=categoria_id).subcategorias.values('id', 'nombre', 'tipo_talla')
+    subs = get_object_or_404(Categoria, pk=categoria_id).subcategorias.values('id', 'nombre', 'tipo_talla')
     return Response(list(subs))
 
 @api_view(['GET'])

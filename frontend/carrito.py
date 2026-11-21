@@ -64,7 +64,7 @@ class Carrito:
         """Devuelve lista de dicts con producto real, talla, color, cantidad, subtotal"""
         items = []
         productos_ids = [v['producto_id'] for v in self.carrito.values()]
-        productos = Producto.objects.filter(id__in=productos_ids).prefetch_related('imagenes', 'variantes')
+        productos = Producto.objects.filter(id__in=productos_ids, activo=True).prefetch_related('imagenes', 'variantes')
         productos_dict = {p.id: p for p in productos}
 
         for clave, data in self.carrito.items():

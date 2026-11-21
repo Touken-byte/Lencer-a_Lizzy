@@ -1,9 +1,29 @@
+import os
+
 from django import forms
+from PIL import Image
 from .models import Mensaje
 
 MAX_IMAGEN_MB = 5
 MAX_VIDEO_MB = 20
 MAX_VIDEO_SEGUNDOS = 60
+
+EXT_IMAGEN = {'.jpg', '.jpeg', '.png', '.webp', '.gif'}
+EXT_VIDEO = {'.mp4', '.webm', '.mov'}
+
+
+def imagen_valida(archivo):
+    """Extensión permitida y contenido realmente de imagen."""
+    if os.path.splitext(archivo.name)[1].lower() not in EXT_IMAGEN:
+        return False
+    try:
+        archivo.seek(0)
+        Image.open(archivo).verify()
+        return True
+    except Exception:
+        return False
+    finally:
+        archivo.seek(0)
 
 
 class MultipleFileInput(forms.ClearableFileInput):
@@ -42,6 +62,8 @@ class MensajeForm(forms.ModelForm):
         for img in imagenes:
             if img.size > MAX_IMAGEN_MB * 1024 * 1024:
                 raise forms.ValidationError(f"Cada imagen debe pesar como máximo {MAX_IMAGEN_MB} MB.")
+            if not imagen_valida(img):
+                raise forms.ValidationError("Solo se permiten imágenes JPG, PNG, WEBP o GIF.")
         return imagenes
 
     def clean_video(self):
@@ -51,6 +73,8 @@ class MensajeForm(forms.ModelForm):
                 raise forms.ValidationError(f"El video debe pesar como máximo {MAX_VIDEO_MB} MB.")
             if not video.content_type.startswith('video/'):
                 raise forms.ValidationError("El archivo debe ser un video.")
+            if os.path.splitext(video.name)[1].lower() not in EXT_VIDEO:
+                raise forms.ValidationError("Formato de video no permitido (MP4, WEBM o MOV).")
         return video
 
     def clean(self):

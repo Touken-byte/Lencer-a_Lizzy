@@ -21,6 +21,11 @@ class RegistroClienteSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'first_name', 'email', 'password', 'telefono', 'talla_brassiere', 'talla_calzon']
         extra_kwargs = {'email': {'required': False}}
 
+    def validate_email(self, value):
+        if value and User.objects.filter(email__iexact=value).exists():
+            raise serializers.ValidationError("Ya existe una cuenta con este correo.")
+        return value
+
     def validate(self, data):
         # HU-24: registro con teléfono O correo (al menos uno de los dos)
         if not data.get('email') and not data.get('telefono'):
@@ -56,6 +61,14 @@ class PerfilClienteSerializer(serializers.ModelSerializer):
     class Meta:
         model = PerfilCliente
         fields = ['nombre', 'email', 'telefono', 'talla_brassiere', 'talla_calzon']
+
+    def validate_email(self, value):
+        otros = User.objects.filter(email__iexact=value)
+        if self.instance:
+            otros = otros.exclude(pk=self.instance.usuario_id)
+        if value and otros.exists():
+            raise serializers.ValidationError("Ya existe una cuenta con este correo.")
+        return value
 
     def update(self, instance, validated_data):
         usuario_data = validated_data.pop('usuario', {})

@@ -29,6 +29,12 @@ class RegistroForm(UserCreationForm):
         for field in self.fields.values():
             field.widget.attrs.update({'class': 'form-control'})
 
+    def clean_email(self):
+        email = self.cleaned_data['email'].strip()
+        if User.objects.filter(email__iexact=email).exists():
+            raise forms.ValidationError("Ya existe una cuenta con este correo.")
+        return email
+
     def save(self, commit=True):
         user = super().save(commit=commit)
         if commit:
@@ -58,6 +64,16 @@ class PerfilForm(forms.ModelForm):
             self.fields['email'].initial = self.usuario.email
         for field in self.fields.values():
             field.widget.attrs.update({'class': 'form-control'})
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email', '').strip()
+        if email:
+            otros = User.objects.filter(email__iexact=email)
+            if self.usuario:
+                otros = otros.exclude(pk=self.usuario.pk)
+            if otros.exists():
+                raise forms.ValidationError("Ya existe una cuenta con este correo.")
+        return email
 
     def save(self, commit=True):
         perfil = super().save(commit=False)

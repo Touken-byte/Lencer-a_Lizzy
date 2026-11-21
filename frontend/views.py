@@ -17,6 +17,15 @@ from django.db.models import Sum, Count
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required, user_passes_test
 
+def _cantidad(valor, minimo=1, maximo=99, defecto=1):
+    """Convierte a entero y lo limita: evita errores 500 y cantidades negativas."""
+    try:
+        n = int(valor)
+    except (TypeError, ValueError):
+        return defecto
+    return max(minimo, min(n, maximo))
+
+
 def inicio(request):
     ofertas = (
         Producto.objects.filter(activo=True, en_oferta=True)
@@ -27,7 +36,8 @@ def inicio(request):
 
 
 def catalogo(request):
-    categoria_id = request.GET.get('categoria')
+    categoria_id = request.GET.get('categoria', '')
+    categoria_id = categoria_id if categoria_id.isdecimal() else None
     busqueda = request.GET.get('q', '').strip()
     talla = request.GET.get('talla', '')
     color = request.GET.get('color', '')
@@ -183,7 +193,8 @@ def favoritos_lista(request):
 @login_required(login_url='frontend:login')
 def favorito_toggle(request, producto_id):
     if request.method == 'POST':
-        favorito, creado = Favorito.objects.get_or_create(usuario=request.user, producto_id=producto_id)
+        producto = get_object_or_404(Producto, pk=producto_id)
+        favorito, creado = Favorito.objects.get_or_create(usuario=request.user, producto=producto)
         if not creado:
             favorito.delete()
 
@@ -198,7 +209,7 @@ def agregar_al_carrito(request, producto_id):
     if request.method == 'POST':
         talla = request.POST.get('talla', 'UNICA')
         color = request.POST.get('color', '')
-        cantidad = int(request.POST.get('cantidad', 1))
+        cantidad = _cantidad(request.POST.get('cantidad'))
         carrito = Carrito(request)
         carrito.agregar(producto_id, talla, color, cantidad)
         messages.success(request, "Producto agregado al carrito.")
@@ -215,7 +226,7 @@ def ver_carrito(request):
 
 def actualizar_carrito(request, clave):
     if request.method == 'POST':
-        cantidad = int(request.POST.get('cantidad', 1))
+        cantidad = _cantidad(request.POST.get('cantidad'), minimo=0)
         carrito = Carrito(request)
         carrito.actualizar_cantidad(clave, cantidad)
     return redirect('frontend:ver_carrito')

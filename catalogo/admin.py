@@ -15,7 +15,6 @@ class SubcategoriaInline(admin.TabularInline):
 class CategoriaAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'orden')
     ordering = ('orden',)
-    change_form_template = 'admin/catalogo/categoria_change_form.html'
     inlines = [SubcategoriaInline]
 
 

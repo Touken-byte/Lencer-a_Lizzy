@@ -118,3 +118,9 @@ a:hover {
     z-index: 1050 !important;
     position: absolute !important;
 }
+
+/* Botones Cancelar/Volver: grandes y apilados en celular */
+.botones-volver { display: flex; flex-wrap: wrap; gap: .5rem; }
+@media (max-width: 576px) {
+  .botones-volver .btn-volver { flex: 1 1 100%; padding: .75rem 1rem; font-size: 1rem; }
+}

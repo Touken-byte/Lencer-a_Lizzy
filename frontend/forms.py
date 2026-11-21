@@ -85,6 +85,12 @@ class PerfilForm(forms.ModelForm):
                 raise forms.ValidationError("Ya existe una cuenta con este correo.")
         return email
 
+    def clean(self):
+        datos = super().clean()
+        if datos.get('genero') != 'mujer':
+            datos['talla_brassiere'] = ''
+        return datos
+
     def save(self, commit=True):
         perfil = super().save(commit=False)
         if self.usuario:

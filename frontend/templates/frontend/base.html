@@ -45,8 +45,9 @@
 
                     {% if request.user.is_authenticated %}
                         {% if not request.user.is_staff %}
-                            <a class="btn btn-outline-light mx-1" href="{% url 'chat:chat_clienta' %}">
+                            <a class="btn btn-outline-light mx-1 position-relative" href="{% url 'chat:chat_clienta' %}">
                                 <i class="fa-solid fa-comments"></i> Chat
+                                {% if chat_sin_leer %}<span id="punto-chat" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ chat_sin_leer }}</span>{% endif %}
                             </a>
                         {% endif %}
 

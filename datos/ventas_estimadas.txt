@@ -25,7 +25,7 @@ VE-0013 18:33 | Pañuelos UNICA rojo + Medias de marca UNICA azul
 
 ### JUEVES 06/08/2026 | LOURDES | 8 pedidos | Bs 289.75
 VE-0014 09:00 | Calzón clasico S verde
-VE-0015 09:37 | Fajas S azul + Bóxer infantill S negro
+VE-0015 09:37 | Fajas S azul + Bóxer infantil S negro
 VE-0017 11:27 | Corpiño S negro
 VE-0016 11:33 | Top clásico 70A gris + Cubre pezón UNICA blanco + Top clásico 70A azul
 VE-0247 12:30 | Brief M gris
@@ -144,7 +144,7 @@ VE-0096 07:42 | Medias infantiles UNICA negro
 VE-0098 08:03 | Ropa usada MUJER XS blanco
 VE-0099 08:35 | Brief XXL rojo + Cachetero Liso L verde
 VE-0102 09:06 | Cachetero Liso M celeste
-VE-0103 09:06 | Brief S blanco + Bóxer infantill XS negro
+VE-0103 09:06 | Brief S blanco + Bóxer infantil XS negro
 VE-0101 09:18 | Medias Antideslizantes M negro
 VE-0100 09:24 | Slip M rojo Bs23.75 + Cachetero Liso L rosa
 VE-0104 09:38 | Ropa usada MUJER M gris + Bóxer suelto M rojo Bs20.00 | QR
@@ -176,7 +176,7 @@ VE-0125 07:50 | Top clásico 70A gris + Ropa usada MUJER M amarillo
 VE-0126 09:31 | Traje de baño usado M azul
 VE-0127 09:49 | Cachetero Liso M negro + Top clásico 70A celeste + Cubre pezón UNICA negro
 VE-0129 13:36 | Medias Antideslizantes XXL negro
-VE-0128 13:51 | Bóxer infantill S blanco
+VE-0128 13:51 | Bóxer infantil S blanco
 VE-0131 15:13 | Cachetero Liso S blanco
 VE-0130 15:28 | Slip M gris Bs25.00
 

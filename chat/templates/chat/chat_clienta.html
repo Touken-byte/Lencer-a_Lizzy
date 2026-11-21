@@ -1,5 +1,7 @@
 {% extends "frontend/base.html" %}
+{% load static %}
 {% block titulo %}Chat con la vendedora{% endblock %}
+{% block scripts %}<script src="{% static 'js/visor_imagen.js' %}"></script>{% endblock %}
 {% block contenido %}
 <h4 class="mb-3" style="color:#a83279;"><i class="fa-solid fa-comments"></i> Chat con la vendedora</h4>
 
@@ -8,9 +10,9 @@
     <div class="d-flex mb-2 {% if m.emisor == 'clienta' %}justify-content-end{% endif %}">
         <div class="p-2 rounded burbuja-chat" style="max-width:65%; background:{% if m.emisor == 'clienta' %}var(--color-marca); color:white;{% else %}var(--color-fondo-alt); color:var(--color-texto); border:1px solid var(--color-borde);{% endif %}">
             {% if m.texto %}<p class="mb-1">{{ m.texto }}</p>{% endif %}
-            {% if m.imagen %}<img src="{{ m.imagen.url }}" class="img-fluid rounded mb-1 media-chat">{% endif %}
+            {% if m.imagen %}<a href="{{ m.imagen.url }}"><img src="{{ m.imagen.url }}" class="img-fluid rounded mb-1 media-chat"></a>{% endif %}
             {% for extra in m.imagenes_extra.all %}
-                <img src="{{ extra.imagen.url }}" class="img-fluid rounded mb-1 media-chat">
+                <a href="{{ extra.imagen.url }}"><img src="{{ extra.imagen.url }}" class="img-fluid rounded mb-1 media-chat"></a>
             {% endfor %}
             {% if m.video %}
                 <video src="{{ m.video.url }}" controls class="rounded mb-1 media-chat"></video>

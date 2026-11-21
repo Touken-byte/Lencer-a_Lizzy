@@ -26,6 +26,21 @@ def imagen_valida(archivo):
         archivo.seek(0)
 
 
+def video_valido(archivo):
+    """Firma real del contenedor (el content_type lo manda el cliente y se falsifica)."""
+    ext = os.path.splitext(archivo.name)[1].lower()
+    try:
+        archivo.seek(0)
+        cabecera = archivo.read(12)
+    finally:
+        archivo.seek(0)
+    if ext == '.webm':
+        return cabecera[:4] == b'\x1a\x45\xdf\xa3'
+    if ext == '.mov':
+        return cabecera[4:8] in (b'ftyp', b'moov', b'mdat', b'wide', b'free', b'skip')
+    return cabecera[4:8] == b'ftyp'
+
+
 class MultipleFileInput(forms.ClearableFileInput):
     allow_multiple_selected = True
 
@@ -75,6 +90,8 @@ class MensajeForm(forms.ModelForm):
                 raise forms.ValidationError("El archivo debe ser un video.")
             if os.path.splitext(video.name)[1].lower() not in EXT_VIDEO:
                 raise forms.ValidationError("Formato de video no permitido (MP4, WEBM o MOV).")
+            if not video_valido(video):
+                raise forms.ValidationError("El archivo no parece un video válido.")
         return video
 
     def clean(self):

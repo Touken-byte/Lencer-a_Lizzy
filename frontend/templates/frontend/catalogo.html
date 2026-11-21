@@ -9,6 +9,9 @@
     {% if categoria_activa %}
         <input type="hidden" name="categoria" value="{{ categoria_activa }}">
     {% endif %}
+    {% if talla_activa %}<input type="hidden" name="talla" value="{{ talla_activa }}">{% endif %}
+    {% if color_activo %}<input type="hidden" name="color" value="{{ color_activo }}">{% endif %}
+    {% if mi_talla_activo %}<input type="hidden" name="mi_talla" value="1">{% endif %}
     <div class="input-group">
         <input type="text" name="q" value="{{ busqueda }}"
                class="form-control" placeholder="Buscar producto por nombre...">
@@ -16,7 +19,7 @@
             <i class="fa-solid fa-magnifying-glass"></i> Buscar
         </button>
         {% if busqueda %}
-        <a href="{% url 'frontend:catalogo' %}{% if categoria_activa %}?categoria={{ categoria_activa }}{% endif %}"
+        <a href="{% url 'frontend:catalogo' %}{% if categoria_activa or talla_activa or color_activo or mi_talla_activo %}?{% endif %}{% if categoria_activa %}categoria={{ categoria_activa }}&{% endif %}{% if talla_activa %}talla={{ talla_activa|urlencode }}&{% endif %}{% if color_activo %}color={{ color_activo|urlencode }}&{% endif %}{% if mi_talla_activo %}mi_talla=1{% endif %}"
            class="btn btn-outline-secondary">
             <i class="fa-solid fa-xmark"></i> Limpiar
         </a>
@@ -28,6 +31,7 @@
 <form method="get" class="row g-2 mb-4 align-items-end">
     {% if categoria_activa %}<input type="hidden" name="categoria" value="{{ categoria_activa }}">{% endif %}
     {% if busqueda %}<input type="hidden" name="q" value="{{ busqueda }}">{% endif %}
+    {% if mi_talla_activo %}<input type="hidden" name="mi_talla" value="1">{% endif %}
 
     <div class="col-auto">
         <label class="form-label mb-0 small text-muted">Talla</label>
@@ -68,9 +72,9 @@
     </div>
     {% endif %}
 
-    {% if talla_activa or color_activo %}
+    {% if talla_activa or color_activo or mi_talla_activo %}
     <div class="col-auto">
-        <a href="?{% if categoria_activa %}categoria={{ categoria_activa }}&{% endif %}{% if busqueda %}q={{ busqueda }}{% endif %}"
+        <a href="?{% if categoria_activa %}categoria={{ categoria_activa }}&{% endif %}{% if busqueda %}q={{ busqueda|urlencode }}{% endif %}"
            class="btn btn-outline-secondary">
             <i class="fa-solid fa-xmark"></i> Quitar filtros
         </a>

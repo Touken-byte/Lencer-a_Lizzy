@@ -94,10 +94,14 @@ def catalogo(request):
         productos = productos.filter(categoria_id=categoria_id)
     if busqueda:
         productos = productos.filter(nombre__icontains=busqueda)
+    # Un solo filter(): talla y color deben coincidir en la MISMA variante
+    filtro_variante = {}
     if talla:
-        productos = productos.filter(variantes__talla=talla)
+        filtro_variante['variantes__talla'] = talla
     if color:
-        productos = productos.filter(variantes__color__iexact=color)
+        filtro_variante['variantes__color__iexact'] = color
+    if filtro_variante:
+        productos = productos.filter(**filtro_variante)
 
     productos = productos.distinct()
 
@@ -125,6 +129,7 @@ def catalogo(request):
         'tallas': Producto.TALLA_CHOICES,
         'colores_disponibles': colores_disponibles,
         'favoritos_ids': favoritos_ids,
+        'mi_talla_activo': bool(mi_talla) and request.user.is_authenticated,
     }
     return render(request, 'frontend/catalogo.html', context)
 

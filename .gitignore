@@ -36,3 +36,8 @@ media/
 .env
 __pycache__/
 .~lock.*
+
+# Exportaciones y comprimidos (contienen datos personales)
+*.zip
+Informe/
+Informe_Exportacion/

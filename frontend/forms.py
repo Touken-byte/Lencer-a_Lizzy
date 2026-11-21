@@ -35,6 +35,12 @@ class RegistroForm(UserCreationForm):
             raise forms.ValidationError("Ya existe una cuenta con este correo.")
         return email
 
+    def clean(self):
+        datos = super().clean()
+        if datos.get('genero') != 'mujer':
+            datos['talla_brassiere'] = ''
+        return datos
+
     def save(self, commit=True):
         user = super().save(commit=commit)
         if commit:
@@ -54,7 +60,11 @@ class PerfilForm(forms.ModelForm):
 
     class Meta:
         model = PerfilCliente
-        fields = ['telefono', 'talla_brassiere', 'talla_calzon']
+        fields = ['genero', 'telefono', 'talla_brassiere', 'talla_calzon']
+        labels = {
+            'genero': 'Género', 'telefono': 'Teléfono',
+            'talla_brassiere': 'Talla de brasier', 'talla_calzon': 'Talla de calzón',
+        }
 
     def __init__(self, *args, **kwargs):
         self.usuario = kwargs.pop('usuario', None)

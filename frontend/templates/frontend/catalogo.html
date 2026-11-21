@@ -98,7 +98,9 @@
     {% endfor %}
 </div>
 
-<p class="text-muted small">{{ productos.count }} producto{{ productos.count|pluralize }} encontrado{{ productos.count|pluralize:"o,os" }}</p>
+{% with n=productos|length %}
+<p class="text-muted small">{{ n }} producto{{ n|pluralize }} encontrad{{ n|pluralize:"o,os" }}</p>
+{% endwith %}
 
 <!-- Grid de productos -->
 <div class="row g-4">
@@ -145,13 +147,14 @@
                     <a href="{% url 'frontend:producto_detalle' producto.pk %}"
                        class="btn btn-sm flex-fill"
                        style="background-color:#a83279; color:white;"
-                       {% if producto.agotado %}disabled{% endif %}>
+                       >
                         <i class="fa-solid fa-eye"></i> Ver detalle
                     </a>
                     {% if request.user.is_authenticated %}
                     <button type="button"
                             class="btn btn-sm btn-outline-danger btn-favorito"
-                            data-producto-id="{{ producto.id }}">
+                            data-producto-id="{{ producto.id }}"
+                            data-url="{% url 'frontend:favorito_toggle' producto.id %}">
                         {% if producto.id in favoritos_ids %}
                             <i class="fa-solid fa-heart"></i>
                         {% else %}
@@ -177,7 +180,7 @@
 document.querySelectorAll('.btn-favorito').forEach(function (btn) {
     btn.addEventListener('click', function () {
         var productoId = btn.dataset.productoId;
-        fetch(`/favoritos/${productoId}/toggle/`, {
+        fetch(btn.dataset.url, {
             method: 'POST',
             headers: {
                 'X-CSRFToken': '{{ csrf_token }}',

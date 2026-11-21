@@ -106,7 +106,10 @@ class Producto(models.Model):
 
     @property
     def imagen_portada(self):
-        return self.imagenes.filter(es_portada=True).first() or self.imagenes.first()
+        # Usa el prefetch si existe (sin consultas extra por producto)
+        imagenes_ordenadas = sorted(self.imagenes.all(), key=lambda i: i.pk)
+        portada = next((i for i in imagenes_ordenadas if i.es_portada), None)
+        return portada or (imagenes_ordenadas[0] if imagenes_ordenadas else None)
 
     @property
     def stock_total(self):

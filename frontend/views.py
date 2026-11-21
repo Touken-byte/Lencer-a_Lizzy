@@ -62,7 +62,7 @@ def catalogo(request):
     productos = (
         Producto.objects.filter(activo=True)
         .select_related('categoria', 'subcategoria')
-        .prefetch_related('imagenes')
+        .prefetch_related('imagenes', 'variantes')
     )
 
     mi_talla = request.GET.get('mi_talla')
@@ -136,7 +136,7 @@ def catalogo(request):
 
 def producto_detalle(request, pk):
     producto = get_object_or_404(
-        Producto.objects.prefetch_related('imagenes'), pk=pk, activo=True
+        Producto.objects.prefetch_related('imagenes', 'variantes'), pk=pk, activo=True
     )
     es_favorito = False
     if request.user.is_authenticated:

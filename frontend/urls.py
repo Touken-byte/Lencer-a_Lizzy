@@ -24,5 +24,6 @@ urlpatterns = [
     path('pedido/<int:pedido_id>/confirmado/', views.pedido_confirmado, name='pedido_confirmado'),
     path('mis-pedidos/', views.mis_pedidos, name='mis_pedidos'),
     path('direcciones/', views.gestionar_direcciones, name='direcciones'),
+    path('notificaciones/', views.notificaciones, name='notificaciones'),
     path('resumen-ventas/', RedirectView.as_view(pattern_name='admin_resumen_ventas'), name='resumen_ventas'),
 ]

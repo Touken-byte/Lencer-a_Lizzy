@@ -4,6 +4,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.cache import cache
+from django.http import JsonResponse
+from django.views.decorators.cache import never_cache
+from .context_processors import configuracion_negocio
 from django.utils.http import url_has_allowed_host_and_scheme
 from catalogo.models import Categoria, Producto, VarianteProducto, ConfiguracionNegocio
 from django.db import transaction
@@ -441,3 +444,12 @@ def subir_comprobante(request, pedido_id):
         pago.save()
         messages.success(request, "Comprobante enviado. Lo verificaremos pronto.")
     return destino
+
+
+@never_cache
+def notificaciones(request):
+    ctx = configuracion_negocio(request)
+    return JsonResponse({
+        'chat': ctx.get('chat_sin_leer', 0),
+        'pedidos': bool(ctx.get('hay_alerta_pedidos', False)),
+    })

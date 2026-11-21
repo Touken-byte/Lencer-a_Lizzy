@@ -3,6 +3,7 @@ from django.contrib.admin import site
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.models import User
 from django.db.models import Max
+from django.http import JsonResponse
 
 from .models import Mensaje, ImagenMensaje
 from .forms import MensajeForm
@@ -84,3 +85,13 @@ def admin_notificacion_masiva(request):
         'title': 'Notificar a todas las clientas',
     }
     return render(request, 'admin/chat/notificacion_masiva.html', context)
+
+
+@staff_member_required
+def admin_avisos(request):
+    from pedidos.models import Pago
+    pagos = (Pago.objects.filter(estado='pendiente', metodo='qr')
+             .exclude(comprobante__isnull=True).exclude(comprobante='')
+             .exclude(pedido__estado='cancelado').count())
+    chats = Mensaje.objects.filter(emisor='clienta', leido=False).count()
+    return JsonResponse({'chats': chats, 'pagos': pagos})

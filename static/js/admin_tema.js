@@ -54,3 +54,32 @@
         });
     });
 })();
+;(function () {
+    function poner(href, n) {
+        var a = document.querySelector('.main-sidebar a.nav-link[href$="' + href + '"]');
+        if (!a) { return; }
+        var p = a.querySelector('p') || a;
+        var b = a.querySelector('.aviso-menu');
+        if (n > 0) {
+            if (!b) {
+                b = document.createElement('span');
+                b.className = 'aviso-menu badge badge-danger ml-2';
+                p.appendChild(b);
+            }
+            b.textContent = n;
+        } else if (b) { b.remove(); }
+    }
+    function consultar() {
+        if (document.hidden) { return; }
+        fetch('/admin/avisos/', { credentials: 'same-origin' })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (d) {
+                if (!d) { return; }
+                poner('/admin/chats/', d.chats);
+                poner('/admin/pedidos/pedido/', d.pagos);
+            })
+            .catch(function () {});
+    }
+    document.addEventListener('DOMContentLoaded', consultar);
+    setInterval(consultar, 30000);
+})();

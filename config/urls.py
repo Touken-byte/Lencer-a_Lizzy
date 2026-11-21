@@ -3,10 +3,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from frontend.admin_views import salir_admin, resumen_ventas_admin
-from chat.admin_views import admin_panel_chats, admin_chat_detalle, admin_notificacion_masiva
+from chat.admin_views import admin_panel_chats, admin_chat_detalle, admin_notificacion_masiva, admin_avisos
 
 urlpatterns = [
     path('admin/salir/', salir_admin, name='admin_logout_custom'),
+    path('admin/avisos/', admin_avisos, name='admin_avisos'),
     path('admin/chats/', admin_panel_chats, name='admin_panel_chats'),
     path('admin/chats/notificar/', admin_notificacion_masiva, name='admin_notificacion_masiva'),
     path('admin/chats/<int:usuario_id>/', admin_chat_detalle, name='admin_chat_detalle'),

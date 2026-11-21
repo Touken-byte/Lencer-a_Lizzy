@@ -275,6 +275,19 @@ def actualizar_carrito(request, clave):
     if request.method == 'POST':
         cantidad = _cantidad(request.POST.get('cantidad'), minimo=0)
         carrito = Carrito(request)
+        linea = carrito.carrito.get(clave)
+        if linea and cantidad > 0:
+            variante = VarianteProducto.objects.filter(
+                producto_id=linea['producto_id'], producto__activo=True,
+                talla=linea['talla'], color=linea.get('color', '')
+            ).first()
+            stock = variante.stock if variante else 0
+            if stock < 1:
+                messages.error(request, "Esa combinación ya no tiene stock.")
+                return redirect('frontend:ver_carrito')
+            if cantidad > stock:
+                cantidad = stock
+                messages.warning(request, f"Solo quedan {stock} unidad(es) de esa combinación.")
         carrito.actualizar_cantidad(clave, cantidad)
     return redirect('frontend:ver_carrito')
 

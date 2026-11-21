@@ -6,7 +6,6 @@ from .models import Mensaje
 
 MAX_IMAGEN_MB = 5
 MAX_VIDEO_MB = 20
-MAX_VIDEO_SEGUNDOS = 60
 
 EXT_IMAGEN = {'.jpg', '.jpeg', '.png', '.webp', '.gif'}
 EXT_VIDEO = {'.mp4', '.webm', '.mov'}

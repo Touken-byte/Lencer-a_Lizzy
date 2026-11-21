@@ -7,6 +7,10 @@
     <div class="col-lg-7">
         <form method="post">
             {% csrf_token %}
+            {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}
+            {% for field in form %}{% for e in field.errors %}
+            <div class="alert alert-danger py-2 small">{{ field.label }}: {{ e }}</div>
+            {% endfor %}{% endfor %}
 
             <div class="card mb-3">
                 <div class="card-body">

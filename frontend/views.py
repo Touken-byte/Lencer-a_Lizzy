@@ -246,7 +246,7 @@ def agregar_al_carrito(request, producto_id):
             messages.error(request, "Ese producto o combinación ya no está disponible.")
             return redirect(_destino_seguro(request))
         carrito = Carrito(request)
-        carrito.agregar(producto_id, talla, color, cantidad)
+        carrito.agregar(producto_id, variante.talla, variante.color, cantidad)
         messages.success(request, "Producto agregado al carrito.")
     return redirect(_destino_seguro(request))
 

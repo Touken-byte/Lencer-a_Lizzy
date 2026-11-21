@@ -52,9 +52,21 @@ class PedidoAdmin(admin.ModelAdmin):
         'marcar_entregado_seleccionados',
     ]
 
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        if change and obj.origen != 'estimado' and (
+            'estado' in form.changed_data or 'fecha_estimada_entrega' in form.changed_data
+        ):
+            Pedido.objects.filter(pk=obj.pk).update(notificacion_entrega_pendiente=True)
+
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
         pedido = form.instance
+        for fs in formsets:
+            if fs.model is Pago and pedido.origen != 'estimado' and any(
+                'estado' in f.changed_data for f in fs.forms
+            ):
+                Pedido.objects.filter(pk=pedido.pk).update(notificacion_entrega_pendiente=True)
         if pedido.origen == 'estimado':
             pago = Pago.objects.filter(pedido=pedido).first()
             if pago is None:
@@ -103,6 +115,7 @@ class PedidoAdmin(admin.ModelAdmin):
             if pago and pago.estado != 'verificado':
                 pago.estado = 'verificado'
                 pago.save()
+                Pedido.objects.filter(pk=pedido.pk).update(notificacion_entrega_pendiente=True)
                 actualizados += 1
         self.message_user(request, f"{actualizados} pago(s) marcado(s) como verificado.")
 
@@ -114,6 +127,7 @@ class PedidoAdmin(admin.ModelAdmin):
             if pago and pago.estado != 'rechazado':
                 pago.estado = 'rechazado'
                 pago.save()
+                Pedido.objects.filter(pk=pedido.pk).update(notificacion_entrega_pendiente=True)
                 actualizados += 1
         self.message_user(request, f"{actualizados} pago(s) marcado(s) como rechazado.")
 

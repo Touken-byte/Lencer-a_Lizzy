@@ -144,6 +144,7 @@ class PedidoAdmin(admin.ModelAdmin):
 
     class Media:
         css = {'all': ('css/pedido_admin.css',)}
+        js = ('js/visor_imagen.js',)
 
 
 @admin.register(Pago)

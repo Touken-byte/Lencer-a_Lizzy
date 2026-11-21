@@ -36,7 +36,7 @@
 
     <div class="col-md-6">
         <h2 style="color:#a83279;">{{ producto.nombre }}</h2>
-        <p class="text-muted">{{ producto.categoria.nombre }} / {{ producto.subcategoria.nombre }}</p>
+        <p class="text-muted">{{ producto.categoria.nombre }}{% if producto.subcategoria %} / {{ producto.subcategoria.nombre }}{% endif %}</p>
 
         <p class="fs-4">
             {% if producto.en_oferta %}

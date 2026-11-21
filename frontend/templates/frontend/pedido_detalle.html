@@ -23,11 +23,14 @@
 {% endif %}
 
 {% if pedido.estado != 'cancelado' %}
+{% if pedido.estado == 'en_verificacion' %}
+<div class="alert alert-warning small mt-3 mb-0"><i class="fa-solid fa-hourglass-half"></i> Tu pedido está pendiente de confirmación de pago. Cuando se confirme, avanzará en la línea de progreso.</div>
+{% endif %}
 <!-- Línea de progreso (HU-22) -->
 <div class="d-flex justify-content-between position-relative my-5">
     <div class="position-absolute top-50 start-0 w-100" style="height:4px; background:var(--color-borde); z-index:0;"></div>
     <div class="position-absolute top-50 start-0" style="height:4px; background:var(--color-marca); z-index:1;
-        width:{% widthratio paso_actual pasos|length|add:"-1" 100 %}%;"></div>
+        width:{% if paso_actual < 0 %}0{% else %}{% widthratio paso_actual pasos|length|add:"-1" 100 %}{% endif %}%;"></div>
 
     {% for paso in pasos %}
     <div class="text-center position-relative" style="z-index:2; flex:1;">
@@ -35,7 +38,7 @@
              style="width:36px; height:36px; background:{% if forloop.counter0 <= paso_actual %}var(--color-marca){% else %}var(--color-borde){% endif %}; color:white;">
             <i class="fa-solid fa-check"></i>
         </div>
-        <p class="small mt-2 mb-0">{{ paso|capfirst }}</p>
+        <p class="small mt-2 mb-0">{% if paso == 'preparacion' %}Preparación{% else %}{{ paso|capfirst }}{% endif %}</p>
     </div>
     {% endfor %}
 </div>
@@ -73,7 +76,7 @@
     {% if config_negocio.banco_nombre %}
     <p class="small mb-2">Banco: {{ config_negocio.banco_nombre }}<br>Titular: {{ config_negocio.banco_titular }}<br>Cuenta: {{ config_negocio.banco_numero_cuenta }}</p>
     {% endif %}
-    {% if pedido.pago.comprobante %}<p class="small text-success mb-2">Ya enviaste un comprobante. Está pendiente de verificación; puedes reemplazarlo.</p>{% endif %}
+    {% if pedido.pago.estado == 'rechazado' %}<p class="small text-danger mb-2">Tu comprobante fue rechazado. Sube uno nuevo y legible.</p>{% elif pedido.pago.comprobante %}<p class="small text-success mb-2">Ya enviaste un comprobante. Está pendiente de verificación; puedes reemplazarlo.</p>{% endif %}
     <form method="post" action="{% url 'frontend:subir_comprobante' pedido.id %}" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file" name="comprobante" accept="image/*" class="form-control mb-2" required>

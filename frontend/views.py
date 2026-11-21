@@ -66,6 +66,7 @@ def catalogo(request):
     )
 
     mi_talla = request.GET.get('mi_talla')
+    filtro_mi_talla = None
     if mi_talla and request.user.is_authenticated:
         perfil_cliente = getattr(request.user, 'perfil_cliente', None)
         if perfil_cliente:
@@ -84,7 +85,7 @@ def catalogo(request):
                 filtro_talla |= Q(subcategoria__tipo_talla='brassiere', variantes__talla=perfil_cliente.talla_brassiere)
 
             if filtro_talla:
-                productos = productos.filter(filtro_talla)
+                filtro_mi_talla = filtro_talla
 
             categorias_genero = GENERO_A_CATEGORIAS.get(perfil_cliente.genero)
             if categorias_genero:
@@ -100,8 +101,12 @@ def catalogo(request):
         filtro_variante['variantes__talla'] = talla
     if color:
         filtro_variante['variantes__color__iexact'] = color
-    if filtro_variante:
-        productos = productos.filter(**filtro_variante)
+    if filtro_variante or filtro_mi_talla is not None:
+        from django.db.models import Q
+        condicion = Q(**filtro_variante)
+        if filtro_mi_talla is not None:
+            condicion &= filtro_mi_talla
+        productos = productos.filter(condicion)
 
     productos = productos.distinct()
 
@@ -180,6 +185,11 @@ def login_view(request):
                 nuevos = Producto.objects.filter(activo=True, creado__gt=ultimo_login).count()
                 if nuevos > 0:
                     messages.info(request, f"¡Hay {nuevos} producto(s) nuevo(s) desde tu última visita!")
+            siguiente = request.GET.get('next', '')
+            if siguiente and url_has_allowed_host_and_scheme(
+                siguiente, allowed_hosts={request.get_host()}, require_https=request.is_secure()
+            ):
+                return redirect(siguiente)
             return redirect('frontend:catalogo')
         else:
             cache.set(clave_fallos, cache.get(clave_fallos, 0) + 1, SEGUNDOS_BLOQUEO_LOGIN)
@@ -394,7 +404,7 @@ def pedido_detalle(request, pedido_id):
         pedido.save(update_fields=['notificacion_entrega_pendiente'])
 
     pasos = ['confirmado', 'preparacion', 'entregado']
-    paso_actual = pasos.index(pedido.estado) if pedido.estado in pasos else 0
+    paso_actual = pasos.index(pedido.estado) if pedido.estado in pasos else -1
     return render(request, 'frontend/pedido_detalle.html', {
         'pedido': pedido,
         'pasos': pasos,

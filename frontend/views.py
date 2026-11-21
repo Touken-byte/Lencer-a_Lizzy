@@ -10,14 +10,8 @@ from django.db import transaction
 from .carrito import Carrito
 from .forms_checkout import DireccionForm, CheckoutForm
 from pedidos.models import Pedido, ItemPedido, Pago
-from catalogo.models import Categoria, Producto
 from clientas.models import PerfilCliente, Favorito
 from .forms import RegistroForm, PerfilForm
-from django.utils import timezone
-from datetime import timedelta
-from django.db.models import Sum, Count
-from django.utils import timezone
-from django.contrib.auth.decorators import login_required, user_passes_test
 
 MAX_FALLOS_LOGIN = 5
 SEGUNDOS_BLOQUEO_LOGIN = 900
@@ -364,7 +358,6 @@ def checkout(request):
 
 @login_required(login_url='frontend:login')
 def pedido_confirmado(request, pedido_id):
-    from catalogo.models import ConfiguracionNegocio
     pedido = get_object_or_404(Pedido, pk=pedido_id, clienta=request.user)
     config = ConfiguracionNegocio.obtener()
     return render(request, 'frontend/pedido_confirmado.html', {
@@ -410,39 +403,6 @@ def pedido_detalle(request, pedido_id):
         'pasos': pasos,
         'paso_actual': paso_actual,
     })
-
-@user_passes_test(lambda u: u.is_staff, login_url='frontend:login')
-def resumen_ventas(request):
-    hoy = timezone.localtime(timezone.now())
-    inicio_mes = hoy.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-    if hoy.month == 12:
-        fin_mes = inicio_mes.replace(year=hoy.year + 1, month=1)
-    else:
-        fin_mes = inicio_mes.replace(month=hoy.month + 1)
-
-    pedidos_mes = Pedido.objects.filter(
-        fecha_venta__gte=inicio_mes, fecha_venta__lt=fin_mes
-    ).exclude(estado='cancelado')
-
-    total_pedidos = pedidos_mes.count()
-    monto_total = pedidos_mes.aggregate(total=Sum('total'))['total'] or 0
-    entregados = pedidos_mes.filter(estado='entregado').count()
-
-    por_metodo = (
-        Pago.objects.filter(pedido__in=pedidos_mes)
-        .values('metodo')
-        .annotate(cantidad=Count('id'))
-        .order_by('-cantidad')
-    )
-
-    return render(request, 'frontend/resumen_ventas.html', {
-        'total_pedidos': total_pedidos,
-        'monto_total': monto_total,
-        'entregados': entregados,
-        'por_metodo': por_metodo,
-        'mes_actual': hoy.strftime('%B %Y'),
-    })
-
 
 @login_required(login_url='frontend:login')
 def subir_comprobante(request, pedido_id):

@@ -246,15 +246,24 @@ def agregar_al_carrito(request, producto_id):
             messages.error(request, "Ese producto o combinación ya no está disponible.")
             return redirect(_destino_seguro(request))
         carrito = Carrito(request)
+        clave = f"{producto_id}_{variante.talla}_{variante.color}"
+        ya = carrito.carrito.get(clave, {}).get('cantidad', 0)
+        if ya + cantidad > variante.stock:
+            messages.error(
+                request,
+                f"Solo quedan {variante.stock} unidad(es) de esa combinación y ya tienes {ya} en el carrito."
+            )
+            return redirect(_destino_seguro(request))
         carrito.agregar(producto_id, variante.talla, variante.color, cantidad)
         messages.success(request, "Producto agregado al carrito.")
     return redirect(_destino_seguro(request))
 
 def ver_carrito(request):
     carrito = Carrito(request)
+    items = carrito.obtener_items()
     return render(request, 'frontend/carrito.html', {
-        'items': carrito.obtener_items(),
-        'total': carrito.total(),
+        'items': items,
+        'total': sum(i['subtotal'] for i in items),
     })
 
 
@@ -339,7 +348,7 @@ def checkout(request):
     return render(request, 'frontend/checkout.html', {
         'form': form,
         'items': items,
-        'total': carrito.total(),
+        'total': sum(i['subtotal'] for i in items),
     })
 
 

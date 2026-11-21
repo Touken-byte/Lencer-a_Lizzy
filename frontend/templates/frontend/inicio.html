@@ -17,6 +17,10 @@
             {% with portada=producto.imagen_portada %}
             {% if portada %}
                 <img src="{{ portada.imagen.url }}" class="card-img-top" style="height:150px; object-fit:cover;">
+            {% else %}
+                <div class="bg-light d-flex align-items-center justify-content-center card-img-top" style="height:150px;">
+                    <i class="fa-solid fa-shirt fa-2x text-secondary"></i>
+                </div>
             {% endif %}
             {% endwith %}
             <div class="card-body">

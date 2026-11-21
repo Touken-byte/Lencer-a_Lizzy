@@ -36,3 +36,9 @@ class CheckoutForm(forms.Form):
 
     def __init__(self, *args, usuario=None, **kwargs):
         super().__init__(*args, **kwargs)
+
+    def clean(self):
+        datos = super().clean()
+        if datos.get('metodo_pago') == 'qr' and not (datos.get('nombre_referencia') or '').strip():
+            self.add_error('nombre_referencia', 'Escribe el nombre con el que harás el pago por QR.')
+        return datos

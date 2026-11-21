@@ -72,6 +72,9 @@ class Carrito:
             if not producto:
                 continue
             subtotal = producto.precio_final * data['cantidad']
+            coinciden = [v for v in producto.variantes.all()
+                         if v.talla == data['talla'] and v.color == data.get('color', '')]
+            stock = coinciden[0].stock if coinciden else 0
             items.append({
                 'clave': clave,
                 'producto': producto,
@@ -79,6 +82,7 @@ class Carrito:
                 'color': data.get('color', ''),
                 'cantidad': data['cantidad'],
                 'subtotal': subtotal,
+                'stock': stock,
             })
         return items
 

@@ -25,11 +25,12 @@
                         Talla: {{ item.talla }}{% if item.color %} - Color: {{ item.color }}{% endif %}
                     </p>
                     <p class="mb-0"><strong style="color:var(--color-marca);">Bs {{ item.producto.precio_final }}</strong> c/u</p>
+                    {% if item.cantidad > item.stock %}<p class="small text-danger mb-0">Stock disponible: {{ item.stock }}. Ajusta la cantidad antes de confirmar.</p>{% endif %}
                 </div>
 
                 <form method="post" action="{% url 'frontend:actualizar_carrito' item.clave %}" class="d-flex align-items-center gap-2">
                     {% csrf_token %}
-                    <input type="number" name="cantidad" value="{{ item.cantidad }}" min="1" class="form-control" style="width:70px;">
+                    <input type="number" name="cantidad" value="{{ item.cantidad }}" min="1"{% if item.stock %} max="{{ item.stock }}"{% endif %} class="form-control" style="width:70px;">
                     <button type="submit" class="btn btn-sm btn-outline-secondary">
                         <i class="fa-solid fa-rotate"></i>
                     </button>

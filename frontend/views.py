@@ -213,7 +213,7 @@ def perfil(request):
 @login_required(login_url='frontend:login')
 def favoritos_lista(request):
     favoritos = (
-        Favorito.objects.filter(usuario=request.user)
+        Favorito.objects.filter(usuario=request.user, producto__activo=True)
         .select_related('producto')
         .prefetch_related('producto__imagenes')
     )
@@ -223,7 +223,7 @@ def favoritos_lista(request):
 @login_required(login_url='frontend:login')
 def favorito_toggle(request, producto_id):
     if request.method == 'POST':
-        producto = get_object_or_404(Producto, pk=producto_id)
+        producto = get_object_or_404(Producto, pk=producto_id, activo=True)
         favorito, creado = Favorito.objects.get_or_create(usuario=request.user, producto=producto)
         if not creado:
             favorito.delete()
@@ -239,6 +239,12 @@ def agregar_al_carrito(request, producto_id):
         talla = request.POST.get('talla', 'UNICA')
         color = request.POST.get('color', '')
         cantidad = _cantidad(request.POST.get('cantidad'))
+        variante = VarianteProducto.objects.filter(
+            producto_id=producto_id, producto__activo=True, talla=talla, color__iexact=color
+        ).first()
+        if not variante or variante.stock < 1:
+            messages.error(request, "Ese producto o combinación ya no está disponible.")
+            return redirect(_destino_seguro(request))
         carrito = Carrito(request)
         carrito.agregar(producto_id, talla, color, cantidad)
         messages.success(request, "Producto agregado al carrito.")

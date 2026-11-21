@@ -68,6 +68,10 @@ document.querySelectorAll('.form-favorito').forEach(function (form) {
                     grid.appendChild(p);
                 }
             }, 300);
+        })
+        .catch(function () {
+            boton.disabled = false;
+            boton.classList.remove('latido');
         });
     });
 });

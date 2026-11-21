@@ -40,7 +40,7 @@ def admin_panel_chats(request):
 @staff_member_required
 def admin_chat_detalle(request, usuario_id):
     usuario = get_object_or_404(User, pk=usuario_id)
-    mensajes = Mensaje.objects.filter(usuario=usuario)
+    mensajes = Mensaje.objects.filter(usuario=usuario).prefetch_related('imagenes_extra')
     mensajes.filter(emisor='clienta', leido=False).update(leido=True)
 
     if request.method == 'POST':

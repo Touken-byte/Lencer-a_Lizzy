@@ -54,14 +54,22 @@ document.getElementById('input-video').addEventListener('change', function (e) {
             document.getElementById('form-chat').submit();
         }
     };
+    video.onerror = function () {
+        window.URL.revokeObjectURL(video.src);
+        alert('No se pudo leer el video. Prueba con un archivo MP4.');
+        e.target.value = '';
+    };
     video.src = URL.createObjectURL(archivo);
 });
 </script>
 
-{% if form.errors %}<div class="text-danger small mt-2">{{ form.errors }}</div>{% endif %}
+{% if form.errors %}<div class="text-danger small mt-2">
+    {% for e in form.non_field_errors %}<div>{{ e }}</div>{% endfor %}
+    {% for f in form %}{% for e in f.errors %}<div>{{ e }}</div>{% endfor %}{% endfor %}
+</div>{% endif %}
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    var caja = document.querySelector('.border.rounded.p-3.mb-3');
+    var caja = document.getElementById('caja-chat');
     if (caja) { caja.scrollTop = caja.scrollHeight; }
 });
 </script>

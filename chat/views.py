@@ -15,7 +15,7 @@ def es_vendedora(user):
 @login_required(login_url='frontend:login')
 def chat_clienta(request):
     """HU-16, HU-18: la clienta habla con la vendedora"""
-    mensajes = Mensaje.objects.filter(usuario=request.user)
+    mensajes = Mensaje.objects.filter(usuario=request.user).prefetch_related('imagenes_extra')
     mensajes.filter(emisor='vendedora', leido=False).update(leido=True)
 
     if request.method == 'POST':

@@ -22,7 +22,7 @@ def actualizar_pedido_al_verificar_pago(sender, instance, **kwargs):
         campos_a_actualizar.append('estado')
 
     if not pedido.fecha_estimada_entrega and pedido.estado not in ('entregado', 'cancelado'):
-        pedido.fecha_estimada_entrega = timezone.now().date() + timedelta(days=DIAS_ENTREGA_DEFAULT)
+        pedido.fecha_estimada_entrega = timezone.localdate() + timedelta(days=DIAS_ENTREGA_DEFAULT)
         campos_a_actualizar.append('fecha_estimada_entrega')
 
     if campos_a_actualizar:

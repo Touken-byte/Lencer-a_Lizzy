@@ -1,3 +1,4 @@
+from urllib.parse import quote
 from django.shortcuts import get_object_or_404
 from rest_framework import generics, filters
 from rest_framework.decorators import api_view, permission_classes
@@ -54,9 +55,10 @@ def whatsapp_contacto(request):
     """HU-17: devuelve el número de WhatsApp y un mensaje predefinido"""
     config = ConfiguracionNegocio.obtener()
     numero = config.whatsapp_numero or ''
+    solo_digitos = ''.join(c for c in numero if c.isdigit())
     mensaje = f"Hola, me comunico desde la app de {config.nombre_negocio}. Quisiera hacer una consulta."
     return Response({
         'numero': numero,
         'mensaje_predefinido': mensaje,
-        'link': f"https://wa.me/{numero}?text={mensaje}" if numero else None
+        'link': f"https://wa.me/{solo_digitos}?text={quote(mensaje)}" if solo_digitos else None
     })

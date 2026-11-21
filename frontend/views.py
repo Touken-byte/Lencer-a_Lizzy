@@ -3,6 +3,8 @@ from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.cache import cache
+from django.utils.http import url_has_allowed_host_and_scheme
 from catalogo.models import Categoria, Producto, VarianteProducto, ConfiguracionNegocio
 from django.db import transaction
 from .carrito import Carrito
@@ -16,6 +18,20 @@ from datetime import timedelta
 from django.db.models import Sum, Count
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required, user_passes_test
+
+MAX_FALLOS_LOGIN = 5
+SEGUNDOS_BLOQUEO_LOGIN = 900
+
+
+def _destino_seguro(request, defecto='frontend:catalogo'):
+    # Solo acepta rutas del mismo sitio; evita redirigir a páginas externas
+    siguiente = request.POST.get('siguiente', '')
+    if siguiente and url_has_allowed_host_and_scheme(
+        siguiente, allowed_hosts={request.get_host()}, require_https=request.is_secure()
+    ):
+        return siguiente
+    return defecto
+
 
 def _cantidad(valor, minimo=1, maximo=99, defecto=1):
     """Convierte a entero y lo limita: evita errores 500 y cantidades negativas."""
@@ -144,8 +160,15 @@ def login_view(request):
     if request.method == 'POST':
         
         form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
+        clave_fallos = 'login_fallos:%s:%s' % (
+            request.META.get('REMOTE_ADDR', ''), request.POST.get('username', '').strip().lower()[:150]
+        )
+        if cache.get(clave_fallos, 0) >= MAX_FALLOS_LOGIN:
+            messages.error(request, "Demasiados intentos fallidos. Espera 15 minutos e inténtalo de nuevo.")
+            form = AuthenticationForm(request)
+        elif form.is_valid():
             user = form.get_user()
+            cache.delete(clave_fallos)
             ultimo_login = user.last_login
             auth_login(request, user)
             if ultimo_login:
@@ -153,6 +176,8 @@ def login_view(request):
                 if nuevos > 0:
                     messages.info(request, f"¡Hay {nuevos} producto(s) nuevo(s) desde tu última visita!")
             return redirect('frontend:catalogo')
+        else:
+            cache.set(clave_fallos, cache.get(clave_fallos, 0) + 1, SEGUNDOS_BLOQUEO_LOGIN)
     else:
         form = AuthenticationForm()
     form.fields['username'].widget.attrs.update({'class': 'form-control'})
@@ -202,8 +227,7 @@ def favorito_toggle(request, producto_id):
             from django.http import JsonResponse
             return JsonResponse({'es_favorito': creado})
 
-    siguiente = request.POST.get('siguiente') or 'frontend:catalogo'
-    return redirect(siguiente)
+    return redirect(_destino_seguro(request))
 
 def agregar_al_carrito(request, producto_id):
     if request.method == 'POST':
@@ -213,8 +237,7 @@ def agregar_al_carrito(request, producto_id):
         carrito = Carrito(request)
         carrito.agregar(producto_id, talla, color, cantidad)
         messages.success(request, "Producto agregado al carrito.")
-    siguiente = request.POST.get('siguiente') or 'frontend:catalogo'
-    return redirect(siguiente)
+    return redirect(_destino_seguro(request))
 
 def ver_carrito(request):
     carrito = Carrito(request)

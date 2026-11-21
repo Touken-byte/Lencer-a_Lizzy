@@ -69,9 +69,9 @@ def admin_chat_detalle(request, usuario_id):
 @staff_member_required
 def admin_notificacion_masiva(request):
     if request.method == 'POST':
-        texto = request.POST.get('texto', '').strip()
+        texto = request.POST.get('texto', '').strip()[:1000]
         if texto:
-            clientas = User.objects.filter(is_staff=False)
+            clientas = User.objects.filter(is_staff=False, is_active=True)
             mensajes_creados = [
                 Mensaje(usuario=clienta, emisor='vendedora', texto=texto, automatico=True)
                 for clienta in clientas

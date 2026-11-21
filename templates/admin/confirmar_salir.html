@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cerrar sesión</title>
+<style>
+body{font-family:sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;margin:0;background:#f4f6f9}
+.caja{background:#fff;padding:2rem;border-radius:12px;max-width:360px;width:90%;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.1)}
+button,a{display:block;width:100%;box-sizing:border-box;padding:.8rem;margin-top:.7rem;border-radius:8px;font-size:1rem;text-decoration:none;cursor:pointer}
+button{background:#dc3545;color:#fff;border:0}
+a{border:1px solid #6c757d;color:#333}
+</style></head>
+<body><div class="caja"><h2>¿Cerrar sesión?</h2>
+<form method="post">{% csrf_token %}<button type="submit">Cerrar sesión</button></form>
+<a href="{% url 'admin:index' %}">Cancelar</a>
+</div></body></html>

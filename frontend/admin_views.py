@@ -3,8 +3,10 @@ from django.shortcuts import redirect
 from django.shortcuts import render, redirect
 
 def salir_admin(request):
-    logout(request)
-    return redirect('admin:login')
+    if request.method == 'POST':
+        logout(request)
+        return redirect('admin:login')
+    return render(request, 'admin/confirmar_salir.html')
 
 from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.admin import site

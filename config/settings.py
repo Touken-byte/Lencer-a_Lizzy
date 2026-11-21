@@ -93,6 +93,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
+    'DEFAULT_THROTTLE_RATES': {'login': '10/min', 'registro': '5/hour'},
 }
 
 LOGIN_REDIRECT_URL = '/admin/'

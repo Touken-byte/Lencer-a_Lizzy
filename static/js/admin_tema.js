@@ -54,32 +54,40 @@
         });
     });
 })();
+
 ;(function () {
-    function poner(href, n) {
-        var a = document.querySelector('.main-sidebar a.nav-link[href$="' + href + '"]');
-        if (!a) { return; }
-        var p = a.querySelector('p') || a;
-        var b = a.querySelector('.aviso-menu');
-        if (n > 0) {
-            if (!b) {
-                b = document.createElement('span');
-                b.className = 'aviso-menu badge badge-danger ml-2';
-                p.appendChild(b);
-            }
-            b.textContent = n;
-        } else if (b) { b.remove(); }
+    function poner(ruta, n) {
+        var enlaces = document.querySelectorAll('aside a[href], .main-sidebar a[href]');
+        var hallados = 0;
+        enlaces.forEach(function (a) {
+            var href = a.getAttribute('href') || '';
+            if (href.split('?')[0].replace(/\/+$/, '') !== ruta.replace(/\/+$/, '')) { return; }
+            hallados++;
+            var b = a.querySelector('.aviso-menu');
+            if (n > 0) {
+                if (!b) {
+                    b = document.createElement('span');
+                    b.className = 'aviso-menu badge badge-danger';
+                    b.style.cssText = 'margin-left:8px;';
+                    a.appendChild(b);
+                }
+                b.textContent = n;
+            } else if (b) { b.remove(); }
+        });
+        if (!hallados) { console.warn('[avisos] no encontré en el menú un enlace a', ruta); }
     }
     function consultar() {
         if (document.hidden) { return; }
         fetch('/admin/avisos/', { credentials: 'same-origin' })
-            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
             .then(function (d) {
-                if (!d) { return; }
-                poner('/admin/chats/', d.chats);
-                poner('/admin/pedidos/pedido/', d.pagos);
+                poner('/admin/chats', d.chats);
+                poner('/admin/pedidos/pedido', d.pagos);
             })
-            .catch(function () {});
+            .catch(function (e) { console.warn('[avisos] fallo la consulta', e); });
     }
-    document.addEventListener('DOMContentLoaded', consultar);
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', consultar);
+    } else { consultar(); }
     setInterval(consultar, 30000);
 })();

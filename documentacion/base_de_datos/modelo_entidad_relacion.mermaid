@@ -1,0 +1,108 @@
+erDiagram
+    CATEGORIA ||--o{ SUBCATEGORIA : "tiene"
+    CATEGORIA ||--o{ PRODUCTO : "clasifica"
+    SUBCATEGORIA ||--o{ PRODUCTO : "clasifica"
+    PRODUCTO ||--o{ VARIANTE_PRODUCTO : "tiene"
+    PRODUCTO ||--o{ IMAGEN_PRODUCTO : "tiene"
+    USUARIO ||--o| PERFIL_CLIENTE : "tiene"
+    USUARIO ||--o{ DIRECCION_ENTREGA : "registra"
+    USUARIO ||--o| CARRITO_GUARDADO : "guarda"
+    USUARIO ||--o{ FAVORITO : "marca"
+    PRODUCTO ||--o{ FAVORITO : "es marcado"
+    USUARIO ||--o{ PEDIDO : "realiza"
+    DIRECCION_ENTREGA |o--o{ PEDIDO : "se usa en"
+    PEDIDO ||--|{ ITEM_PEDIDO : "contiene"
+    PRODUCTO ||--o{ ITEM_PEDIDO : "se vende en"
+    PEDIDO ||--|| PAGO : "se paga con"
+    USUARIO ||--o{ MENSAJE : "conversa"
+    MENSAJE ||--o{ IMAGEN_MENSAJE : "adjunta"
+
+    USUARIO {
+        int id PK
+        string username
+        string email
+        bool is_staff
+    }
+    PERFIL_CLIENTE {
+        bigint id PK
+        string telefono
+        string genero
+        string talla_brassiere
+        string talla_calzon
+    }
+    DIRECCION_ENTREGA {
+        bigint id PK
+        string calle
+        string barrio
+    }
+    CARRITO_GUARDADO {
+        bigint id PK
+        json datos
+    }
+    FAVORITO {
+        bigint id PK
+        datetime creado
+    }
+    CATEGORIA {
+        bigint id PK
+        string nombre
+    }
+    SUBCATEGORIA {
+        bigint id PK
+        string nombre
+        string tipo_talla
+    }
+    PRODUCTO {
+        bigint id PK
+        string nombre
+        decimal precio
+        bool en_oferta
+        string temporada
+    }
+    VARIANTE_PRODUCTO {
+        bigint id PK
+        string talla
+        string color
+        int stock
+    }
+    IMAGEN_PRODUCTO {
+        bigint id PK
+        string imagen
+        bool es_portada
+    }
+    PEDIDO {
+        bigint id PK
+        datetime fecha_venta
+        string lugar_venta
+        string origen
+        string estado
+        decimal total
+    }
+    ITEM_PEDIDO {
+        bigint id PK
+        string talla
+        string color
+        int cantidad
+        decimal precio_unitario
+    }
+    PAGO {
+        bigint id PK
+        string metodo
+        string estado
+        string comprobante
+    }
+    MENSAJE {
+        bigint id PK
+        string emisor
+        string texto
+        bool leido
+    }
+    IMAGEN_MENSAJE {
+        bigint id PK
+        string imagen
+    }
+    CONFIGURACION_NEGOCIO {
+        bigint id PK
+        string nombre_negocio
+        string whatsapp_numero
+    }

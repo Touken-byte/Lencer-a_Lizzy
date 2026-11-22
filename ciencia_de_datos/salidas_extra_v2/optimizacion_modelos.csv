@@ -1,0 +1,4 @@
+﻿Modelo,RMSE sin optimizar,RMSE optimizado,Combinaciones,Mejores hiperparámetros
+Gradient Boosting,1.8468975486846126,1.6440870032862231,18,"{'learning_rate': 0.03, 'max_depth': 2, 'n_estimators': 200}"
+Random Forest,1.8485908114844332,1.7891734197989078,24,"{'max_depth': 5, 'min_samples_leaf': 1, 'n_estimators': 400}"
+Ridge,2.0026893410187996,2.0026893410187996,7,{'alpha': 1}

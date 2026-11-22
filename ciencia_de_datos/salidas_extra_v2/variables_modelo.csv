@@ -1,0 +1,8 @@
+﻿Variable,Tipo,Preprocesamiento,Por qué entra
+lugar_venta,categórica,One-Hot,Dónde se vende cambia lo que se vende.
+dia_semana,categórica,One-Hot,Hay días de más movimiento que otros.
+tipo,categórica,One-Hot,Cada tipo de prenda tiene su propia demanda.
+mes,numérica,StandardScaler,Recoge la época del año.
+semana_iso,numérica,StandardScaler,Recoge la evolución dentro del año.
+calor,binaria 0/1,sin cambio,"1 desde el 2026-09-22 (supuesto propio, no dato medido)."
+unidades,OBJETIVO,(no se transforma),"Lo que se quiere predecir: prendas vendidas por día, lugar y tipo."

@@ -1,0 +1,50 @@
+﻿Archivo,N°,Columna,Descripción,Tipo,Ejemplo,Valores distintos,% vacíos
+ventas_lineas.csv,1,pedido_id,Número del pedido; un pedido puede tener varias líneas,identificador,313,249,0.0
+ventas_lineas.csv,2,fecha,Fecha de la venta (AAAA-MM-DD),fecha,2026-08-03,29,0.0
+ventas_lineas.csv,3,dia_semana,"Día de la semana de la venta (sin acentos: miercoles, sabado)",categórica,lunes,6,0.0
+ventas_lineas.csv,4,mes,Mes de la venta (1 a 12),numérica entera,8,4,0.0
+ventas_lineas.csv,5,semana_iso,Número de semana del año según ISO,numérica entera,32,14,0.0
+ventas_lineas.csv,6,hora,Hora de la venta (0 a 23); en las ventas estimadas es reconstruida,numérica entera,9,13,0.0
+ventas_lineas.csv,7,lugar_venta,"Dónde se vendió: online, mercado_lourdes o feria_barrio_nuevo",categórica,mercado_lourdes,2,0.0
+ventas_lineas.csv,8,origen,"Cómo se obtuvo el dato: real, estimado o prueba",categórica,estimado,1,0.0
+ventas_lineas.csv,9,producto_id,Identificador del producto en el catálogo,identificador,15,40,0.0
+ventas_lineas.csv,10,producto,Nombre del producto (puede repetirse por ofertas),texto,Hilo Dental,32,0.0
+ventas_lineas.csv,11,categoria,"Categoría del catálogo (Mujer, Hombre, Otros)",categórica,Mujer,3,0.0
+ventas_lineas.csv,12,subcategoria,Subcategoría dentro de la categoría,categórica,Abajo,7,0.0
+ventas_lineas.csv,13,temporada,Temporada del producto en el catálogo (por ejemplo verano o todo_el_anio),categórica,todo_el_anio,2,0.0
+ventas_lineas.csv,14,talla,Talla vendida,categórica,S,12,0.0
+ventas_lineas.csv,15,color,Color vendido (puede estar vacío si el producto no maneja color),categórica,rosa,9,0.0
+ventas_lineas.csv,16,cantidad,Unidades vendidas en la línea,numérica entera,1,2,0.0
+ventas_lineas.csv,17,precio_unitario,Precio cobrado por unidad (Bs),numérica decimal,14.7,13,0.0
+ventas_lineas.csv,18,subtotal,cantidad × precio_unitario (Bs),numérica decimal,14.7,19,0.0
+ventas_lineas.csv,19,metodo_pago,Cómo pagó: efectivo o qr,categórica,efectivo,2,0.0
+ventas_lineas.csv,20,estado_pedido,Estado del pedido (entregado en las ventas importadas),categórica,entregado,1,0.0
+ventas_lineas.csv,21,estado_pago,Estado del pago (verificado en las ventas importadas),categórica,verificado,1,0.0
+ventas_lineas.csv,22,tipo_entrega,Cómo se entregó (tienda en las ventas importadas),categórica,tienda,1,0.0
+ventas_lineas.csv,23,precio_lista_actual,"Precio de lista del producto HOY, no el del día de la venta (Bs)",numérica decimal,15.0,8,0.0
+ventas_lineas.csv,24,en_oferta_actual,"1 si el producto está en oferta HOY, 0 si no",booleana (0/1),1,2,0.0
+ventas_lineas.csv,25,descuento_actual_pct,Porcentaje de descuento del producto HOY,numérica entera,2,4,0.0
+pedidos.csv,1,pedido_id,Número del pedido,identificador,313,249,0.0
+pedidos.csv,2,fecha,Fecha de la venta,fecha,2026-08-03,29,0.0
+pedidos.csv,3,dia_semana,Día de la semana,categórica,lunes,6,0.0
+pedidos.csv,4,hora,Hora de la venta (0 a 23),numérica entera,9,13,0.0
+pedidos.csv,5,lugar_venta,Dónde se vendió,categórica,mercado_lourdes,2,0.0
+pedidos.csv,6,origen,"real, estimado o prueba",categórica,estimado,1,0.0
+pedidos.csv,7,tipo_entrega,Cómo se entregó,categórica,tienda,1,0.0
+pedidos.csv,8,estado_pedido,Estado del pedido,categórica,entregado,1,0.0
+pedidos.csv,9,metodo_pago,efectivo o qr,categórica,efectivo,2,0.0
+pedidos.csv,10,estado_pago,Estado del pago,categórica,verificado,1,0.0
+pedidos.csv,11,n_lineas,Cuántas líneas tiene el pedido,numérica entera,1,3,0.0
+pedidos.csv,12,n_prendas,Cuántas prendas suma el pedido,numérica entera,1,4,0.0
+pedidos.csv,13,total_pedido,Total del pedido (Bs),numérica decimal,14.7,40,0.0
+catalogo_productos.csv,1,producto_id,Identificador del producto,identificador,11,40,0.0
+catalogo_productos.csv,2,producto,Nombre del producto,texto,Bikini,32,0.0
+catalogo_productos.csv,3,categoria,Categoría del catálogo,categórica,Mujer,3,0.0
+catalogo_productos.csv,4,subcategoria,Subcategoría,categórica,Conjuntos,7,0.0
+catalogo_productos.csv,5,temporada,Temporada del producto,categórica,verano,2,0.0
+catalogo_productos.csv,6,precio,Precio de lista actual (Bs),numérica decimal,40.0,8,0.0
+catalogo_productos.csv,7,en_oferta,1 si está en oferta,booleana (0/1),1,2,0.0
+catalogo_productos.csv,8,descuento_pct,Porcentaje de descuento,numérica entera,10,4,0.0
+catalogo_productos.csv,9,activo,1 si el producto sigue en el catálogo,booleana (0/1),1,1,0.0
+catalogo_productos.csv,10,n_variantes,Combinaciones talla-color disponibles,numérica entera,6,11,0.0
+catalogo_productos.csv,11,stock_total,Unidades en stock sumando todas las variantes,numérica entera,59,26,0.0

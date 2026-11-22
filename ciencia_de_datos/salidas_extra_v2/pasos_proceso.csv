@@ -1,0 +1,4 @@
+﻿Paso del proceso,Filas,Columnas
+1. Archivo exportado (ventas_lineas.csv),375,25
+2. Tras descartar columnas (sección 4),375,7
+3. Tabla diaria (día × lugar × tipo),163,7

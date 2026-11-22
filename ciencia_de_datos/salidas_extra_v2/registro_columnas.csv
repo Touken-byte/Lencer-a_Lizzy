@@ -1,0 +1,26 @@
+﻿N°,Columna,Decisión,Motivo,Valores distintos,% vacíos,¿Se usa?
+1,pedido_id,Identificador,"Solo identifica el pedido; se usa para contar pedidos, no para predecir.",249,0.0,No
+2,fecha,USADA,"Base del modelo: de ella salen el día, el mes, la semana y la temporada de calor.",29,0.0,Sí
+3,dia_semana,USADA (derivada de fecha),Entra al modelo; se recalcula desde la fecha (el CSV la trae sin acentos).,6,0.0,Sí
+4,mes,USADA (derivada de fecha),Entra al modelo; recoge la época del año.,4,0.0,Sí
+5,semana_iso,USADA (derivada de fecha),Entra al modelo; recoge la evolución dentro del año.,14,0.0,Sí
+6,hora,Solo se conoce tras la venta,"La hora existe una vez hecha la venta; además el modelo predice por día, no por hora.",13,0.0,No
+7,lugar_venta,USADA,Entra al modelo: dónde se vende cambia lo que se vende.,2,0.0,Sí
+8,origen,Constante,Todas las filas son 'estimado' (los pedidos de prueba se excluyen al exportar).,1,0.0,No
+9,producto_id,Identificador,Solo etiqueta al producto; no describe el fenómeno.,40,0.0,No
+10,producto,Transformada en tipo,Se convierte en el tipo de prenda con un diccionario (sección 7).,32,0.0,Sí
+11,categoria,Reemplazada por tipo,El tipo de prenda ya la resume con más detalle.,3,0.0,No
+12,subcategoria,Reemplazada por tipo,El tipo de prenda ya la resume con más detalle.,7,0.0,No
+13,temporada,Reemplazada por tipo,El indicador de calor y el tipo ya recogen la temporada.,2,0.0,No
+14,talla,Solo se conoce tras la venta,Describe la prenda ya vendida; no se sabe antes de vender.,12,0.0,No
+15,color,Solo se conoce tras la venta,Describe la prenda ya vendida; no se sabe antes de vender.,9,0.0,No
+16,cantidad,Objetivo,"Se suma por día, lugar y tipo para obtener las unidades: lo que se predice.",2,0.0,Sí
+17,precio_unitario,Solo se conoce tras la venta,Precio cobrado en la línea vendida.,13,0.0,No
+18,subtotal,Solo se conoce tras la venta,Es cantidad × precio: contiene la respuesta (fuga de información).,19,0.0,No
+19,metodo_pago,Solo se conoce tras la venta,"Se decide al pagar, después de la venta.",2,0.0,No
+20,estado_pedido,Constante,Vale 'entregado' en todas las ventas importadas.,1,0.0,No
+21,estado_pago,Constante,Vale 'verificado' en todas las ventas importadas.,1,0.0,No
+22,tipo_entrega,Constante,Vale 'tienda' en todas las ventas importadas.,1,0.0,No
+23,precio_lista_actual,"Dato actual, no histórico","Es el precio del producto HOY, no el del día de la venta.",8,0.0,No
+24,en_oferta_actual,"Dato actual, no histórico",Indica si el producto está en oferta HOY.,2,0.0,No
+25,descuento_actual_pct,"Dato actual, no histórico",Es el descuento del producto HOY.,4,0.0,No

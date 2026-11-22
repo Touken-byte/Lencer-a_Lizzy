@@ -46,7 +46,7 @@ VE-0028 15:05 | Bóxer suelto S negro Bs20.00 + Pañuelos UNICA blanco
 VE-0249 16:20 | Pañuelos UNICA azul
 VE-0029 17:46 | Culotte M celeste Bs18.00
 
-### SÁBADO 08/08/2026 | LOURDES | 11 pedidos | Bs 339.75
+### SÁBADO 08/08/2026 | LOURDES | 11 pedidos | Bs 338.75
 VE-0030 08:13 | Slip XL gris Bs25.00 + Bandeau top sin tiros 70A rosa | QR
 VE-0031 12:13 | Medias Antideslizantes M blanco
 VE-0032 12:27 | Culotte UNICA amarillo Bs20.00 + Bóxer suelto M negro Bs20.00
@@ -55,7 +55,7 @@ VE-0034 13:55 | Slip L blanco Bs23.75
 VE-0035 13:59 | Cubre pezón UNICA negro
 VE-0036 14:58 | Medias Antideslizantes S gris
 VE-0037 16:33 | Medias Antideslizantes M gris
-VE-0040 17:08 | Bikini S verde Bs36.00 + Medias Antideslizantes M blanco
+VE-0040 17:08 | Corpiño S verde Bs35.00 + Medias Antideslizantes M blanco
 VE-0038 17:09 | Pañuelos UNICA rosa
 VE-0039 17:19 | Corpiño XS azul
 
@@ -66,12 +66,12 @@ VE-0043 15:55 | Culotte XXL azul Bs18.00
 VE-0045 18:03 | Slip M negro Bs23.75
 VE-0044 18:49 | Fajas M azul
 
-### MARTES 11/08/2026 | LOURDES | 7 pedidos | Bs 216.00
+### MARTES 11/08/2026 | LOURDES | 7 pedidos | Bs 215.00
 VE-0047 10:09 | Calzón clasico XS blanco + Bandeau top sin tiros 70B rojo
 VE-0046 10:25 | Medias infantiles UNICA gris
 VE-0048 10:44 | Medias M azul
 VE-0050 13:24 | Tirantes UNICA blanco | QR
-VE-0049 13:40 | Medias de marca UNICA blanco + Bikini L rosa Bs36.00
+VE-0049 13:40 | Medias de marca UNICA blanco + Boyshort L rosa Bs35.00
 VE-0051 16:03 | Calzón faja M gris + Corpiño S verde
 VE-0052 16:42 | Bóxer ajustado (Boxer Brief) UNICA gris Bs35.00
 
@@ -83,10 +83,10 @@ VE-0056 13:11 | Brief XS blanco
 VE-0057 16:38 | Top clásico 85C amarillo
 VE-0058 18:27 | Medias de marca UNICA negro | QR
 
-### JUEVES 13/08/2026 | LOURDES | 6 pedidos | Bs 224.00
+### JUEVES 13/08/2026 | LOURDES | 6 pedidos | Bs 222.00
 VE-0059 12:36 | Tirantes UNICA blanco
-VE-0060 13:14 | Bikini S rojo Bs36.00
-VE-0061 14:28 | Medias Antideslizantes M negro + Bikini M azul Bs36.00 + Tanga M gris x2 Bs19.00
+VE-0060 13:14 | Corpiño S rojo Bs35.00
+VE-0061 14:28 | Medias Antideslizantes M negro + Boyshort M azul Bs35.00 + Tanga M gris x2 Bs19.00
 VE-0062 15:36 | Hilo Dental L blanco x2 Bs14.70
 VE-0064 18:01 | Bóxer suelto UNICA verde Bs19.60 | QR
 VE-0063 18:58 | Top clásico 70A rosa + Medias XS negro
@@ -137,7 +137,7 @@ VE-0092 14:49 | Calzón clasico S azul
 VE-0093 16:08 | Bandeau top sin tiros 70B amarillo
 VE-0094 17:26 | Hilo Dental XXL celeste Bs10.00
 
-### MARTES 08/09/2026 | BARRIO NUEVO | 15 pedidos | Bs 436.75
+### MARTES 08/09/2026 | BARRIO NUEVO | 15 pedidos | Bs 435.75
 VE-0097 07:06 | Ropa usada MUJER M rojo | QR
 VE-0095 07:22 | Ropa usada MUJER L rosa
 VE-0096 07:42 | Medias infantiles UNICA negro
@@ -149,7 +149,7 @@ VE-0101 09:18 | Medias Antideslizantes M negro
 VE-0100 09:24 | Slip M rojo Bs23.75 + Cachetero Liso L rosa
 VE-0104 09:38 | Ropa usada MUJER M gris + Bóxer suelto M rojo Bs20.00 | QR
 VE-0105 12:31 | Cubre pezón UNICA blanco
-VE-0106 12:47 | Bikini M verde Bs36.00 + Cachetero Liso XS verde
+VE-0106 12:47 | Corpiño M verde Bs35.00 + Cachetero Liso XS verde
 VE-0107 13:06 | Medias de marca UNICA negro + Ropa usada MUJER S rosa
 VE-0108 13:47 | Medias XS blanco
 VE-0109 14:37 | Ropa usada HOMBRE S gris + Calzón clasico M verde | QR

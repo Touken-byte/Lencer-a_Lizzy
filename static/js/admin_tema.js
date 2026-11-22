@@ -67,8 +67,8 @@
             if (n > 0) {
                 if (!b) {
                     b = document.createElement('span');
-                    b.className = 'aviso-menu badge badge-danger';
-                    b.style.cssText = 'margin-left:8px;';
+                    b.className = 'aviso-menu badge bg-danger rounded-pill';
+                    b.style.cssText = 'margin-left:8px;background:#dc3545;color:#fff;padding:2px 7px;font-size:12px;';
                     a.appendChild(b);
                 }
                 b.textContent = n;

@@ -1,0 +1,4 @@
+Modelo,Combinaciones,Mejor RMSE (CV),Mejores hiperparámetros
+Gradient Boosting,8,1.6440870032862231,"{'learning_rate': 0.03, 'max_depth': 2, 'n_estimators': 200}"
+Random Forest,24,1.7891734197989078,"{'max_depth': 5, 'min_samples_leaf': 1, 'n_estimators': 400}"
+Ridge,5,2.0026893410187996,{'alpha': 1}

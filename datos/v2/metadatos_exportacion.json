@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "fecha_exportacion": "2026-11-22T11:14:25+00:00",
+  "incluye_pruebas": false,
+  "lineas": 375,
+  "pedidos": 249,
+  "prendas": 390,
+  "subtotal_lineas_bs": 7774.9,
+  "total_pedidos_bs": 7774.9,
+  "dias_distintos": 29,
+  "fecha_min": "2026-08-03",
+  "fecha_max": "2026-11-17",
+  "pedidos_por_origen": {
+    "estimado": 249
+  },
+  "pedidos_por_lugar": {
+    "mercado_lourdes": 103,
+    "feria_barrio_nuevo": 146
+  },
+  "productos_catalogo": 40,
+  "columnas_lineas": [
+    "pedido_id",
+    "fecha",
+    "dia_semana",
+    "mes",
+    "semana_iso",
+    "hora",
+    "lugar_venta",
+    "origen",
+    "producto_id",
+    "producto",
+    "categoria",
+    "subcategoria",
+    "temporada",
+    "talla",
+    "color",
+    "cantidad",
+    "precio_unitario",
+    "subtotal",
+    "metodo_pago",
+    "estado_pedido",
+    "estado_pago",
+    "tipo_entrega",
+    "precio_lista_actual",
+    "en_oferta_actual",
+    "descuento_actual_pct"
+  ]
+}

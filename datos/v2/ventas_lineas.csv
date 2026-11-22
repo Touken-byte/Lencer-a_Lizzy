@@ -1,0 +1,376 @@
+pedido_id,fecha,dia_semana,mes,semana_iso,hora,lugar_venta,origen,producto_id,producto,categoria,subcategoria,temporada,talla,color,cantidad,precio_unitario,subtotal,metodo_pago,estado_pedido,estado_pago,tipo_entrega,precio_lista_actual,en_oferta_actual,descuento_actual_pct
+313,2026-08-03,lunes,8,32,9,mercado_lourdes,estimado,15,Hilo Dental,Mujer,Abajo,todo_el_anio,S,rosa,1,14.70,14.70,efectivo,entregado,verificado,tienda,15.00,1,2
+314,2026-08-03,lunes,8,32,11,mercado_lourdes,estimado,43,Calzón faja,Mujer,Abajo,todo_el_anio,L,verde,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+314,2026-08-03,lunes,8,32,11,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,M,azul,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+315,2026-08-03,lunes,8,32,13,mercado_lourdes,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,gris,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+316,2026-08-03,lunes,8,32,15,mercado_lourdes,estimado,22,Bóxer suelto,Hombre,Boxer,todo_el_anio,UNICA,azul,1,19.60,19.60,efectivo,entregado,verificado,tienda,20.00,1,2
+316,2026-08-03,lunes,8,32,15,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,amarillo,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+316,2026-08-03,lunes,8,32,15,mercado_lourdes,estimado,36,Medias,Otros,Medias,todo_el_anio,M,negro,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+317,2026-08-03,lunes,8,32,16,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,S,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+318,2026-08-03,lunes,8,32,18,mercado_lourdes,estimado,39,Calzocillo de niño,Hombre,Boxer,todo_el_anio,UNICA,gris,1,10.00,10.00,qr,entregado,verificado,tienda,10.00,0,0
+318,2026-08-03,lunes,8,32,18,mercado_lourdes,estimado,34,Colalé,Mujer,Abajo,todo_el_anio,L,celeste,2,10.00,20.00,qr,entregado,verificado,tienda,10.00,0,0
+319,2026-08-04,martes,8,32,9,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,XS,blanco,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+320,2026-08-04,martes,8,32,10,mercado_lourdes,estimado,42,Tirantes,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,10.00,10.00,qr,entregado,verificado,tienda,10.00,0,0
+320,2026-08-04,martes,8,32,10,mercado_lourdes,estimado,38,Bandeau top sin tiros,Mujer,Arriba,todo_el_anio,70A,negro,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+321,2026-08-04,martes,8,32,11,mercado_lourdes,estimado,20,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,XS,rojo,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+322,2026-08-04,martes,8,32,14,mercado_lourdes,estimado,14,Tanga,Mujer,Abajo,todo_el_anio,M,negro,2,24.00,48.00,efectivo,entregado,verificado,tienda,24.00,0,0
+323,2026-08-04,martes,8,32,15,mercado_lourdes,estimado,46,Medias infantiles,Otros,Medias,todo_el_anio,UNICA,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+324,2026-08-04,martes,8,32,17,mercado_lourdes,estimado,17,Culotte,Mujer,Abajo,todo_el_anio,L,gris,1,18.00,18.00,efectivo,entregado,verificado,tienda,20.00,1,10
+324,2026-08-04,martes,8,32,17,mercado_lourdes,estimado,21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,L,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+325,2026-08-04,martes,8,32,17,mercado_lourdes,estimado,20,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,UNICA,azul,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+326,2026-08-05,miercoles,8,32,10,mercado_lourdes,estimado,19,Boyshort,Mujer,Abajo,todo_el_anio,M,negro,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+327,2026-08-05,miercoles,8,32,13,mercado_lourdes,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,S,verde,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+327,2026-08-05,miercoles,8,32,13,mercado_lourdes,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,70A,rojo,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+327,2026-08-05,miercoles,8,32,13,mercado_lourdes,estimado,32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,70A,blanco,2,25.00,50.00,efectivo,entregado,verificado,tienda,25.00,0,0
+328,2026-08-05,miercoles,8,32,14,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,rosa,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+329,2026-08-05,miercoles,8,32,14,mercado_lourdes,estimado,13,Tanga,Mujer,Abajo,todo_el_anio,M,rojo,1,19.00,19.00,efectivo,entregado,verificado,tienda,20.00,1,5
+329,2026-08-05,miercoles,8,32,14,mercado_lourdes,estimado,21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,M,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+330,2026-08-05,miercoles,8,32,17,mercado_lourdes,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,S,negro,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+330,2026-08-05,miercoles,8,32,17,mercado_lourdes,estimado,21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,M,rojo,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+331,2026-08-05,miercoles,8,32,18,mercado_lourdes,estimado,47,Pañuelos,Otros,Pañuelos,todo_el_anio,UNICA,rojo,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+331,2026-08-05,miercoles,8,32,18,mercado_lourdes,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,azul,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+332,2026-08-06,jueves,8,32,9,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,S,verde,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+333,2026-08-06,jueves,8,32,9,mercado_lourdes,estimado,33,Fajas,Mujer,Abajo,todo_el_anio,S,azul,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+333,2026-08-06,jueves,8,32,9,mercado_lourdes,estimado,35,Bóxer infantil,Hombre,Boxer,todo_el_anio,S,negro,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+334,2026-08-06,jueves,8,32,11,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,negro,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+335,2026-08-06,jueves,8,32,11,mercado_lourdes,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,70A,gris,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+335,2026-08-06,jueves,8,32,11,mercado_lourdes,estimado,44,Cubre pezón,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+335,2026-08-06,jueves,8,32,11,mercado_lourdes,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,70A,azul,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+336,2026-08-06,jueves,8,32,12,mercado_lourdes,estimado,26,Brief,Hombre,Boxer,todo_el_anio,M,gris,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+337,2026-08-06,jueves,8,32,13,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,XS,gris,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+338,2026-08-06,jueves,8,32,14,mercado_lourdes,estimado,24,Slip,Hombre,Boxer,todo_el_anio,M,blanco,1,23.75,23.75,efectivo,entregado,verificado,tienda,25.00,1,5
+339,2026-08-06,jueves,8,32,16,mercado_lourdes,estimado,46,Medias infantiles,Otros,Medias,todo_el_anio,UNICA,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+339,2026-08-06,jueves,8,32,16,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,M,azul,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+340,2026-08-07,viernes,8,32,9,mercado_lourdes,estimado,23,Bóxer suelto,Hombre,Boxer,todo_el_anio,M,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+341,2026-08-07,viernes,8,32,10,mercado_lourdes,estimado,42,Tirantes,Mujer,Arriba,todo_el_anio,UNICA,rosa,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+342,2026-08-07,viernes,8,32,11,mercado_lourdes,estimado,17,Culotte,Mujer,Abajo,todo_el_anio,L,gris,1,18.00,18.00,efectivo,entregado,verificado,tienda,20.00,1,10
+342,2026-08-07,viernes,8,32,11,mercado_lourdes,estimado,36,Medias,Otros,Medias,todo_el_anio,M,gris,2,10.00,20.00,efectivo,entregado,verificado,tienda,10.00,0,0
+343,2026-08-07,viernes,8,32,11,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,S,rosa,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+343,2026-08-07,viernes,8,32,11,mercado_lourdes,estimado,20,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,XS,azul,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+343,2026-08-07,viernes,8,32,11,mercado_lourdes,estimado,13,Tanga,Mujer,Abajo,todo_el_anio,M,azul,1,19.00,19.00,efectivo,entregado,verificado,tienda,20.00,1,5
+344,2026-08-07,viernes,8,32,11,mercado_lourdes,estimado,17,Culotte,Mujer,Abajo,todo_el_anio,L,blanco,1,18.00,18.00,qr,entregado,verificado,tienda,20.00,1,10
+345,2026-08-07,viernes,8,32,12,mercado_lourdes,estimado,34,Colalé,Mujer,Abajo,todo_el_anio,M,rosa,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+346,2026-08-07,viernes,8,32,13,mercado_lourdes,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,70A,negro,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+347,2026-08-07,viernes,8,32,14,mercado_lourdes,estimado,32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,70B,amarillo,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+348,2026-08-07,viernes,8,32,15,mercado_lourdes,estimado,23,Bóxer suelto,Hombre,Boxer,todo_el_anio,S,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+348,2026-08-07,viernes,8,32,15,mercado_lourdes,estimado,47,Pañuelos,Otros,Pañuelos,todo_el_anio,UNICA,blanco,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+349,2026-08-07,viernes,8,32,16,mercado_lourdes,estimado,47,Pañuelos,Otros,Pañuelos,todo_el_anio,UNICA,azul,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+350,2026-08-07,viernes,8,32,17,mercado_lourdes,estimado,17,Culotte,Mujer,Abajo,todo_el_anio,M,celeste,1,18.00,18.00,efectivo,entregado,verificado,tienda,20.00,1,10
+351,2026-08-08,sabado,8,32,8,mercado_lourdes,estimado,25,Slip,Hombre,Boxer,todo_el_anio,XL,gris,1,25.00,25.00,qr,entregado,verificado,tienda,25.00,0,0
+351,2026-08-08,sabado,8,32,8,mercado_lourdes,estimado,38,Bandeau top sin tiros,Mujer,Arriba,todo_el_anio,70A,rosa,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+352,2026-08-08,sabado,8,32,12,mercado_lourdes,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+353,2026-08-08,sabado,8,32,12,mercado_lourdes,estimado,18,Culotte,Mujer,Abajo,todo_el_anio,UNICA,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+353,2026-08-08,sabado,8,32,12,mercado_lourdes,estimado,23,Bóxer suelto,Hombre,Boxer,todo_el_anio,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+354,2026-08-08,sabado,8,32,12,mercado_lourdes,estimado,20,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,UNICA,azul,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+355,2026-08-08,sabado,8,32,13,mercado_lourdes,estimado,24,Slip,Hombre,Boxer,todo_el_anio,L,blanco,1,23.75,23.75,efectivo,entregado,verificado,tienda,25.00,1,5
+356,2026-08-08,sabado,8,32,13,mercado_lourdes,estimado,44,Cubre pezón,Mujer,Arriba,todo_el_anio,UNICA,negro,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+357,2026-08-08,sabado,8,32,14,mercado_lourdes,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,S,gris,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+358,2026-08-08,sabado,8,32,16,mercado_lourdes,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,gris,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+586,2026-08-08,sabado,8,32,17,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,verde,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+586,2026-08-08,sabado,8,32,17,mercado_lourdes,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+360,2026-08-08,sabado,8,32,17,mercado_lourdes,estimado,47,Pañuelos,Otros,Pañuelos,todo_el_anio,UNICA,rosa,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+361,2026-08-08,sabado,8,32,17,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,XS,azul,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+362,2026-08-10,lunes,8,33,8,mercado_lourdes,estimado,21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,XL,gris,2,20.00,40.00,efectivo,entregado,verificado,tienda,20.00,0,0
+363,2026-08-10,lunes,8,33,12,mercado_lourdes,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,70A,gris,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+363,2026-08-10,lunes,8,33,12,mercado_lourdes,estimado,34,Colalé,Mujer,Abajo,todo_el_anio,M,amarillo,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+364,2026-08-10,lunes,8,33,15,mercado_lourdes,estimado,17,Culotte,Mujer,Abajo,todo_el_anio,XXL,azul,1,18.00,18.00,efectivo,entregado,verificado,tienda,20.00,1,10
+365,2026-08-10,lunes,8,33,18,mercado_lourdes,estimado,24,Slip,Hombre,Boxer,todo_el_anio,M,negro,1,23.75,23.75,efectivo,entregado,verificado,tienda,25.00,1,5
+366,2026-08-10,lunes,8,33,18,mercado_lourdes,estimado,33,Fajas,Mujer,Abajo,todo_el_anio,M,azul,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+367,2026-08-11,martes,8,33,10,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,XS,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+367,2026-08-11,martes,8,33,10,mercado_lourdes,estimado,38,Bandeau top sin tiros,Mujer,Arriba,todo_el_anio,70B,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+368,2026-08-11,martes,8,33,10,mercado_lourdes,estimado,46,Medias infantiles,Otros,Medias,todo_el_anio,UNICA,gris,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+369,2026-08-11,martes,8,33,10,mercado_lourdes,estimado,36,Medias,Otros,Medias,todo_el_anio,M,azul,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+370,2026-08-11,martes,8,33,13,mercado_lourdes,estimado,42,Tirantes,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,10.00,10.00,qr,entregado,verificado,tienda,10.00,0,0
+587,2026-08-11,martes,8,33,13,mercado_lourdes,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+587,2026-08-11,martes,8,33,13,mercado_lourdes,estimado,19,Boyshort,Mujer,Abajo,todo_el_anio,L,rosa,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+372,2026-08-11,martes,8,33,16,mercado_lourdes,estimado,43,Calzón faja,Mujer,Abajo,todo_el_anio,M,gris,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+372,2026-08-11,martes,8,33,16,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,verde,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+373,2026-08-11,martes,8,33,16,mercado_lourdes,estimado,20,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,UNICA,gris,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+374,2026-08-12,miercoles,8,33,10,mercado_lourdes,estimado,32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,70B,negro,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+374,2026-08-12,miercoles,8,33,10,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,M,amarillo,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+374,2026-08-12,miercoles,8,33,10,mercado_lourdes,estimado,26,Brief,Hombre,Boxer,todo_el_anio,S,negro,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+375,2026-08-12,miercoles,8,33,10,mercado_lourdes,estimado,23,Bóxer suelto,Hombre,Boxer,todo_el_anio,M,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+376,2026-08-12,miercoles,8,33,10,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,M,verde,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+377,2026-08-12,miercoles,8,33,13,mercado_lourdes,estimado,26,Brief,Hombre,Boxer,todo_el_anio,XS,blanco,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+378,2026-08-12,miercoles,8,33,16,mercado_lourdes,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,85C,amarillo,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+379,2026-08-12,miercoles,8,33,18,mercado_lourdes,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,negro,1,15.00,15.00,qr,entregado,verificado,tienda,15.00,0,0
+380,2026-08-13,jueves,8,33,12,mercado_lourdes,estimado,42,Tirantes,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+588,2026-08-13,jueves,8,33,13,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,rojo,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+589,2026-08-13,jueves,8,33,14,mercado_lourdes,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+589,2026-08-13,jueves,8,33,14,mercado_lourdes,estimado,19,Boyshort,Mujer,Abajo,todo_el_anio,M,azul,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+589,2026-08-13,jueves,8,33,14,mercado_lourdes,estimado,13,Tanga,Mujer,Abajo,todo_el_anio,M,gris,2,19.00,38.00,efectivo,entregado,verificado,tienda,20.00,1,5
+383,2026-08-13,jueves,8,33,15,mercado_lourdes,estimado,15,Hilo Dental,Mujer,Abajo,todo_el_anio,L,blanco,2,14.70,29.40,efectivo,entregado,verificado,tienda,15.00,1,2
+384,2026-08-13,jueves,8,33,18,mercado_lourdes,estimado,22,Bóxer suelto,Hombre,Boxer,todo_el_anio,UNICA,verde,1,19.60,19.60,qr,entregado,verificado,tienda,20.00,1,2
+385,2026-08-13,jueves,8,33,18,mercado_lourdes,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,70A,rosa,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+385,2026-08-13,jueves,8,33,18,mercado_lourdes,estimado,36,Medias,Otros,Medias,todo_el_anio,XS,negro,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+386,2026-08-14,viernes,8,33,9,mercado_lourdes,estimado,23,Bóxer suelto,Hombre,Boxer,todo_el_anio,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+386,2026-08-14,viernes,8,33,9,mercado_lourdes,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,negro,2,20.00,40.00,efectivo,entregado,verificado,tienda,20.00,0,0
+387,2026-08-14,viernes,8,33,10,mercado_lourdes,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+387,2026-08-14,viernes,8,33,10,mercado_lourdes,estimado,26,Brief,Hombre,Boxer,todo_el_anio,M,rojo,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+388,2026-08-14,viernes,8,33,12,mercado_lourdes,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,azul,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+389,2026-08-14,viernes,8,33,16,mercado_lourdes,estimado,39,Calzocillo de niño,Hombre,Boxer,todo_el_anio,UNICA,gris,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+389,2026-08-14,viernes,8,33,16,mercado_lourdes,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,gris,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+390,2026-08-15,sabado,8,33,10,mercado_lourdes,estimado,39,Calzocillo de niño,Hombre,Boxer,todo_el_anio,UNICA,blanco,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+390,2026-08-15,sabado,8,33,10,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,M,azul,2,15.00,30.00,efectivo,entregado,verificado,tienda,15.00,0,0
+390,2026-08-15,sabado,8,33,10,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,M,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+391,2026-08-15,sabado,8,33,11,mercado_lourdes,estimado,26,Brief,Hombre,Boxer,todo_el_anio,M,verde,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+392,2026-08-15,sabado,8,33,13,mercado_lourdes,estimado,42,Tirantes,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+393,2026-08-17,lunes,8,34,8,mercado_lourdes,estimado,24,Slip,Hombre,Boxer,todo_el_anio,M,negro,1,23.75,23.75,efectivo,entregado,verificado,tienda,25.00,1,5
+394,2026-08-17,lunes,8,34,9,mercado_lourdes,estimado,42,Tirantes,Mujer,Arriba,todo_el_anio,UNICA,rosa,1,10.00,10.00,qr,entregado,verificado,tienda,10.00,0,0
+395,2026-08-17,lunes,8,34,11,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,XS,amarillo,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+395,2026-08-17,lunes,8,34,11,mercado_lourdes,estimado,36,Medias,Otros,Medias,todo_el_anio,M,rosa,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+396,2026-08-17,lunes,8,34,12,mercado_lourdes,estimado,44,Cubre pezón,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+397,2026-08-17,lunes,8,34,15,mercado_lourdes,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,gris,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+398,2026-08-18,martes,8,34,8,mercado_lourdes,estimado,26,Brief,Hombre,Boxer,todo_el_anio,M,gris,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+398,2026-08-18,martes,8,34,8,mercado_lourdes,estimado,47,Pañuelos,Otros,Pañuelos,todo_el_anio,UNICA,rosa,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+399,2026-08-18,martes,8,34,13,mercado_lourdes,estimado,47,Pañuelos,Otros,Pañuelos,todo_el_anio,UNICA,rojo,1,10.00,10.00,qr,entregado,verificado,tienda,10.00,0,0
+399,2026-08-18,martes,8,34,13,mercado_lourdes,estimado,24,Slip,Hombre,Boxer,todo_el_anio,S,negro,1,23.75,23.75,qr,entregado,verificado,tienda,25.00,1,5
+400,2026-08-18,martes,8,34,15,mercado_lourdes,estimado,46,Medias infantiles,Otros,Medias,todo_el_anio,UNICA,azul,1,15.00,15.00,qr,entregado,verificado,tienda,15.00,0,0
+401,2026-08-18,martes,8,34,16,mercado_lourdes,estimado,32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,70A,gris,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+402,2026-08-19,miercoles,8,34,9,mercado_lourdes,estimado,23,Bóxer suelto,Hombre,Boxer,todo_el_anio,M,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+402,2026-08-19,miercoles,8,34,9,mercado_lourdes,estimado,42,Tirantes,Mujer,Arriba,todo_el_anio,UNICA,negro,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+403,2026-08-19,miercoles,8,34,10,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,XS,verde,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+404,2026-08-19,miercoles,8,34,16,mercado_lourdes,estimado,23,Bóxer suelto,Hombre,Boxer,todo_el_anio,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+405,2026-08-20,jueves,8,34,9,mercado_lourdes,estimado,26,Brief,Hombre,Boxer,todo_el_anio,S,rojo,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+406,2026-08-20,jueves,8,34,10,mercado_lourdes,estimado,38,Bandeau top sin tiros,Mujer,Arriba,todo_el_anio,70A,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+406,2026-08-20,jueves,8,34,10,mercado_lourdes,estimado,24,Slip,Hombre,Boxer,todo_el_anio,M,negro,1,23.75,23.75,efectivo,entregado,verificado,tienda,25.00,1,5
+407,2026-08-20,jueves,8,34,12,mercado_lourdes,estimado,21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,M,negro,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+407,2026-08-20,jueves,8,34,12,mercado_lourdes,estimado,21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,M,blanco,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+408,2026-08-20,jueves,8,34,14,mercado_lourdes,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,azul,2,15.00,30.00,efectivo,entregado,verificado,tienda,15.00,0,0
+409,2026-08-21,viernes,8,34,10,mercado_lourdes,estimado,36,Medias,Otros,Medias,todo_el_anio,M,negro,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+409,2026-08-21,viernes,8,34,10,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,verde,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+409,2026-08-21,viernes,8,34,10,mercado_lourdes,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,XS,negro,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+410,2026-08-21,viernes,8,34,13,mercado_lourdes,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,70A,verde,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+411,2026-08-22,sabado,8,34,8,mercado_lourdes,estimado,36,Medias,Otros,Medias,todo_el_anio,M,blanco,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+412,2026-08-22,sabado,8,34,12,mercado_lourdes,estimado,33,Fajas,Mujer,Abajo,todo_el_anio,M,rosa,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+412,2026-08-22,sabado,8,34,12,mercado_lourdes,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,azul,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+413,2026-08-22,sabado,8,34,14,mercado_lourdes,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,S,azul,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+414,2026-08-22,sabado,8,34,16,mercado_lourdes,estimado,38,Bandeau top sin tiros,Mujer,Arriba,todo_el_anio,70B,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+415,2026-08-22,sabado,8,34,17,mercado_lourdes,estimado,16,Hilo Dental,Mujer,Abajo,todo_el_anio,XXL,celeste,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+416,2026-09-08,martes,9,37,7,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,rojo,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+417,2026-09-08,martes,9,37,7,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,L,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+418,2026-09-08,martes,9,37,7,feria_barrio_nuevo,estimado,46,Medias infantiles,Otros,Medias,todo_el_anio,UNICA,negro,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+419,2026-09-08,martes,9,37,8,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,XS,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+420,2026-09-08,martes,9,37,8,feria_barrio_nuevo,estimado,26,Brief,Hombre,Boxer,todo_el_anio,XXL,rojo,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+420,2026-09-08,martes,9,37,8,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,L,verde,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+421,2026-09-08,martes,9,37,9,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,M,celeste,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+422,2026-09-08,martes,9,37,9,feria_barrio_nuevo,estimado,26,Brief,Hombre,Boxer,todo_el_anio,S,blanco,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+422,2026-09-08,martes,9,37,9,feria_barrio_nuevo,estimado,35,Bóxer infantil,Hombre,Boxer,todo_el_anio,XS,negro,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+423,2026-09-08,martes,9,37,9,feria_barrio_nuevo,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+424,2026-09-08,martes,9,37,9,feria_barrio_nuevo,estimado,24,Slip,Hombre,Boxer,todo_el_anio,M,rojo,1,23.75,23.75,efectivo,entregado,verificado,tienda,25.00,1,5
+424,2026-09-08,martes,9,37,9,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,L,rosa,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+425,2026-09-08,martes,9,37,9,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,gris,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+425,2026-09-08,martes,9,37,9,feria_barrio_nuevo,estimado,23,Bóxer suelto,Hombre,Boxer,todo_el_anio,M,rojo,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+426,2026-09-08,martes,9,37,12,feria_barrio_nuevo,estimado,44,Cubre pezón,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+590,2026-09-08,martes,9,37,12,feria_barrio_nuevo,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,M,verde,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+590,2026-09-08,martes,9,37,12,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,XS,verde,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+428,2026-09-08,martes,9,37,13,feria_barrio_nuevo,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,negro,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+428,2026-09-08,martes,9,37,13,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,S,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+429,2026-09-08,martes,9,37,13,feria_barrio_nuevo,estimado,36,Medias,Otros,Medias,todo_el_anio,XS,blanco,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+430,2026-09-08,martes,9,37,14,feria_barrio_nuevo,estimado,56,Ropa usada,Hombre,Ropa,todo_el_anio,S,gris,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+430,2026-09-08,martes,9,37,14,feria_barrio_nuevo,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,M,verde,1,15.00,15.00,qr,entregado,verificado,tienda,15.00,0,0
+431,2026-09-15,martes,9,38,6,feria_barrio_nuevo,estimado,24,Slip,Hombre,Boxer,todo_el_anio,L,rojo,1,23.75,23.75,efectivo,entregado,verificado,tienda,25.00,1,5
+432,2026-09-15,martes,9,38,6,feria_barrio_nuevo,estimado,32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,75C,negro,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+433,2026-09-15,martes,9,38,8,feria_barrio_nuevo,estimado,36,Medias,Otros,Medias,todo_el_anio,XS,blanco,1,10.00,10.00,qr,entregado,verificado,tienda,10.00,0,0
+434,2026-09-15,martes,9,38,9,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,XL,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+435,2026-09-15,martes,9,38,9,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,XS,amarillo,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+436,2026-09-15,martes,9,38,10,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,S,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+437,2026-09-15,martes,9,38,10,feria_barrio_nuevo,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,negro,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+437,2026-09-15,martes,9,38,10,feria_barrio_nuevo,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,S,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+437,2026-09-15,martes,9,38,10,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,M,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+438,2026-09-15,martes,9,38,11,feria_barrio_nuevo,estimado,36,Medias,Otros,Medias,todo_el_anio,M,blanco,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+438,2026-09-15,martes,9,38,11,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,M,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+439,2026-09-15,martes,9,38,11,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,XL,rojo,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+439,2026-09-15,martes,9,38,11,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,M,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+440,2026-09-15,martes,9,38,13,feria_barrio_nuevo,estimado,44,Cubre pezón,Mujer,Arriba,todo_el_anio,UNICA,negro,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+440,2026-09-15,martes,9,38,13,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,XS,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+440,2026-09-15,martes,9,38,13,feria_barrio_nuevo,estimado,32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,75C,rosa,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+441,2026-09-15,martes,9,38,13,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,L,gris,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+442,2026-09-15,martes,9,38,14,feria_barrio_nuevo,estimado,22,Bóxer suelto,Hombre,Boxer,todo_el_anio,UNICA,negro,1,19.60,19.60,efectivo,entregado,verificado,tienda,20.00,1,2
+442,2026-09-15,martes,9,38,14,feria_barrio_nuevo,estimado,44,Cubre pezón,Mujer,Arriba,todo_el_anio,UNICA,negro,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+443,2026-09-15,martes,9,38,15,feria_barrio_nuevo,estimado,56,Ropa usada,Hombre,Ropa,todo_el_anio,M,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+444,2026-09-15,martes,9,38,15,feria_barrio_nuevo,estimado,38,Bandeau top sin tiros,Mujer,Arriba,todo_el_anio,70B,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+445,2026-09-22,martes,9,39,7,feria_barrio_nuevo,estimado,36,Medias,Otros,Medias,todo_el_anio,L,gris,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+445,2026-09-22,martes,9,39,7,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+445,2026-09-22,martes,9,39,7,feria_barrio_nuevo,estimado,36,Medias,Otros,Medias,todo_el_anio,XS,gris,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+446,2026-09-22,martes,9,39,7,feria_barrio_nuevo,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,70A,gris,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+446,2026-09-22,martes,9,39,7,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+447,2026-09-22,martes,9,39,9,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,M,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+448,2026-09-22,martes,9,39,9,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,M,negro,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+448,2026-09-22,martes,9,39,9,feria_barrio_nuevo,estimado,37,Top clásico,Mujer,Arriba,todo_el_anio,70A,celeste,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+448,2026-09-22,martes,9,39,9,feria_barrio_nuevo,estimado,44,Cubre pezón,Mujer,Arriba,todo_el_anio,UNICA,negro,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+449,2026-09-22,martes,9,39,13,feria_barrio_nuevo,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,XXL,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+450,2026-09-22,martes,9,39,13,feria_barrio_nuevo,estimado,35,Bóxer infantil,Hombre,Boxer,todo_el_anio,S,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+451,2026-09-22,martes,9,39,15,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,S,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+452,2026-09-22,martes,9,39,15,feria_barrio_nuevo,estimado,25,Slip,Hombre,Boxer,todo_el_anio,M,gris,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+453,2026-09-29,martes,9,40,9,feria_barrio_nuevo,estimado,56,Ropa usada,Hombre,Ropa,todo_el_anio,M,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+453,2026-09-29,martes,9,40,9,feria_barrio_nuevo,estimado,18,Culotte,Mujer,Abajo,todo_el_anio,UNICA,rosa,2,20.00,40.00,efectivo,entregado,verificado,tienda,20.00,0,0
+454,2026-09-29,martes,9,40,9,feria_barrio_nuevo,estimado,38,Bandeau top sin tiros,Mujer,Arriba,todo_el_anio,70B,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+455,2026-09-29,martes,9,40,14,feria_barrio_nuevo,estimado,56,Ropa usada,Hombre,Ropa,todo_el_anio,M,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+455,2026-09-29,martes,9,40,14,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,S,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+455,2026-09-29,martes,9,40,14,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,XL,rosa,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+456,2026-09-29,martes,9,40,15,feria_barrio_nuevo,estimado,39,Calzocillo de niño,Hombre,Boxer,todo_el_anio,UNICA,negro,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+456,2026-09-29,martes,9,40,15,feria_barrio_nuevo,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,blanco,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+456,2026-09-29,martes,9,40,15,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+457,2026-09-29,martes,9,40,15,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,S,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+458,2026-10-06,martes,10,41,6,feria_barrio_nuevo,estimado,16,Hilo Dental,Mujer,Abajo,todo_el_anio,XL,gris,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+459,2026-10-06,martes,10,41,7,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+460,2026-10-06,martes,10,41,7,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+460,2026-10-06,martes,10,41,7,feria_barrio_nuevo,estimado,56,Ropa usada,Hombre,Ropa,todo_el_anio,L,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+460,2026-10-06,martes,10,41,7,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,S,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+461,2026-10-06,martes,10,41,8,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,L,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+462,2026-10-06,martes,10,41,8,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+463,2026-10-06,martes,10,41,8,feria_barrio_nuevo,estimado,21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,L,rojo,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+464,2026-10-06,martes,10,41,8,feria_barrio_nuevo,estimado,42,Tirantes,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+465,2026-10-06,martes,10,41,9,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+465,2026-10-06,martes,10,41,9,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,S,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+466,2026-10-06,martes,10,41,9,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,XS,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+467,2026-10-06,martes,10,41,9,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+468,2026-10-06,martes,10,41,10,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,XL,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+469,2026-10-06,martes,10,41,10,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+469,2026-10-06,martes,10,41,10,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+469,2026-10-06,martes,10,41,10,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,XL,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+470,2026-10-06,martes,10,41,11,feria_barrio_nuevo,estimado,39,Calzocillo de niño,Hombre,Boxer,todo_el_anio,UNICA,gris,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+471,2026-10-06,martes,10,41,11,feria_barrio_nuevo,estimado,47,Pañuelos,Otros,Pañuelos,todo_el_anio,UNICA,rojo,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+472,2026-10-06,martes,10,41,12,feria_barrio_nuevo,estimado,21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,M,rojo,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+473,2026-10-06,martes,10,41,13,feria_barrio_nuevo,estimado,14,Tanga,Mujer,Abajo,todo_el_anio,S,verde,2,24.00,48.00,efectivo,entregado,verificado,tienda,24.00,0,0
+473,2026-10-06,martes,10,41,13,feria_barrio_nuevo,estimado,20,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,UNICA,verde,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+473,2026-10-06,martes,10,41,13,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+474,2026-10-06,martes,10,41,13,feria_barrio_nuevo,estimado,11,Bikini,Mujer,Conjuntos,verano,M,verde,1,36.00,36.00,efectivo,entregado,verificado,tienda,40.00,1,10
+475,2026-10-06,martes,10,41,13,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,XL,celeste,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+475,2026-10-06,martes,10,41,13,feria_barrio_nuevo,estimado,47,Pañuelos,Otros,Pañuelos,todo_el_anio,UNICA,blanco,1,10.00,10.00,qr,entregado,verificado,tienda,10.00,0,0
+476,2026-10-06,martes,10,41,14,feria_barrio_nuevo,estimado,32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,70C,celeste,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+477,2026-10-06,martes,10,41,14,feria_barrio_nuevo,estimado,19,Boyshort,Mujer,Abajo,todo_el_anio,XS,rojo,1,35.00,35.00,qr,entregado,verificado,tienda,35.00,0,0
+478,2026-10-06,martes,10,41,14,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+479,2026-10-13,martes,10,42,8,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,L,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+480,2026-10-13,martes,10,42,8,feria_barrio_nuevo,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,rojo,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+480,2026-10-13,martes,10,42,8,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,XL,azul,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+481,2026-10-13,martes,10,42,8,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,L,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+482,2026-10-13,martes,10,42,10,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,S,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+483,2026-10-13,martes,10,42,11,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,S,rojo,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+484,2026-10-13,martes,10,42,11,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+484,2026-10-13,martes,10,42,11,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+484,2026-10-13,martes,10,42,11,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,S,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+485,2026-10-13,martes,10,42,12,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,S,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+485,2026-10-13,martes,10,42,12,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,XS,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+486,2026-10-13,martes,10,42,13,feria_barrio_nuevo,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+486,2026-10-13,martes,10,42,13,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,L,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+486,2026-10-13,martes,10,42,13,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+487,2026-10-13,martes,10,42,13,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+487,2026-10-13,martes,10,42,13,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+488,2026-10-13,martes,10,42,13,feria_barrio_nuevo,estimado,17,Culotte,Mujer,Abajo,todo_el_anio,XS,gris,1,18.00,18.00,efectivo,entregado,verificado,tienda,20.00,1,10
+489,2026-10-13,martes,10,42,15,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,L,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+490,2026-10-20,martes,10,43,7,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,M,verde,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+490,2026-10-20,martes,10,43,7,feria_barrio_nuevo,estimado,44,Cubre pezón,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+491,2026-10-20,martes,10,43,7,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+491,2026-10-20,martes,10,43,7,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,XS,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+492,2026-10-20,martes,10,43,7,feria_barrio_nuevo,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,M,rojo,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+493,2026-10-20,martes,10,43,8,feria_barrio_nuevo,estimado,16,Hilo Dental,Mujer,Abajo,todo_el_anio,XL,rojo,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+494,2026-10-20,martes,10,43,8,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,M,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+494,2026-10-20,martes,10,43,8,feria_barrio_nuevo,estimado,16,Hilo Dental,Mujer,Abajo,todo_el_anio,XXL,celeste,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+495,2026-10-20,martes,10,43,9,feria_barrio_nuevo,estimado,21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,M,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+495,2026-10-20,martes,10,43,9,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,M,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+496,2026-10-20,martes,10,43,9,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,S,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+496,2026-10-20,martes,10,43,9,feria_barrio_nuevo,estimado,36,Medias,Otros,Medias,todo_el_anio,L,azul,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+496,2026-10-20,martes,10,43,9,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,S,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+497,2026-10-20,martes,10,43,10,feria_barrio_nuevo,estimado,56,Ropa usada,Hombre,Ropa,todo_el_anio,L,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+498,2026-10-20,martes,10,43,10,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,L,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+498,2026-10-20,martes,10,43,10,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,XL,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+499,2026-10-20,martes,10,43,11,feria_barrio_nuevo,estimado,14,Tanga,Mujer,Abajo,todo_el_anio,XL,verde,1,24.00,24.00,efectivo,entregado,verificado,tienda,24.00,0,0
+500,2026-10-20,martes,10,43,11,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+501,2026-10-20,martes,10,43,13,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+501,2026-10-20,martes,10,43,13,feria_barrio_nuevo,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,M,azul,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+501,2026-10-20,martes,10,43,13,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+502,2026-10-20,martes,10,43,15,feria_barrio_nuevo,estimado,48,Calzón clasico,Mujer,Abajo,todo_el_anio,S,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+503,2026-10-27,martes,10,44,7,feria_barrio_nuevo,estimado,34,Colalé,Mujer,Abajo,todo_el_anio,L,verde,1,10.00,10.00,qr,entregado,verificado,tienda,10.00,0,0
+504,2026-10-27,martes,10,44,7,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+504,2026-10-27,martes,10,44,7,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,S,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+504,2026-10-27,martes,10,44,7,feria_barrio_nuevo,estimado,27,Bikini,Mujer,Conjuntos,verano,XS,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+505,2026-10-27,martes,10,44,7,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,XL,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+506,2026-10-27,martes,10,44,8,feria_barrio_nuevo,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,negro,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+507,2026-10-27,martes,10,44,8,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,XS,negro,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+508,2026-10-27,martes,10,44,9,feria_barrio_nuevo,estimado,14,Tanga,Mujer,Abajo,todo_el_anio,M,amarillo,1,24.00,24.00,efectivo,entregado,verificado,tienda,24.00,0,0
+509,2026-10-27,martes,10,44,9,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,M,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+510,2026-10-27,martes,10,44,10,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,XS,gris,1,15.00,15.00,qr,entregado,verificado,tienda,15.00,0,0
+510,2026-10-27,martes,10,44,10,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,M,rojo,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+511,2026-10-27,martes,10,44,10,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,L,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+511,2026-10-27,martes,10,44,10,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,XS,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+512,2026-10-27,martes,10,44,11,feria_barrio_nuevo,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,gris,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+513,2026-10-27,martes,10,44,11,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,L,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+513,2026-10-27,martes,10,44,11,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,L,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+514,2026-10-27,martes,10,44,11,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+514,2026-10-27,martes,10,44,11,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+514,2026-10-27,martes,10,44,11,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,XL,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+515,2026-10-27,martes,10,44,12,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+515,2026-10-27,martes,10,44,12,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,L,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+516,2026-10-27,martes,10,44,12,feria_barrio_nuevo,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,gris,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+516,2026-10-27,martes,10,44,12,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+517,2026-10-27,martes,10,44,12,feria_barrio_nuevo,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,azul,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+517,2026-10-27,martes,10,44,12,feria_barrio_nuevo,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+518,2026-10-27,martes,10,44,12,feria_barrio_nuevo,estimado,34,Colalé,Mujer,Abajo,todo_el_anio,M,negro,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+518,2026-10-27,martes,10,44,12,feria_barrio_nuevo,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,negro,2,15.00,30.00,efectivo,entregado,verificado,tienda,15.00,0,0
+518,2026-10-27,martes,10,44,12,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+519,2026-10-27,martes,10,44,14,feria_barrio_nuevo,estimado,18,Culotte,Mujer,Abajo,todo_el_anio,UNICA,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+520,2026-10-27,martes,10,44,15,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,L,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+521,2026-11-03,martes,11,45,7,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,M,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+522,2026-11-03,martes,11,45,8,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+523,2026-11-03,martes,11,45,8,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,M,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+524,2026-11-03,martes,11,45,8,feria_barrio_nuevo,estimado,43,Calzón faja,Mujer,Abajo,todo_el_anio,M,celeste,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+524,2026-11-03,martes,11,45,8,feria_barrio_nuevo,estimado,45,Medias Antideslizantes,Otros,Medias,todo_el_anio,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+525,2026-11-03,martes,11,45,9,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+525,2026-11-03,martes,11,45,9,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,L,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+525,2026-11-03,martes,11,45,9,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,L,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+526,2026-11-03,martes,11,45,9,feria_barrio_nuevo,estimado,56,Ropa usada,Hombre,Ropa,todo_el_anio,L,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+527,2026-11-03,martes,11,45,9,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,M,rosa,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+528,2026-11-03,martes,11,45,9,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,M,verde,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+529,2026-11-03,martes,11,45,10,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+530,2026-11-03,martes,11,45,10,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,S,amarillo,1,20.00,20.00,qr,entregado,verificado,tienda,20.00,0,0
+530,2026-11-03,martes,11,45,10,feria_barrio_nuevo,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,blanco,1,15.00,15.00,qr,entregado,verificado,tienda,15.00,0,0
+531,2026-11-03,martes,11,45,13,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+532,2026-11-03,martes,11,45,14,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+533,2026-11-03,martes,11,45,14,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,L,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+534,2026-11-03,martes,11,45,14,feria_barrio_nuevo,estimado,32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,70C,azul,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+535,2026-11-10,martes,11,46,7,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,S,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+535,2026-11-10,martes,11,46,7,feria_barrio_nuevo,estimado,36,Medias,Otros,Medias,todo_el_anio,M,negro,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+536,2026-11-10,martes,11,46,8,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+537,2026-11-10,martes,11,46,8,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,M,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+538,2026-11-10,martes,11,46,9,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,XXL,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+539,2026-11-10,martes,11,46,9,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,M,celeste,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+540,2026-11-10,martes,11,46,9,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,XL,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+540,2026-11-10,martes,11,46,9,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,XS,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+541,2026-11-10,martes,11,46,11,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,S,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+542,2026-11-10,martes,11,46,12,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,S,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+542,2026-11-10,martes,11,46,12,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+543,2026-11-10,martes,11,46,12,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,rosa,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+543,2026-11-10,martes,11,46,12,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+543,2026-11-10,martes,11,46,12,feria_barrio_nuevo,estimado,23,Bóxer suelto,Hombre,Boxer,todo_el_anio,XS,rojo,2,20.00,40.00,efectivo,entregado,verificado,tienda,20.00,0,0
+544,2026-11-10,martes,11,46,13,feria_barrio_nuevo,estimado,36,Medias,Otros,Medias,todo_el_anio,M,gris,2,10.00,20.00,efectivo,entregado,verificado,tienda,10.00,0,0
+545,2026-11-10,martes,11,46,13,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,S,verde,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+545,2026-11-10,martes,11,46,13,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,M,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+545,2026-11-10,martes,11,46,13,feria_barrio_nuevo,estimado,34,Colalé,Mujer,Abajo,todo_el_anio,M,celeste,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+546,2026-11-10,martes,11,46,14,feria_barrio_nuevo,estimado,25,Slip,Hombre,Boxer,todo_el_anio,XL,gris,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+547,2026-11-10,martes,11,46,15,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,S,gris,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+548,2026-11-10,martes,11,46,15,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+549,2026-11-10,martes,11,46,15,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,XS,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+550,2026-11-17,martes,11,47,7,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,M,negro,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+550,2026-11-17,martes,11,47,7,feria_barrio_nuevo,estimado,34,Colalé,Mujer,Abajo,todo_el_anio,L,verde,1,10.00,10.00,efectivo,entregado,verificado,tienda,10.00,0,0
+551,2026-11-17,martes,11,47,7,feria_barrio_nuevo,estimado,17,Culotte,Mujer,Abajo,todo_el_anio,XXL,rosa,1,18.00,18.00,efectivo,entregado,verificado,tienda,20.00,1,10
+551,2026-11-17,martes,11,47,7,feria_barrio_nuevo,estimado,33,Fajas,Mujer,Abajo,todo_el_anio,M,verde,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+551,2026-11-17,martes,11,47,7,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,L,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+552,2026-11-17,martes,11,47,7,feria_barrio_nuevo,estimado,32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,75C,rosa,1,25.00,25.00,efectivo,entregado,verificado,tienda,25.00,0,0
+552,2026-11-17,martes,11,47,7,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,S,rojo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+552,2026-11-17,martes,11,47,7,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,L,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+553,2026-11-17,martes,11,47,8,feria_barrio_nuevo,estimado,49,Traje de baño usado,Mujer,Conjuntos,verano,L,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+553,2026-11-17,martes,11,47,8,feria_barrio_nuevo,estimado,26,Brief,Hombre,Boxer,todo_el_anio,XS,rojo,1,26.00,26.00,efectivo,entregado,verificado,tienda,26.00,0,0
+554,2026-11-17,martes,11,47,9,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,S,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+554,2026-11-17,martes,11,47,9,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,M,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+555,2026-11-17,martes,11,47,10,feria_barrio_nuevo,estimado,54,Medias de marca,Otros,Medias,todo_el_anio,UNICA,blanco,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+556,2026-11-17,martes,11,47,10,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,celeste,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+557,2026-11-17,martes,11,47,11,feria_barrio_nuevo,estimado,52,Cachetero Liso,Mujer,Abajo,todo_el_anio,XL,verde,1,15.00,15.00,efectivo,entregado,verificado,tienda,15.00,0,0
+557,2026-11-17,martes,11,47,11,feria_barrio_nuevo,estimado,50,Maya usada,Mujer,Conjuntos,verano,XL,verde,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+558,2026-11-17,martes,11,47,13,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,M,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+558,2026-11-17,martes,11,47,13,feria_barrio_nuevo,estimado,51,Biquini usado,Mujer,Conjuntos,verano,L,azul,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+559,2026-11-17,martes,11,47,14,feria_barrio_nuevo,estimado,55,Ropa usada,Mujer,Ropa,todo_el_anio,S,blanco,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+560,2026-11-17,martes,11,47,15,feria_barrio_nuevo,estimado,53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,L,amarillo,1,20.00,20.00,efectivo,entregado,verificado,tienda,20.00,0,0
+561,2026-11-17,martes,11,47,15,feria_barrio_nuevo,estimado,44,Cubre pezón,Mujer,Arriba,todo_el_anio,UNICA,blanco,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0
+561,2026-11-17,martes,11,47,15,feria_barrio_nuevo,estimado,29,Corpiño,Mujer,Abajo,todo_el_anio,S,celeste,1,35.00,35.00,efectivo,entregado,verificado,tienda,35.00,0,0

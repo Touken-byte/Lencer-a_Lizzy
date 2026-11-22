@@ -1,0 +1,41 @@
+producto_id,producto,categoria,subcategoria,temporada,precio,en_oferta,descuento_pct,activo,n_variantes,stock_total
+11,Bikini,Mujer,Conjuntos,verano,40.00,1,10,1,6,59
+13,Tanga,Mujer,Abajo,todo_el_anio,20.00,1,5,1,4,40
+14,Tanga,Mujer,Abajo,todo_el_anio,24.00,0,0,1,9,89
+15,Hilo Dental,Mujer,Abajo,todo_el_anio,15.00,1,2,1,8,80
+16,Hilo Dental,Mujer,Abajo,todo_el_anio,10.00,0,0,1,4,38
+17,Culotte,Mujer,Abajo,todo_el_anio,20.00,1,10,1,8,77
+18,Culotte,Mujer,Abajo,todo_el_anio,20.00,0,0,1,3,1
+19,Boyshort,Mujer,Abajo,todo_el_anio,35.00,0,0,1,9,89
+20,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,35.00,0,0,1,9,88
+21,Bóxer ajustado (Boxer Brief),Hombre,Boxer,todo_el_anio,20.00,0,0,1,6,59
+22,Bóxer suelto,Hombre,Boxer,todo_el_anio,20.00,1,2,1,5,175
+23,Bóxer suelto,Hombre,Boxer,todo_el_anio,20.00,0,0,1,4,39
+24,Slip,Hombre,Boxer,todo_el_anio,25.00,1,5,1,4,35
+25,Slip,Hombre,Boxer,todo_el_anio,25.00,0,0,1,5,50
+26,Brief,Hombre,Boxer,todo_el_anio,26.00,0,0,1,12,120
+27,Bikini,Mujer,Conjuntos,verano,20.00,0,0,1,1,2
+29,Corpiño,Mujer,Abajo,todo_el_anio,35.00,0,0,1,5,46
+32,Corpiño sin armado,Mujer,Arriba,todo_el_anio,25.00,0,0,1,6,56
+33,Fajas,Mujer,Abajo,todo_el_anio,25.00,0,0,1,4,38
+34,Colalé,Mujer,Abajo,todo_el_anio,10.00,0,0,1,7,59
+35,Bóxer infantil,Hombre,Boxer,todo_el_anio,15.00,0,0,1,4,40
+36,Medias,Otros,Medias,todo_el_anio,10.00,0,0,1,5,48
+37,Top clásico,Mujer,Arriba,todo_el_anio,25.00,0,0,1,4,37
+38,Bandeau top sin tiros,Mujer,Arriba,todo_el_anio,20.00,0,0,1,4,37
+39,Calzocillo de niño,Hombre,Boxer,todo_el_anio,10.00,0,0,1,4,38
+42,Tirantes,Mujer,Arriba,todo_el_anio,10.00,0,0,1,4,37
+43,Calzón faja,Mujer,Abajo,todo_el_anio,25.00,0,0,1,4,38
+44,Cubre pezón,Mujer,Arriba,todo_el_anio,35.00,0,0,1,1,9
+45,Medias Antideslizantes,Otros,Medias,todo_el_anio,20.00,0,0,1,3,27
+46,Medias infantiles,Otros,Medias,todo_el_anio,15.00,0,0,1,4,37
+47,Pañuelos,Otros,Pañuelos,todo_el_anio,10.00,0,0,1,4,37
+48,Calzón clasico,Mujer,Abajo,todo_el_anio,15.00,0,0,1,5,47
+49,Traje de baño usado,Mujer,Conjuntos,verano,20.00,0,0,1,13,260
+50,Maya usada,Mujer,Conjuntos,verano,20.00,0,0,1,10,188
+51,Biquini usado,Mujer,Conjuntos,verano,20.00,0,0,1,6,120
+52,Cachetero Liso,Mujer,Abajo,todo_el_anio,15.00,0,0,1,10,109
+53,Cachetero con diseño,Mujer,Abajo,todo_el_anio,20.00,0,0,1,12,120
+54,Medias de marca,Otros,Medias,todo_el_anio,15.00,0,0,1,1,10
+55,Ropa usada,Mujer,Ropa,todo_el_anio,20.00,0,0,1,6,60
+56,Ropa usada,Hombre,Ropa,todo_el_anio,20.00,0,0,1,10,109

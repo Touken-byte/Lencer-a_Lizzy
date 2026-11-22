@@ -8,5 +8,4 @@ mysqlclient==2.2.8
 pillow==13.0.0
 PyJWT==2.15.1
 python-decouple==3.8
-qrcode==8.2
 sqlparse==0.6.1

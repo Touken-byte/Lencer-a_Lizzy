@@ -222,6 +222,6 @@ SESSION_COOKIE_AGE = 60 * 60 * 24 * 14  # 14 días
 
 # ==== DATOS DE CONTACTO LEGAL Y CUENTA DEMO ====
 # Se configuran en el .env del servidor (valores por defecto entre comillas).
-CONTACTO_PRIVACIDAD_EMAIL = config('CONTACTO_PRIVACIDAD_EMAIL', default='CORREO_PENDIENTE@ejemplo.com')
+CONTACTO_PRIVACIDAD_EMAIL = config('CONTACTO_PRIVACIDAD_EMAIL', default='baronbarrerolizzyleyla@gmail.com')
 DEMO_USUARIO = config('DEMO_USUARIO', default='demo')
 DEMO_PASSWORD = config('DEMO_PASSWORD', default='Demo2026Lizzy')

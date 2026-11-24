@@ -2,6 +2,7 @@
 {% block titulo %}Política de Privacidad y Tratamiento de Datos Personales - Lencería Lizzy{% endblock %}
 {% block contenido %}
 <div class="row justify-content-center"><div class="col-lg-9">
+<a href="{% url 'frontend:inicio' %}" class="btn btn-sm btn-outline-secondary mb-3" onclick="if (history.length > 1) { history.back(); return false; }"><i class="fa-solid fa-arrow-left"></i> Volver</a>
 <h3 class="mb-3" style="color:#a83279;">Política de Privacidad y Tratamiento de Datos Personales</h3>
 <p class="small text-muted">Última actualización: noviembre de 2026</p>
 <div class="card"><div class="card-body">
@@ -48,5 +49,6 @@
 <p>Si esta política cambia, se actualizará la fecha indicada al inicio. Consulta también los <a href="{% url 'frontend:terminos' %}">Términos y Condiciones</a>.</p>
 
 </div></div>
+<a href="{% url 'frontend:inicio' %}" class="btn btn-sm btn-outline-secondary mt-3" onclick="if (history.length > 1) { history.back(); return false; }"><i class="fa-solid fa-arrow-left"></i> Volver</a>
 </div></div>
 {% endblock %}

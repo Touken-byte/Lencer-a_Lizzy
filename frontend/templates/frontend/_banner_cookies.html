@@ -6,7 +6,10 @@
             No usamos cookies de publicidad ni de analítica.
             <a href="{% url 'frontend:cookies' %}">Más información</a>
         </p>
-        <button type="button" id="aceptar-cookies" class="btn btn-sm btn-light">Aceptar</button>
+        <div class="d-flex align-items-center gap-2">
+            <button type="button" id="aceptar-cookies" class="btn btn-sm btn-light">Aceptar</button>
+            <button type="button" id="cerrar-cookies" class="btn btn-sm btn-outline-light" aria-label="Cerrar aviso"><i class="fa-solid fa-xmark"></i></button>
+        </div>
     </div>
 </div>
 <script>
@@ -14,10 +17,15 @@
     var clave = 'cookies-lizzy-aceptado';
     var banner = document.getElementById('banner-cookies');
     var aceptado = false;
-    try { aceptado = localStorage.getItem(clave) === '1'; } catch (e) {}
-    if (!aceptado) { banner.style.display = 'block'; }
+    var cerrado = false;
+    try { aceptado = localStorage.getItem(clave) === '1'; cerrado = sessionStorage.getItem(clave + '-cerrado') === '1'; } catch (e) {}
+    if (!aceptado && !cerrado) { banner.style.display = 'block'; }
     document.getElementById('aceptar-cookies').addEventListener('click', function () {
         try { localStorage.setItem(clave, '1'); } catch (e) {}
+        banner.style.display = 'none';
+    });
+    document.getElementById('cerrar-cookies').addEventListener('click', function () {
+        try { sessionStorage.setItem(clave + '-cerrado', '1'); } catch (e) {}
         banner.style.display = 'none';
     });
 })();

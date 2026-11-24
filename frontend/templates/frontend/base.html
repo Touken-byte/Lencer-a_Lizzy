@@ -162,5 +162,25 @@
             });
         })();
     </script>
+    <script>
+        (function () {
+            var legales = ['/terminos/', '/privacidad/', '/cookies/'];
+            var esLegal = legales.indexOf(location.pathname) !== -1;
+            try { if (!esLegal) sessionStorage.setItem('lizzy-ultima-pagina', location.href); } catch (e) {}
+            document.querySelectorAll('.js-cerrar-legal').forEach(function (boton) {
+                boton.addEventListener('click', function (ev) {
+                    ev.preventDefault();
+                    var destino = boton.getAttribute('href');
+                    try { destino = sessionStorage.getItem('lizzy-ultima-pagina') || destino; } catch (e) {}
+                    if (history.length <= 1) {
+                        window.close();
+                        setTimeout(function () { location.href = destino; }, 150);
+                    } else {
+                        location.href = destino;
+                    }
+                });
+            });
+        })();
+    </script>
 </body>
 </html>

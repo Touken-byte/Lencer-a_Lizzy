@@ -2,7 +2,7 @@
 {% block titulo %}Política de Cookies - Lencería Lizzy{% endblock %}
 {% block contenido %}
 <div class="row justify-content-center"><div class="col-lg-9">
-<a href="{% url 'frontend:inicio' %}" class="btn btn-sm btn-outline-secondary mb-3" onclick="if (history.length > 1) { history.back(); return false; }"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+<a href="{% url 'frontend:inicio' %}" class="btn btn-sm btn-outline-secondary js-cerrar-legal mb-3"><i class="fa-solid fa-xmark"></i> Cerrar</a>
 <h3 class="mb-3" style="color:#a83279;">Política de Cookies</h3>
 <p class="small text-muted">Última actualización: noviembre de 2026</p>
 <div class="card"><div class="card-body">
@@ -30,6 +30,6 @@
 <p class="mb-0">Más información en nuestra <a href="{% url 'frontend:privacidad' %}">Política de Privacidad</a>.</p>
 
 </div></div>
-<a href="{% url 'frontend:inicio' %}" class="btn btn-sm btn-outline-secondary mt-3" onclick="if (history.length > 1) { history.back(); return false; }"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+<a href="{% url 'frontend:inicio' %}" class="btn btn-sm btn-outline-secondary js-cerrar-legal mt-3"><i class="fa-solid fa-xmark"></i> Cerrar</a>
 </div></div>
 {% endblock %}

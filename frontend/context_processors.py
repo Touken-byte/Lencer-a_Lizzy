@@ -1,10 +1,17 @@
 from catalogo.models import ConfiguracionNegocio
 from django.utils import timezone
+from django.conf import settings
 
 
 def configuracion_negocio(request):
     config = ConfiguracionNegocio.obtener()
-    context = {'config_negocio': config}
+    context = {
+        'config_negocio': config,
+        'contacto_privacidad_email': settings.CONTACTO_PRIVACIDAD_EMAIL,
+        'demo_usuario': settings.DEMO_USUARIO,
+        'demo_password': settings.DEMO_PASSWORD,
+        'es_demo': request.user.is_authenticated and request.user.username == settings.DEMO_USUARIO,
+    }
 
     if request.user.is_authenticated and not request.user.is_staff:
         from pedidos.models import Pedido

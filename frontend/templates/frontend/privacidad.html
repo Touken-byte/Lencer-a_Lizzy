@@ -1,0 +1,52 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Política de Privacidad y Tratamiento de Datos Personales - Lencería Lizzy{% endblock %}
+{% block contenido %}
+<div class="row justify-content-center"><div class="col-lg-9">
+<h3 class="mb-3" style="color:#a83279;">Política de Privacidad y Tratamiento de Datos Personales</h3>
+<p class="small text-muted">Última actualización: noviembre de 2026</p>
+<div class="card"><div class="card-body">
+
+<h5>1. Responsable de los datos</h5>
+<p>Lizzy Leyla Baron Barrero, estudiante de Ingeniería Informática (UAJMS, Yacuiba), a cargo del emprendimiento Lencería Lizzy. Contacto para consultas, reclamos o baja de datos: <a href="mailto:{{ contacto_privacidad_email }}">{{ contacto_privacidad_email }}</a>.</p>
+
+<h5>2. Datos que recopilamos</h5>
+<p>Solo pedimos lo necesario para operar la tienda:</p>
+<ul>
+<li><strong>Cuenta:</strong> nombre de usuario, correo electrónico y contraseña (guardada cifrada con hash).</li>
+<li><strong>Perfil (opcional):</strong> nombre, teléfono, género y tallas de calzón y brasier.</li>
+<li><strong>Direcciones de entrega (opcional):</strong> calle, barrio y referencias.</li>
+<li><strong>Pedidos y pagos:</strong> productos, nota para la vendedora, nombre con el que se realiza el pago y la imagen del comprobante si la subes.</li>
+<li><strong>Chat y actividad:</strong> mensajes enviados a la vendedora, favoritos y carrito de compras.</li>
+<li><strong>Consentimiento:</strong> la fecha y hora en que aceptaste estos documentos al registrarte.</li>
+</ul>
+
+<h5>3. Finalidad del tratamiento</h5>
+<ul>
+<li>Crear y gestionar tu cuenta e identificarte al iniciar sesión.</li>
+<li>Procesar, preparar y entregar tus pedidos, y verificar los pagos.</li>
+<li>Recomendarte tallas adecuadas y comunicarnos contigo por el chat.</li>
+<li>Elaborar estadísticas internas de ventas, sin publicar datos que te identifiquen.</li>
+</ul>
+<p>No vendemos, alquilamos ni cedemos tus datos a terceros sin tu autorización previa.</p>
+
+<h5>4. Almacenamiento y medidas de seguridad</h5>
+<ul>
+<li>Comunicación cifrada mediante HTTPS/TLS.</li>
+<li>Contraseñas almacenadas con algoritmos de hash seguro; nunca en texto plano.</li>
+<li>Control de acceso por roles: las clientas solo ven su propia información y solo la administración accede al panel.</li>
+<li>Cookies de sesión con atributos de seguridad (HttpOnly, Secure y SameSite).</li>
+<li>La responsable puede realizar respaldos de la base de datos para evitar pérdida de información.</li>
+</ul>
+
+<h5>5. Tus derechos y baja de datos</h5>
+<p>Puedes actualizar tus datos de contacto y tallas desde tu perfil. Para corregir otros datos o solicitar la eliminación definitiva de tu cuenta y tu información, escribe a <a href="mailto:{{ contacto_privacidad_email }}">{{ contacto_privacidad_email }}</a> o por WhatsApp{% if config_negocio.whatsapp_numero %} al <a href="https://wa.me/{{ config_negocio.whatsapp_numero }}" target="_blank" rel="noopener">{{ config_negocio.whatsapp_numero }}</a>{% endif %}. Atenderemos tu solicitud en un plazo razonable.</p>
+
+<h5>6. Cuenta de demostración</h5>
+<p>La cuenta «demo» solo contiene datos ficticios. No ingreses información personal real en ella.</p>
+
+<h5>7. Cambios en esta política</h5>
+<p>Si esta política cambia, se actualizará la fecha indicada al inicio. Consulta también los <a href="{% url 'frontend:terminos' %}">Términos y Condiciones</a>.</p>
+
+</div></div>
+</div></div>
+{% endblock %}

@@ -19,7 +19,27 @@
         <i class="fa-solid fa-right-to-bracket"></i> Entrar
     </button>
 </form>
+<div class="card mt-3">
+    <div class="card-body small">
+        <h6 class="fw-bold mb-2"><i class="fa-solid fa-flask"></i> Acceso Demo</h6>
+        <p class="mb-1">Rol: <strong>Clienta (demostración)</strong> &middot; datos ficticios</p>
+        <p class="mb-2">Usuario: <code>{{ demo_usuario }}</code> &middot; Contraseña: <code>{{ demo_password }}</code></p>
+        <button type="button" id="autocompletar-demo" class="btn btn-sm btn-outline-secondary">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> Autocompletar
+        </button>
+    </div>
+</div>
 <p class="mt-3 text-center">¿No tienes cuenta? <a href="{% url 'frontend:registro' %}">Regístrate</a></p>
 </div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var boton = document.getElementById('autocompletar-demo');
+    if (!boton) return;
+    boton.addEventListener('click', function () {
+        document.getElementById('id_username').value = '{{ demo_usuario|escapejs }}';
+        document.getElementById('id_password').value = '{{ demo_password|escapejs }}';
+    });
+});
+</script>
 {% endblock %}

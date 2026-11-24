@@ -1,0 +1,39 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Términos y Condiciones de Uso - Lencería Lizzy{% endblock %}
+{% block contenido %}
+<div class="row justify-content-center"><div class="col-lg-9">
+<h3 class="mb-3" style="color:#a83279;">Términos y Condiciones de Uso</h3>
+<p class="small text-muted">Última actualización: noviembre de 2026</p>
+<div class="card"><div class="card-body">
+
+<h5>1. Objeto y alcance del servicio</h5>
+<p>Lencería Lizzy es un sistema web de catálogo, pedidos y control de ventas de ropa interior. Está dirigido a clientas y clientes que desean consultar productos, realizar pedidos con recogida en un punto físico o en la tienda, y comunicarse con la vendedora. Es un emprendimiento desarrollado como proyecto académico de la carrera de Ingeniería Informática de la UAJMS, Sede Yacuiba.</p>
+
+<h5>2. Reglas de uso y conductas prohibidas</h5>
+<p>Al usar el sitio, la persona usuaria se compromete a:</p>
+<ul>
+<li>Ingresar datos veraces en el registro, los pedidos y el chat.</li>
+<li>No intentar acceder sin autorización a cuentas, al panel de administración o a información de otras personas.</li>
+<li>No enviar spam, contenido ofensivo o ilegal, ni alterar o sobrecargar el servicio.</li>
+<li>Usar el sitio conforme a la Política de Uso Aceptable (AUP) de la Nube Universitaria.</li>
+</ul>
+<p>El incumplimiento puede causar la suspensión de la cuenta.</p>
+
+<h5>3. Pedidos y pagos</h5>
+<p>Los pedidos quedan sujetos a la verificación del pago por parte de la vendedora. Los pedidos con pago en efectivo deben recogerse y pagarse en un plazo máximo de 2 días, o serán cancelados automáticamente. Los acuerdos de compra y entrega se realizan directamente entre la clienta y la vendedora.</p>
+
+<h5>4. Propiedad intelectual y autoría</h5>
+<p>El software de este sistema fue desarrollado por <strong>Lizzy Leyla Baron Barrero</strong>, quien es su titular exclusiva de derechos de autor conforme a la Ley 1322 de Derechos de Autor de Bolivia. Las fotografías de productos y los textos del catálogo pertenecen a Lencería Lizzy. El sistema utiliza componentes de terceros con licencias abiertas, entre ellos Django, Bootstrap y Font Awesome, que conservan sus propias licencias.</p>
+
+<h5>5. Deslinde institucional y limitación de responsabilidad</h5>
+<p>La Universidad Autónoma «Juan Misael Saracho» (UAJMS) facilita únicamente el entorno de alojamiento académico (Nube Universitaria). No es proveedora comercial ni responsable del tratamiento de los datos, y no responde por acuerdos comerciales privados entre la vendedora y sus clientas, por la disponibilidad ininterrumpida del servicio ante mantenimientos programados, ni por daños derivados del mal uso de la plataforma. La responsabilidad sobre la operación del sistema y sus usuarios corresponde a la titular indicada en el punto 4.</p>
+
+<h5>6. Datos personales</h5>
+<p>El tratamiento de datos personales se rige por nuestra <a href="{% url 'frontend:privacidad' %}">Política de Privacidad</a> y el uso de cookies, por la <a href="{% url 'frontend:cookies' %}">Política de Cookies</a>.</p>
+
+<h5>7. Contacto</h5>
+<p>Consultas o reclamos: <a href="mailto:{{ contacto_privacidad_email }}">{{ contacto_privacidad_email }}</a>.</p>
+
+</div></div>
+</div></div>
+{% endblock %}

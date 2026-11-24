@@ -1,0 +1,33 @@
+{% extends "frontend/base.html" %}
+{% block titulo %}Política de Cookies - Lencería Lizzy{% endblock %}
+{% block contenido %}
+<div class="row justify-content-center"><div class="col-lg-9">
+<h3 class="mb-3" style="color:#a83279;">Política de Cookies</h3>
+<p class="small text-muted">Última actualización: noviembre de 2026</p>
+<div class="card"><div class="card-body">
+
+<p>Este sitio usa únicamente <strong>cookies y almacenamiento local técnicos</strong>, necesarios para que funcione de forma segura. No usamos cookies de publicidad, de seguimiento ni de analítica.</p>
+
+<div class="table-responsive">
+<table class="table table-sm align-middle">
+<thead><tr><th>Nombre</th><th>Tipo</th><th>Finalidad</th><th>Duración</th></tr></thead>
+<tbody>
+<tr><td><code>sessionid</code></td><td>Cookie técnica (HttpOnly, Secure, SameSite=Lax)</td><td>Mantener tu sesión iniciada y tu carrito.</td><td>Hasta 14 días</td></tr>
+<tr><td><code>csrftoken</code></td><td>Cookie técnica (Secure, SameSite=Lax)</td><td>Protección contra ataques CSRF en los formularios.</td><td>Hasta 1 año</td></tr>
+<tr><td><code>tema-lizzy</code></td><td>Almacenamiento local (preferencia)</td><td>Recordar si prefieres el tema claro u oscuro.</td><td>Hasta que lo borres</td></tr>
+<tr><td><code>cookies-lizzy-aceptado</code></td><td>Almacenamiento local (preferencia)</td><td>Recordar que aceptaste este aviso, para no mostrarlo de nuevo.</td><td>Hasta que lo borres</td></tr>
+</tbody>
+</table>
+</div>
+
+<h5>Servicios de terceros</h5>
+<p>Para mostrar fuentes e íconos, el sitio carga recursos desde Google Fonts, jsDelivr y Cloudflare (cdnjs). Estos proveedores pueden recibir tu dirección IP al entregar esos archivos, pero no instalamos cookies de seguimiento con ellos. El enlace «Ver en Google Maps», si aparece, solo abre Google Maps cuando tú lo pulsas.</p>
+
+<h5>Cómo gestionar las cookies</h5>
+<p>Puedes borrar las cookies desde la configuración de tu navegador. Si bloqueas las cookies técnicas, no podrás iniciar sesión ni usar el carrito.</p>
+
+<p class="mb-0">Más información en nuestra <a href="{% url 'frontend:privacidad' %}">Política de Privacidad</a>.</p>
+
+</div></div>
+</div></div>
+{% endblock %}

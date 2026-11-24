@@ -6,13 +6,21 @@
 <h3 class="mb-3" style="color:#a83279;">Crear cuenta</h3>
 <form method="post">
     {% csrf_token %}
-    {% for field in form %}
+    {% for field in form %}{% if field.name != 'acepta_terminos' %}
     <div class="mb-3" {% if field.name == 'talla_brassiere' %}id="div_talla_brassiere"{% elif field.name == 'talla_calzon' %}id="div_talla_calzon"{% endif %}>
         <label class="form-label">{{ field.label }}</label>
         {{ field }}
         {% if field.errors %}<div class="text-danger small">{{ field.errors|striptags }}</div>{% endif %}
     </div>
-    {% endfor %}
+    {% endif %}{% endfor %}
+    <div class="form-check mb-3">
+        {{ form.acepta_terminos }}
+        <label class="form-check-label small" for="{{ form.acepta_terminos.id_for_label }}">
+            He leído y acepto los <a href="{% url 'frontend:terminos' %}" target="_blank">Términos y Condiciones de Uso</a>
+            y la <a href="{% url 'frontend:privacidad' %}" target="_blank">Política de Privacidad</a>
+        </label>
+        {% if form.acepta_terminos.errors %}<div class="text-danger small">{{ form.acepta_terminos.errors|striptags }}</div>{% endif %}
+    </div>
     <button type="submit" class="btn w-100" style="background-color:#a83279; color:white;">
         <i class="fa-solid fa-user-plus"></i> Registrarme
     </button>

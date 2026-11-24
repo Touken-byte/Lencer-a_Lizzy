@@ -7,6 +7,7 @@
 
 <p class="text-muted">Usuario: <strong>{{ request.user.username }}</strong></p>
 
+{% if es_demo %}<div class="alert alert-info small">Cuenta de demostración: el correo de acceso no se puede modificar.</div>{% endif %}
 <form method="post">
     {% csrf_token %}
     {% if form.non_field_errors %}<div class="alert alert-danger">{{ form.non_field_errors }}</div>{% endif %}

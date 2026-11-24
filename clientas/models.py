@@ -29,6 +29,11 @@ class PerfilCliente(models.Model):
     talla_brassiere = models.CharField(max_length=5, choices=TALLA_BRASSIERE_CHOICES, blank=True)
     talla_calzon = models.CharField(max_length=5, choices=TALLA_CALZON_CHOICES, blank=True)
 
+    consentimiento_fecha = models.DateTimeField(
+        null=True, blank=True,
+        help_text="Fecha y hora en que aceptó los Términos y la Política de Privacidad"
+    )
+
     creado = models.DateTimeField(auto_now_add=True)
     actualizado = models.DateTimeField(auto_now=True)
 

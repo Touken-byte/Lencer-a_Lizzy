@@ -1,6 +1,6 @@
 from django.urls import path
 from django.views.generic import RedirectView
-from . import views
+from . import views, views_legal
 
 app_name = 'frontend'
 
@@ -25,5 +25,8 @@ urlpatterns = [
     path('mis-pedidos/', views.mis_pedidos, name='mis_pedidos'),
     path('direcciones/', views.gestionar_direcciones, name='direcciones'),
     path('notificaciones/', views.notificaciones, name='notificaciones'),
+    path('terminos/', views_legal.terminos, name='terminos'),
+    path('privacidad/', views_legal.privacidad, name='privacidad'),
+    path('cookies/', views_legal.politica_cookies, name='cookies'),
     path('resumen-ventas/', RedirectView.as_view(pattern_name='admin_resumen_ventas'), name='resumen_ventas'),
 ]

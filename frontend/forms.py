@@ -1,4 +1,6 @@
 from django import forms
+from django.conf import settings
+from django.utils import timezone
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from clientas.models import PerfilCliente
@@ -20,14 +22,21 @@ class RegistroForm(UserCreationForm):
         required=False, label="Talla de brasier"
     )
 
+    acepta_terminos = forms.BooleanField(
+        required=True,
+        error_messages={'required': 'Debes aceptar los Términos y la Política de Privacidad para registrarte.'},
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),
+    )
+
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in self.fields.values():
-            field.widget.attrs.update({'class': 'form-control'})
+        for name, field in self.fields.items():
+            if name != 'acepta_terminos':
+                field.widget.attrs.update({'class': 'form-control'})
 
     def clean_email(self):
         email = self.cleaned_data['email'].strip()
@@ -50,6 +59,7 @@ class RegistroForm(UserCreationForm):
                 genero=self.cleaned_data.get('genero', ''),
                 talla_calzon=self.cleaned_data.get('talla_calzon', ''),
                 talla_brassiere=self.cleaned_data.get('talla_brassiere', ''),
+                consentimiento_fecha=timezone.now(),
             )
         return user
 
@@ -74,6 +84,9 @@ class PerfilForm(forms.ModelForm):
             self.fields['email'].initial = self.usuario.email
         for field in self.fields.values():
             field.widget.attrs.update({'class': 'form-control'})
+        if self.usuario and self.usuario.username == settings.DEMO_USUARIO:
+            # Cuenta demo protegida: no se puede cambiar el correo de acceso
+            self.fields['email'].disabled = True
 
     def clean_email(self):
         email = self.cleaned_data.get('email', '').strip()

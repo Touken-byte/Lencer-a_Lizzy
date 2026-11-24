@@ -68,6 +68,14 @@
                 </div>
             </div>
 
+            <div class="form-check mb-3">
+                {{ form.acepta_terminos }}
+                <label class="form-check-label small" for="{{ form.acepta_terminos.id_for_label }}">
+                    He leído y acepto los <a href="{% url 'frontend:terminos' %}" target="_blank">Términos y Condiciones de Uso</a>
+                    y la <a href="{% url 'frontend:privacidad' %}" target="_blank">Política de Privacidad</a>
+                </label>
+            </div>
+
             <button type="submit" class="btn btn-lg w-100" style="background-color:#a83279; color:white;">
                 <i class="fa-solid fa-check"></i> Confirmar pedido
             </button>

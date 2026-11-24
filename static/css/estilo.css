@@ -173,3 +173,23 @@ h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
+
+/* ---- Pie de página legal y banner de cookies ---- */
+.footer-legal {
+    background-color: var(--color-fondo-alt);
+    border-top: 1px solid var(--color-borde);
+    color: var(--color-texto-secundario);
+}
+.footer-legal a { color: var(--color-marca); text-decoration: none; }
+.footer-legal a:hover { text-decoration: underline; }
+
+.banner-cookies {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 1090;
+    padding: 0.75rem 0;
+    background-color: var(--color-navbar);
+    color: var(--color-navbar-texto);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+}
+.banner-cookies a { color: var(--color-navbar-texto); text-decoration: underline; }

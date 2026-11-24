@@ -374,3 +374,12 @@ Si MySQL está apagado, el comando falla sin dejar archivos vacíos. Después se
 ## Autor
 
 Lizzy Leyla Baron Barrero (Touken-byte), estudiante de Ingeniería Informática, UAJMS, Taller II, 2026.
+
+## Requisitos de la Nube Universitaria (legal y demo)
+
+- Páginas públicas: `/terminos/`, `/privacidad/` y `/cookies/`, con enlaces en el pie de página de todo el sitio.
+- Banner de cookies en la primera visita; casilla de consentimiento obligatoria en el registro y el checkout.
+  La fecha y hora de aceptación se guarda en `PerfilCliente.consentimiento_fecha` (ejecutar `python manage.py migrate`).
+- En el `.env` define `CONTACTO_PRIVACIDAD_EMAIL` (correo real de contacto).
+- Cuenta demo con datos ficticios: `python manage.py crear_demo` (usa `--reiniciar` para restaurar sus datos).
+  Sus credenciales aparecen en el bloque «Acceso Demo» de la pantalla de inicio de sesión. No puede cambiar su correo.

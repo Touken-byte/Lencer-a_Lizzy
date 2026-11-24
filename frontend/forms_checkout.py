@@ -34,6 +34,11 @@ class CheckoutForm(forms.Form):
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej: María Pérez'})
     )
 
+    acepta_terminos = forms.BooleanField(
+        required=True,
+        error_messages={'required': 'Debes aceptar los Términos y la Política de Privacidad para confirmar el pedido.'},
+    )
+
     def __init__(self, *args, usuario=None, **kwargs):
         super().__init__(*args, **kwargs)
 

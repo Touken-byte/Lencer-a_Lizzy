@@ -212,3 +212,16 @@ if USE_HTTPS:
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = 3600
+
+
+# ==== COOKIES Y SESIONES (Guía Nube Universitaria, criterio 6) ====
+SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_SAMESITE = 'Lax'
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 14  # 14 días
+
+# ==== DATOS DE CONTACTO LEGAL Y CUENTA DEMO ====
+# Se configuran en el .env del servidor (valores por defecto entre comillas).
+CONTACTO_PRIVACIDAD_EMAIL = config('CONTACTO_PRIVACIDAD_EMAIL', default='CORREO_PENDIENTE@ejemplo.com')
+DEMO_USUARIO = config('DEMO_USUARIO', default='demo')
+DEMO_PASSWORD = config('DEMO_PASSWORD', default='Demo2026Lizzy')

@@ -1,0 +1,18 @@
+[
+{
+  "model": "catalogo.configuracionnegocio",
+  "pk": 1,
+  "fields": {
+    "direccion_local": "Mercado Lourdes Casilla 8",
+    "mapa_url": "",
+    "foto_local": "",
+    "nombre_negocio": "Mi Tienda",
+    "whatsapp_numero": "64340524",
+    "banco_nombre": "Lizzy Leyla Baron Barrero",
+    "banco_titular": "Banco Unión",
+    "banco_numero_cuenta": "123123132",
+    "qr_pago": "configuracion/QR.jpeg",
+    "actualizado": "2026-08-01T20:42:09.244Z"
+  }
+}
+]
